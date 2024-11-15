@@ -351,12 +351,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifier: 0
+  modifiable: 1
   sweet: 0
   sour: 0
   salty: 0
   bitter: 0
   umami: 0
   temperature: 0
+  neutralizeTemp: 0
   flavorMin: 0
   flavorMax: 100
   specialVals: 
