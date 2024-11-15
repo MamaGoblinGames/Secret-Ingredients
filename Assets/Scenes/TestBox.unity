@@ -437,7 +437,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -506,7 +506,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1000
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6050,12 +6050,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 985291416}
     - target: {fileID: 7473726185481122377, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473726185481122377, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
       propertyPath: m_LocalPosition.z
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7473726185481122382, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
       propertyPath: offset
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473726185481122382, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
+      propertyPath: offPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473726185481122382, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
+      propertyPath: offPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473726185481122382, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
+      propertyPath: offRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473726185481122382, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
+      propertyPath: offRotation.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}

@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraOffset : MonoBehaviour
 {
     public Transform target;
-    public float offset;
+    public Vector3 offPosition;
+    public Quaternion offRotation;
 
     // Update is called once per frame
     void Update()
@@ -15,7 +16,9 @@ public class CameraOffset : MonoBehaviour
                 transform.position = target.position;
             }
             else {
-                transform.Translate(0, 0, offset);
+                // Formula to combine transforms
+                transform.position = target.position + offPosition;
+                transform.rotation = target.rotation * offRotation;
             }
         }
     }
