@@ -1,0 +1,50 @@
+.title {
+    background-color: rgba(0, 70, 5, 0);
+    -unity-font-style: bold;
+    -unity-font-definition: resource('TitilliumWeb-Light');
+    font-size: 36px;
+    margin-bottom: 40px;
+    padding-bottom: 0;
+    color: rgb(2, 51, 2);
+    -unity-text-align: upper-center;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.main-menu-button {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-left-color: rgb(0, 80, 0);
+    border-right-color: rgb(0, 80, 0);
+    border-top-color: rgb(0, 80, 0);
+    border-bottom-color: rgb(0, 80, 0);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    background-color: rgb(18, 176, 91);
+    color: rgb(3, 61, 15);
+    rotate: -1deg;
+}
+
+.main-menu-button:hover {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-left-color: rgb(0, 80, 0);
+    border-right-color: rgb(0, 80, 0);
+    border-top-color: rgb(0, 80, 0);
+    border-bottom-color: rgb(0, 80, 0);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    background-color: rgb(18, 176, 91);
+    color: rgb(3, 61, 15);
+    scale: 1.15 1.15;
+    rotate: 2deg;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-elastic;
+}
