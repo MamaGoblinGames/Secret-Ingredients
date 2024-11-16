@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 883398670}
   m_Layer: 0
   m_Name: Top (4)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 981682303}
   m_Layer: 0
   m_Name: Top (5)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 985291414}
   m_Layer: 0
   m_Name: Broccoli
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,6 +377,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   cameraTarget: {fileID: 0}
+  dCharge: 1000
+  maxCharge: 2000
+  charge: 0
+  coyoteFrames: 0.1
+  coyoteTimer: 0
 --- !u!1 &6036251870315423527
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +397,7 @@ GameObject:
   - component: {fileID: 723554558}
   m_Layer: 0
   m_Name: Top (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,7 +505,7 @@ GameObject:
   - component: {fileID: 1349854576}
   m_Layer: 0
   m_Name: Top (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,7 +613,7 @@ GameObject:
   - component: {fileID: 1596918006}
   m_Layer: 0
   m_Name: Top (6)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,7 +721,7 @@ GameObject:
   - component: {fileID: 1160485466}
   m_Layer: 0
   m_Name: Top (7)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,7 +829,7 @@ GameObject:
   - component: {fileID: 1936134143}
   m_Layer: 0
   m_Name: Top (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
