@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifier: 0
   modifiable: 1
+  killOnTransfer: 0
   sweet: 0
   sour: 0
   salty: 0
@@ -180,6 +181,6 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 95e856bd4fd66014896d10319c0568b2, type: 2}
