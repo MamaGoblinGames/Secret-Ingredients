@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kitchen (Unfinished)
+* source:	https://sketchfab.com/3d-models/kitchen-unfinished-c5adfd8f5cdd43168f20ea9a9b1b332e
+* author:	Momo (https://sketchfab.com/smomotempest)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kitchen (Unfinished)" (https://sketchfab.com/3d-models/kitchen-unfinished-c5adfd8f5cdd43168f20ea9a9b1b332e) by Momo (https://sketchfab.com/smomotempest) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
