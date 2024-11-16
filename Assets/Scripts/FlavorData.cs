@@ -6,6 +6,7 @@ public class FlavorData : MonoBehaviour
 {
     public bool modifier;
     public bool modifiable;
+    public bool killOnTransfer;
     public int sweet = 0;
     public int sour = 0;
     public int salty = 0;
@@ -20,10 +21,18 @@ public class FlavorData : MonoBehaviour
 
     private FlavorData otherFlavors;
 
+    void Start() {
+        if (killOnTransfer && TryGetComponent(out ParticleSystem part)) {
+            FlavorData[] flavors = FindObjectsOfType<FlavorData>();
+            foreach (FlavorData flavor in flavors) {
+                if (flavor.modifiable && flavor.gameObject.TryGetComponent(out Collider collider)) part.trigger.AddCollider(collider);
+            }
+        }
+    }
+
     void OnCollisionEnter (Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out FlavorData otherFlavors)) {
-            //otherFlavors = collision.gameObject.GetComponent<FlavorData>();
 
             // The code to modify the collided object's flavors
             if (modifier && otherFlavors.modifiable) {
@@ -55,6 +64,9 @@ public class FlavorData : MonoBehaviour
                 otherFlavors.bitter = clampFlavor(otherFlavors.bitter, otherFlavors.flavorMin, otherFlavors.flavorMax);
                 otherFlavors.umami = clampFlavor(otherFlavors.umami, otherFlavors.flavorMin, otherFlavors.flavorMax);
                 otherFlavors.temperature = clampFlavor(otherFlavors.temperature, otherFlavors.flavorMin, otherFlavors.flavorMax);
+
+                // Delete the thing
+                if (killOnTransfer) Destroy(gameObject);
             }
         }
     }
