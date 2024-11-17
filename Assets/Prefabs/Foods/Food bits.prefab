@@ -3627,7 +3627,7 @@ ParticleSystem:
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
-    multiplyColliderForceByCollisionAngle: 1
+    multiplyColliderForceByCollisionAngle: 0
     m_Planes: []
     m_Dampen:
       serializedVersion: 2
@@ -3803,10 +3803,10 @@ ParticleSystem:
   TriggerModule:
     enabled: 1
     serializedVersion: 2
-    inside: 1
+    inside: 0
     outside: 0
-    enter: 0
-    exit: 0
+    enter: 2
+    exit: 1
     colliderQueryMode: 0
     radiusScale: 1
     primitives: []
@@ -4769,8 +4769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72320686a11f2de47a8d6fe6c9b6cb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifier: 1
-  modifiable: 0
   killOnTransfer: 1
   sweet: 1
   sour: 0
@@ -4783,6 +4781,7 @@ MonoBehaviour:
   flavorMax: 100
   specialVals: 
   specialNames: 
+  playerFlavor: {fileID: 11400000, guid: 5723ed9302b1f1d4ea0806688992d860, type: 2}
 --- !u!199 &9139018915882304358
 ParticleSystemRenderer:
   serializedVersion: 6
