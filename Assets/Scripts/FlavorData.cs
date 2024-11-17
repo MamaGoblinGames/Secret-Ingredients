@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class FlavorData : MonoBehaviour
 {   
-    public bool modifier;
-    public bool modifiable;
     public bool killOnTransfer;
     public float sweet = 0;
     public float sour = 0;
@@ -20,110 +18,92 @@ public class FlavorData : MonoBehaviour
     public int[] specialVals = null;
     public int[] specialNames = null;
 
-    public PlayerFlavor m_PlayerFlavor;
-    public void Initialize(PlayerFlavor playerFlavor) {
-        m_PlayerFlavor = playerFlavor;
+    public Flavor playerFlavor;
+    public void Initialize(Flavor playerFlavor) {
+        this.playerFlavor = playerFlavor;
     }
-
-    private FlavorData otherFlavors;
 
     void Start() {
         if (killOnTransfer && TryGetComponent(out ParticleSystem part)) {
-            FlavorData[] flavors = FindObjectsOfType<FlavorData>();
-            foreach (FlavorData flavor in flavors) {
-                if (flavor.modifiable && flavor.gameObject.TryGetComponent(out Collider collider)) part.trigger.AddCollider(collider);
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            
+            foreach (GameObject player in players) {
+                if(player.TryGetComponent(out Collider collider)) {
+                    part.trigger.AddCollider(collider);
+                }
             }
         }
     }
 
     void OnCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.TryGetComponent(out FlavorData otherFlavors)) {
+        if (collision.gameObject.CompareTag("Player") && playerFlavor) {
+            
             // The code to modify the collided object's flavors
-            if (modifier && otherFlavors.modifiable && otherFlavors.m_PlayerFlavor) {
-                // Modify flavors
-                otherFlavors.m_PlayerFlavor.sweet += sweet;
-                otherFlavors.m_PlayerFlavor.sour += sour;
-                otherFlavors.m_PlayerFlavor.salty += salty;
-                otherFlavors.m_PlayerFlavor.bitter += bitter;
-                otherFlavors.m_PlayerFlavor.umami += umami;
-                otherFlavors.m_PlayerFlavor.temperature += temperature;
+            // Modify flavors
+            playerFlavor.sweet += sweet;
+            playerFlavor.sour += sour;
+            playerFlavor.salty += salty;
+            playerFlavor.bitter += bitter;
+            playerFlavor.umami += umami;
+            playerFlavor.temperature += temperature;
 
-                // Neutralizing temperature effect (moves toward 0)
-                // if (neutralizeTemp) {
-                //     if (otherFlavors.temperature > 0) {
-                //         if (-otherFlavors.temperature > temperature) otherFlavors.temperature -= temperature;
-                //         else otherFlavors.temperature = 0;
-                //     }
-                //     else if (otherFlavors.temperature < 0) {
-                //         if (otherFlavors.temperature > temperature) otherFlavors.temperature += temperature;
-                //         else otherFlavors.temperature = 0;
-                //     }
-                // }
-
-                // Clamp flavors into range
-                otherFlavors.m_PlayerFlavor.sweet = clampFlavor(otherFlavors.m_PlayerFlavor.sweet, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.sour = clampFlavor(otherFlavors.m_PlayerFlavor.sour, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.salty = clampFlavor(otherFlavors.m_PlayerFlavor.salty, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.bitter = clampFlavor(otherFlavors.m_PlayerFlavor.bitter, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.umami = clampFlavor(otherFlavors.m_PlayerFlavor.umami, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.temperature = clampFlavor(otherFlavors.m_PlayerFlavor.temperature, otherFlavors.flavorMin, otherFlavors.flavorMax);
-
-                // otherFlavors.m_PlayerFlavor.sweet = otherFlavors.sweet;
-                // otherFlavors.m_PlayerFlavor.sour = otherFlavors.sour;
-                // otherFlavors.m_PlayerFlavor.salty = otherFlavors.salty;
-                // otherFlavors.m_PlayerFlavor.bitter = otherFlavors.bitter;
-                // otherFlavors.m_PlayerFlavor.umami = otherFlavors.umami;
-                // otherFlavors.m_PlayerFlavor.temperature = otherFlavors.temperature;
-
-                // Delete the thing
-                if (killOnTransfer) Destroy(gameObject);
+            // Neutralizing temperature effect (moves toward 0)
+            if (neutralizeTemp) {
+                if (playerFlavor.temperature > 0) {
+                    if (-playerFlavor.temperature > temperature) playerFlavor.temperature -= temperature;
+                    else playerFlavor.temperature = 0;
+                }
+                else if (playerFlavor.temperature < 0) {
+                    if (playerFlavor.temperature > temperature) playerFlavor.temperature += temperature;
+                    else playerFlavor.temperature = 0;
+                }
             }
+
+            // Clamp flavors into range
+            playerFlavor.sweet = clampFlavor(playerFlavor.sweet, flavorMin, flavorMax);
+            playerFlavor.sour = clampFlavor(playerFlavor.sour, flavorMin, flavorMax);
+            playerFlavor.salty = clampFlavor(playerFlavor.salty, flavorMin, flavorMax);
+            playerFlavor.bitter = clampFlavor(playerFlavor.bitter, flavorMin, flavorMax);
+            playerFlavor.umami = clampFlavor(playerFlavor.umami, flavorMin, flavorMax);
+            playerFlavor.temperature = clampFlavor(playerFlavor.temperature, flavorMin, flavorMax);
+
+            // Delete the thing
+            if (killOnTransfer) Destroy(gameObject);
         }
     }
 
     void OnParticleCollision(GameObject other) {
-        if (other.TryGetComponent(out FlavorData otherFlavors)) {
-            //otherFlavors = collision.gameObject.GetComponent<FlavorData>();
+        if (other.CompareTag("Player") && playerFlavor) {
 
-            // The code to modify the collided object's flavors
-            if (modifier && otherFlavors.modifiable && otherFlavors.m_PlayerFlavor) {
+            Debug.Log("particle collision!");
+            // Modify flavors
+            playerFlavor.sweet += sweet;
+            playerFlavor.sour += sour;
+            playerFlavor.salty += salty;
+            playerFlavor.bitter += bitter;
+            playerFlavor.umami += umami;
+            playerFlavor.temperature += temperature;
 
-                // Modify flavors
-                otherFlavors.m_PlayerFlavor.sweet += sweet;
-                otherFlavors.m_PlayerFlavor.sour += sour;
-                otherFlavors.m_PlayerFlavor.salty += salty;
-                otherFlavors.m_PlayerFlavor.bitter += bitter;
-                otherFlavors.m_PlayerFlavor.umami += umami;
-                otherFlavors.m_PlayerFlavor.temperature += temperature;
-
-                // Neutralizing temperature effect (moves toward 0)
-                // if (neutralizeTemp) {
-                //     if (otherFlavors.temperature > 0) {
-                //         if (-otherFlavors.temperature > temperature) otherFlavors.temperature -= temperature;
-                //         else otherFlavors.temperature = 0;
-                //     }
-                //     else if (otherFlavors.temperature < 0) {
-                //         if (otherFlavors.temperature > temperature) otherFlavors.temperature += temperature;
-                //         else otherFlavors.temperature = 0;
-                //     }
-                // }
-
-                // Clamp flavors into range
-                otherFlavors.m_PlayerFlavor.sweet = clampFlavor(otherFlavors.m_PlayerFlavor.sweet, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.sour = clampFlavor(otherFlavors.m_PlayerFlavor.sour, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.salty = clampFlavor(otherFlavors.m_PlayerFlavor.salty, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.bitter = clampFlavor(otherFlavors.m_PlayerFlavor.bitter, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.umami = clampFlavor(otherFlavors.m_PlayerFlavor.umami, otherFlavors.flavorMin, otherFlavors.flavorMax);
-                otherFlavors.m_PlayerFlavor.temperature = clampFlavor(otherFlavors.m_PlayerFlavor.temperature, otherFlavors.flavorMin, otherFlavors.flavorMax);
-
-                // otherFlavors.m_PlayerFlavor.sweet = otherFlavors.sweet;
-                // otherFlavors.m_PlayerFlavor.sour = otherFlavors.sour;
-                // otherFlavors.m_PlayerFlavor.salty = otherFlavors.salty;
-                // otherFlavors.m_PlayerFlavor.bitter = otherFlavors.bitter;
-                // otherFlavors.m_PlayerFlavor.umami = otherFlavors.umami;
-                // otherFlavors.m_PlayerFlavor.temperature = otherFlavors.temperature;
+            // Neutralizing temperature effect (moves toward 0)
+            if (neutralizeTemp) {
+                if (playerFlavor.temperature > 0) {
+                    if (-playerFlavor.temperature > temperature) playerFlavor.temperature -= temperature;
+                    else playerFlavor.temperature = 0;
+                }
+                else if (playerFlavor.temperature < 0) {
+                    if (playerFlavor.temperature > temperature) playerFlavor.temperature += temperature;
+                    else playerFlavor.temperature = 0;
+                }
             }
+
+            // Clamp flavors into range
+            playerFlavor.sweet = clampFlavor(playerFlavor.sweet, flavorMin, flavorMax);
+            playerFlavor.sour = clampFlavor(playerFlavor.sour, flavorMin, flavorMax);
+            playerFlavor.salty = clampFlavor(playerFlavor.salty, flavorMin, flavorMax);
+            playerFlavor.bitter = clampFlavor(playerFlavor.bitter, flavorMin, flavorMax);
+            playerFlavor.umami = clampFlavor(playerFlavor.umami, flavorMin, flavorMax);
+            playerFlavor.temperature = clampFlavor(playerFlavor.temperature, flavorMin, flavorMax);
         }
     }
 

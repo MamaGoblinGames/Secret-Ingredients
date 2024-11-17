@@ -4,27 +4,27 @@
         <engine:VisualElement name="flavorBars" style="flex-grow: 1; rotate: -90deg; opacity: 1; width: 100px; height: 150px; justify-content: space-evenly; -unity-text-align: upper-left; bottom: 0; left: 0; position: absolute; flex-direction: column; align-items: stretch; align-self: flex-start; margin-left: 0; align-content: center; transform-origin: center; translate: 30px 20px;">
             <engine:ProgressBar value="70" title="sweet" enabled="true" name="sweetProgress" low-value="0" high-value="100" class="flavorBar sweet" style="opacity: 1;">
                 <Bindings>
-                    <engine:DataBinding property="value" data-source-path="sweet" data-source="project://database/Assets/Scripts/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=5723ed9302b1f1d4ea0806688992d860&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                    <engine:DataBinding property="value" data-source-path="sweet" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
             <engine:ProgressBar value="70" title="salty" enabled="true" name="saltyProgress" high-value="100" class="flavorBar salty" style="opacity: 1;">
                 <Bindings>
-                    <engine:DataBinding property="value" data-source-path="salty" data-source="project://database/Assets/Scripts/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=5723ed9302b1f1d4ea0806688992d860&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                    <engine:DataBinding property="value" data-source-path="salty" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
             <engine:ProgressBar value="70" title="sour" enabled="true" name="sourProgress" high-value="100" class="flavorBar sour" style="opacity: 1;">
                 <Bindings>
-                    <engine:DataBinding property="value" data-source-path="sour" data-source="project://database/Assets/Scripts/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=5723ed9302b1f1d4ea0806688992d860&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                    <engine:DataBinding property="value" data-source-path="sour" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
             <engine:ProgressBar value="70" title="bitter" enabled="true" name="bitterProgress" high-value="100" class="flavorBar bitter" style="opacity: 1;">
                 <Bindings>
-                    <engine:DataBinding property="value" data-source-path="bitter" data-source="project://database/Assets/Scripts/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=5723ed9302b1f1d4ea0806688992d860&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                    <engine:DataBinding property="value" data-source-path="bitter" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
             <engine:ProgressBar value="70" title="savory" enabled="true" name="umamiProgress" high-value="100" class="flavorBar umami" style="opacity: 1;">
                 <Bindings>
-                    <engine:DataBinding property="value" data-source-path="umami" data-source="project://database/Assets/Scripts/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=5723ed9302b1f1d4ea0806688992d860&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                    <engine:DataBinding property="value" data-source-path="umami" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
         </engine:VisualElement>

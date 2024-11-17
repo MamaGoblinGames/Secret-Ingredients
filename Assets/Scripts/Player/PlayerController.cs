@@ -12,10 +12,6 @@ public class PlayerController : MonoBehaviour
     public float charge;
     public float coyoteFrames;
     public float coyoteTimer;
-    public PlayerFlavor m_PlayerFlavor;
-    public void Initialize(PlayerFlavor playerFlavor) {
-        m_PlayerFlavor = playerFlavor;
-    }
 
     void Start()
     {
