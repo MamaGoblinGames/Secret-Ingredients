@@ -1,0 +1,30 @@
+.flavorBar {
+}
+.sweet {
+}
+.salty {
+}
+.bitter {
+}
+.umami {
+}
+
+.sweet .unity-progress-bar__progress {
+    background-color: rgb(252, 134, 231);
+}
+
+.salty .unity-progress-bar__progress {
+    background-color: rgb(222, 238, 239);
+}
+
+.sour .unity-progress-bar__progress {
+    background-color: rgb(179, 255, 25);
+}
+
+.bitter .unity-progress-bar__progress {
+    background-color: #868669;
+}
+
+.umami .unity-progress-bar__progress {
+    background-color: #990C0C;
+}
