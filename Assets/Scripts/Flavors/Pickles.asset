@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40ba3260d04ad5d458ffa13da8a326c2, type: 3}
-  m_Name: BBQ Sauce
+  m_Name: Pickles
   m_EditorClassIdentifier: 
-  sweet: 50
-  sour: 20
-  salty: 15
-  bitter: -10
-  umami: 15
-  temperature: 5
+  sweet: 10
+  sour: 50
+  salty: 50
+  bitter: 10
+  umami: 10
+  temperature: 10
