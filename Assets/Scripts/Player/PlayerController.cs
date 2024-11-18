@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool canJump = false;
+    private bool isGrounded = false;
     private Rigidbody rb;
     public GameObject cameraTarget;
     public float dCharge;
@@ -18,19 +18,32 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    // OnCollisionStay is called once per frame for every Collider or Rigidbody that touches another Collider or Rigidbody.
+    // NOTE: Collision stay events are not sent for sleeping Rigidbodies.
+    //       "sleeping" = stopped moving and is no longer being processed by the Physics Engine.
     void OnCollisionStay(Collision collision) {
-        canJump = true;
+        isGrounded = true;
         coyoteTimer = 0;
+    }
+
+    void OnCollisionExit(Collision collision) {
+        isGrounded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Update coyote frames
-        if (coyoteTimer >= coyoteFrames) {
-            canJump = false;
+        bool canJump = false;
+        if (isGrounded) {
+            coyoteTimer = 0;
+            canJump = true;
         }
-        coyoteTimer += Time.deltaTime;
+        else {
+            if (coyoteTimer < coyoteFrames) {
+                canJump = true;
+                coyoteTimer += Time.deltaTime;
+            }
+        }
 
         // Jump if applicable
         if (Input.GetKey(KeyCode.Space)) {
