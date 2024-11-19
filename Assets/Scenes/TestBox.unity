@@ -300,6 +300,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
+      propertyPath: myFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b2b72a446abf114faad61a6a6e1a3a6, type: 2}
+    - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: m_PlayerFlavor
       value: 
       objectReference: {fileID: 11400000, guid: 5723ed9302b1f1d4ea0806688992d860, type: 2}
@@ -1250,6 +1254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
+      propertyPath: myFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b2b72a446abf114faad61a6a6e1a3a6, type: 2}
     - target: {fileID: 8691079932017745091, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: m_Name
       value: Food bits
@@ -1267,6 +1275,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1590621411}
     m_Modifications:
+    - target: {fileID: 387322860796570506, guid: a96ce6ee1701f8444833b51229d0d67f, type: 3}
+      propertyPath: myFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: 68ec2fc93c5c7474d8ce81f59b3c76d9, type: 2}
     - target: {fileID: 387322860796570507, guid: a96ce6ee1701f8444833b51229d0d67f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1691,6 +1703,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1590621411}
     m_Modifications:
+    - target: {fileID: 4340694951523297602, guid: 0102b00783e373c4bbc131b6c0e2beab, type: 3}
+      propertyPath: myFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: bdc53a2f6a82ec346bb6643471a301e8, type: 2}
     - target: {fileID: 4340694951523297602, guid: 0102b00783e373c4bbc131b6c0e2beab, type: 3}
       propertyPath: m_PlayerFlavor
       value: 

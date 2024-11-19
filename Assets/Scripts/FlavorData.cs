@@ -6,21 +6,17 @@ using UnityEngine;
 public class FlavorData : MonoBehaviour
 {   
     public bool killOnTransfer;
-    public float sweet = 0;
-    public float sour = 0;
-    public float salty = 0;
-    public float bitter = 0;
-    public float umami = 0;
-    public float temperature = 0;
     public bool neutralizeTemp;
-    public float flavorMin = 0f;
-    public float flavorMax = 100f;
+    private float flavorMin = 0f;
+    private float flavorMax = 100f;
     public int[] specialVals = null;
     public int[] specialNames = null;
 
+    public Flavor myFlavor;
     public Flavor playerFlavor;
-    public void Initialize(Flavor playerFlavor) {
+    public void Initialize(Flavor playerFlavor, Flavor myFlavor) {
         this.playerFlavor = playerFlavor;
+        this.myFlavor = myFlavor;
     }
 
     void Start() {
@@ -38,36 +34,7 @@ public class FlavorData : MonoBehaviour
     void OnCollisionEnter (Collision collision)
     {
         if (collision.gameObject.CompareTag("Player") && playerFlavor) {
-            
-            // The code to modify the collided object's flavors
-            // Modify flavors
-            playerFlavor.sweet += sweet;
-            playerFlavor.sour += sour;
-            playerFlavor.salty += salty;
-            playerFlavor.bitter += bitter;
-            playerFlavor.umami += umami;
-            playerFlavor.temperature += temperature;
-
-            // Neutralizing temperature effect (moves toward 0)
-            if (neutralizeTemp) {
-                if (playerFlavor.temperature > 0) {
-                    if (-playerFlavor.temperature > temperature) playerFlavor.temperature -= temperature;
-                    else playerFlavor.temperature = 0;
-                }
-                else if (playerFlavor.temperature < 0) {
-                    if (playerFlavor.temperature > temperature) playerFlavor.temperature += temperature;
-                    else playerFlavor.temperature = 0;
-                }
-            }
-
-            // Clamp flavors into range
-            playerFlavor.sweet = clampFlavor(playerFlavor.sweet, flavorMin, flavorMax);
-            playerFlavor.sour = clampFlavor(playerFlavor.sour, flavorMin, flavorMax);
-            playerFlavor.salty = clampFlavor(playerFlavor.salty, flavorMin, flavorMax);
-            playerFlavor.bitter = clampFlavor(playerFlavor.bitter, flavorMin, flavorMax);
-            playerFlavor.umami = clampFlavor(playerFlavor.umami, flavorMin, flavorMax);
-            playerFlavor.temperature = clampFlavor(playerFlavor.temperature, flavorMin, flavorMax);
-
+            applyFlavor(0.2f);
             // Delete the thing
             if (killOnTransfer) Destroy(gameObject);
         }
@@ -75,39 +42,41 @@ public class FlavorData : MonoBehaviour
 
     void OnParticleCollision(GameObject other) {
         if (other.CompareTag("Player") && playerFlavor) {
-
-            Debug.Log("particle collision!");
-            // Modify flavors
-            playerFlavor.sweet += sweet;
-            playerFlavor.sour += sour;
-            playerFlavor.salty += salty;
-            playerFlavor.bitter += bitter;
-            playerFlavor.umami += umami;
-            playerFlavor.temperature += temperature;
-
-            // Neutralizing temperature effect (moves toward 0)
-            if (neutralizeTemp) {
-                if (playerFlavor.temperature > 0) {
-                    if (-playerFlavor.temperature > temperature) playerFlavor.temperature -= temperature;
-                    else playerFlavor.temperature = 0;
-                }
-                else if (playerFlavor.temperature < 0) {
-                    if (playerFlavor.temperature > temperature) playerFlavor.temperature += temperature;
-                    else playerFlavor.temperature = 0;
-                }
-            }
-
-            // Clamp flavors into range
-            playerFlavor.sweet = clampFlavor(playerFlavor.sweet, flavorMin, flavorMax);
-            playerFlavor.sour = clampFlavor(playerFlavor.sour, flavorMin, flavorMax);
-            playerFlavor.salty = clampFlavor(playerFlavor.salty, flavorMin, flavorMax);
-            playerFlavor.bitter = clampFlavor(playerFlavor.bitter, flavorMin, flavorMax);
-            playerFlavor.umami = clampFlavor(playerFlavor.umami, flavorMin, flavorMax);
-            playerFlavor.temperature = clampFlavor(playerFlavor.temperature, flavorMin, flavorMax);
+            applyFlavor(0.1f);
         }
     }
 
-    private float clampFlavor(float flavor, float min, float max) {
-        return Mathf.Clamp(flavor, min, max);
+    private float clampFlavor(float flavor) {
+        return Mathf.Clamp(flavor, flavorMin, flavorMax);
+    }
+
+    private void applyFlavor(float strength = 1f) {
+        // apply each flavor attribute to the player's flavor
+        playerFlavor.sweet += myFlavor.sweet * strength;
+        playerFlavor.sour += myFlavor.sour * strength;
+        playerFlavor.salty += myFlavor.salty * strength;
+        playerFlavor.bitter += myFlavor.bitter * strength;
+        playerFlavor.umami += myFlavor.umami * strength;
+        playerFlavor.temperature += myFlavor.temperature * strength;
+
+        // Neutralizing temperature effect (moves toward 0)
+        if (neutralizeTemp) {
+            if (playerFlavor.temperature > 0) {
+                if (-playerFlavor.temperature > myFlavor.temperature) playerFlavor.temperature -= myFlavor.temperature;
+                else playerFlavor.temperature = 0;
+            }
+            else if (playerFlavor.temperature < 0) {
+                if (playerFlavor.temperature > myFlavor.temperature) playerFlavor.temperature += myFlavor.temperature;
+                else playerFlavor.temperature = 0;
+            }
+        }
+
+        // clamp the player's flavor
+        playerFlavor.sweet = clampFlavor(playerFlavor.sweet);
+        playerFlavor.sour = clampFlavor(playerFlavor.sour);
+        playerFlavor.salty = clampFlavor(playerFlavor.salty);
+        playerFlavor.bitter = clampFlavor(playerFlavor.bitter);
+        playerFlavor.umami = clampFlavor(playerFlavor.umami);
+        playerFlavor.temperature = clampFlavor(playerFlavor.temperature);
     }
 }

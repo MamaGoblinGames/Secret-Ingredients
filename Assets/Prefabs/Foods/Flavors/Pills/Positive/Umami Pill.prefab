@@ -125,17 +125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killOnTransfer: 0
-  sweet: 0
-  sour: 0
-  salty: 0
-  bitter: 0
-  umami: 10
-  temperature: 0
   neutralizeTemp: 0
-  flavorMin: 0
-  flavorMax: 100
   specialVals: 
   specialNames: 
+  myFlavor: {fileID: 11400000, guid: 6196b4af666fd18428c638f9491fbd1e, type: 2}
   playerFlavor: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
 --- !u!54 &7014487467793460178
 Rigidbody:
