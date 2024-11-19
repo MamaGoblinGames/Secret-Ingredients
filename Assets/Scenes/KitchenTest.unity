@@ -187,15 +187,15 @@ PrefabInstance:
       objectReference: {fileID: 921002812}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.11
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.3
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -317.3
+      value: -317
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -574,15 +574,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465438025139621670, guid: 118e8f316dc58574fb091cdfdfaaf1b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.738213
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2465438025139621670, guid: 118e8f316dc58574fb091cdfdfaaf1b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03347212
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2465438025139621670, guid: 118e8f316dc58574fb091cdfdfaaf1b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.675503
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2465438025139621670, guid: 118e8f316dc58574fb091cdfdfaaf1b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1172,9 +1172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72320686a11f2de47a8d6fe6c9b6cb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <floatValue>k__BackingField: 0
-  modifier: 0
-  modifiable: 1
   killOnTransfer: 0
   sweet: 0
   sour: 0
@@ -1187,6 +1184,7 @@ MonoBehaviour:
   flavorMax: 100
   specialVals: 
   specialNames: 
+  playerFlavor: {fileID: 0}
 --- !u!1 &1587237181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7024429525135969705, guid: 118e8f316dc58574fb091cdfdfaaf1b1, type: 3}
