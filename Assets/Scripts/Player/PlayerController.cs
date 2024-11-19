@@ -10,9 +10,16 @@ public class PlayerController : MonoBehaviour
     public float dCharge;
     public float maxCharge;
     public float charge;
+    public PlayerCharge playerCharge;
     public float timeCharging;
     public float coyoteFrames;
     public float coyoteTimer;
+
+    public void Initialize(PlayerCharge playerCharge) {
+        this.playerCharge = playerCharge;
+        this.playerCharge.chargeLevel = 0;
+        maxCharge = playerCharge.maxCharge;
+    }
 
     void Start()
     {
@@ -86,5 +93,6 @@ public class PlayerController : MonoBehaviour
             timeCharging = 0;
             charge = 0;
         }
+        playerCharge.chargeLevel = charge;
     }
 }
