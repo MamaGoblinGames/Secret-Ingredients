@@ -4781,7 +4781,7 @@ MonoBehaviour:
   flavorMax: 100
   specialVals: 
   specialNames: 
-  playerFlavor: {fileID: 11400000, guid: 5723ed9302b1f1d4ea0806688992d860, type: 2}
+  playerFlavor: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
 --- !u!199 &9139018915882304358
 ParticleSystemRenderer:
   serializedVersion: 6

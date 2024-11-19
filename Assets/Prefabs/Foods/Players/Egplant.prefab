@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 985291414}
   - component: {fileID: 7200404028964909731}
   m_Layer: 0
-  m_Name: Broccoli 2
+  m_Name: Egplant
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6036251870055034186}
-  m_Mesh: {fileID: 4300000, guid: 2165ae92e3e31c042bfb668b2e3d0cfd, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 908c850446a871c4086630c4e47bd029, type: 2}
 --- !u!23 &6036251870055034184
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -155,4 +155,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 2165ae92e3e31c042bfb668b2e3d0cfd, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 908c850446a871c4086630c4e47bd029, type: 2}
