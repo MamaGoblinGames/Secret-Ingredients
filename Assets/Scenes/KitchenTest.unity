@@ -1695,6 +1695,10 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 0.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 3151452480819937916, guid: 0d6bc6ee5a18ca7489d54f615ffaefe1, type: 3}
+      propertyPath: myFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b2b72a446abf114faad61a6a6e1a3a6, type: 2}
     - target: {fileID: 4350969693242427617, guid: 0d6bc6ee5a18ca7489d54f615ffaefe1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
