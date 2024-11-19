@@ -1,11 +1,15 @@
 .flavorBar {
 }
+
 .sweet {
 }
+
 .salty {
 }
+
 .bitter {
 }
+
 .umami {
 }
 
@@ -22,9 +26,35 @@
 }
 
 .bitter .unity-progress-bar__progress {
-    background-color: #868669;
+    background-color: rgb(134, 134, 105);
 }
 
 .umami .unity-progress-bar__progress {
-    background-color: #990C0C;
+    background-color: rgb(153, 12, 12);
+}
+
+.chargeBar .unity-progress-bar__container {
+    width: 280px;
+    min-height: auto;
+    height: auto;
+}
+
+.chargeBar {
+    padding: 2px;
+    margin: 1px;
+}
+.chargeBar .unity-progress-bar__progress {
+    background-color: rgb(0, 50, 255);
+    height: 6px;
+    border-radius: 1px 5px 5px 1px;
+    margin: 1px;
+    opacity: 0.8;
+}
+.chargeBar .unity-progress-bar__title-container {
+    display: none;
+}
+
+.chargeBar .unity-progress-bar__background {
+    height: 10px;
+    border-radius: 2px 10px 10px 2px;
 }

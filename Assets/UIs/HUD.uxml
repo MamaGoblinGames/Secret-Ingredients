@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/HUD-styles.uss?fileID=7433441132597879392&amp;guid=cca6cb183a3d4b74db22b18e15f57bd8&amp;type=3#HUD-styles" />
-    <engine:VisualElement name="Container" enabled="true" style="flex-grow: 1; position: relative; bottom: 0; left: 0; align-items: stretch; flex-direction: column; justify-content: flex-start; align-content: auto; width: auto; flex-shrink: 1; align-self: auto; opacity: 0.63;">
+    <engine:VisualElement name="Container" enabled="true" style="flex-grow: 1; position: relative; bottom: 0; left: 0; align-items: stretch; flex-direction: row; justify-content: flex-start; align-content: auto; width: auto; flex-shrink: 1; align-self: auto; opacity: 0.63;">
         <engine:VisualElement name="flavorBars" style="flex-grow: 1; rotate: -90deg; opacity: 1; width: 100px; height: 150px; justify-content: space-evenly; -unity-text-align: upper-left; bottom: 0; left: 0; position: absolute; flex-direction: column; align-items: stretch; align-self: flex-start; margin-left: 0; align-content: center; transform-origin: center; translate: 30px 20px;">
             <engine:ProgressBar value="70" title="sweet" enabled="true" name="sweetProgress" low-value="0" high-value="100" class="flavorBar sweet" style="opacity: 1;">
                 <Bindings>
@@ -27,6 +27,9 @@
                     <engine:DataBinding property="value" data-source-path="umami" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
+        </engine:VisualElement>
+        <engine:VisualElement name="chargeContainer" style="flex-grow: 1; align-items: center; justify-content: flex-end;">
+            <engine:ProgressBar value="50" enabled="true" name="chargeLevel" low-value="0" high-value="100" class="chargeBar" style="opacity: 1; align-self: center; align-items: auto; align-content: auto; justify-content: flex-start;" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
