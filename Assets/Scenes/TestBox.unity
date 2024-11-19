@@ -300,10 +300,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
-      propertyPath: playerFlavor
-      value: 
-      objectReference: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
-    - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: m_PlayerFlavor
       value: 
       objectReference: {fileID: 11400000, guid: 5723ed9302b1f1d4ea0806688992d860, type: 2}
@@ -547,10 +543,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034186, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_Name
-      value: Broccoli 2
+      value: Player 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 985291413, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -652,6 +647,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 40, y: 140, z: 0}
+--- !u!1 &1538584451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538584452}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538584452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538584451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -40.48149, y: 23.859468, z: 23.779865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590621410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,10 +1250,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
-      propertyPath: playerFlavor
-      value: 
-      objectReference: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
     - target: {fileID: 8691079932017745091, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: m_Name
       value: Food bits
@@ -1503,7 +1525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7473726184597237649, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
       propertyPath: m_Name
-      value: Broccoli Camera Target
+      value: Player Camera Target
       objectReference: {fileID: 0}
     - target: {fileID: 7473726184597237654, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
       propertyPath: m_RootOrder
@@ -1936,3 +1958,4 @@ SceneRoots:
   - {fileID: 1372322463}
   - {fileID: 209625927}
   - {fileID: 1022502646}
+  - {fileID: 1538584452}
