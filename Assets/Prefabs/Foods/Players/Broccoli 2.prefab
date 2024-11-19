@@ -129,9 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 0}
-  dCharge: 1000
+  dCharge: 100
   maxCharge: 2000
   charge: 0
+  timeCharging: 0
   coyoteFrames: 0.1
   coyoteTimer: 0
 --- !u!64 &7200404028964909731

@@ -182,10 +182,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
-      propertyPath: dCharge
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 921002812}
