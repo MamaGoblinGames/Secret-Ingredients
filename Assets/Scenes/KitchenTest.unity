@@ -182,6 +182,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: dCharge
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 921002812}
@@ -1151,17 +1155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killOnTransfer: 0
-  sweet: 0
-  sour: 0
-  salty: 0
-  bitter: 0
-  umami: 0
-  temperature: 0
   neutralizeTemp: 0
-  flavorMin: 0
-  flavorMax: 100
   specialVals: 
   specialNames: 
+  myFlavor: {fileID: 0}
   playerFlavor: {fileID: 0}
 --- !u!1 &1587237181 stripped
 GameObject:
@@ -1698,6 +1695,10 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 0.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 3151452480819937916, guid: 0d6bc6ee5a18ca7489d54f615ffaefe1, type: 3}
+      propertyPath: myFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b2b72a446abf114faad61a6a6e1a3a6, type: 2}
     - target: {fileID: 4350969693242427617, guid: 0d6bc6ee5a18ca7489d54f615ffaefe1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

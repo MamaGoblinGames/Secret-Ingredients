@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba3260d04ad5d458ffa13da8a326c2, type: 3}
   m_Name: PlayerFlavorInstance
   m_EditorClassIdentifier: 
-  sweet: 49.8
-  sour: 10
-  salty: 42.2
-  bitter: 15.1
-  umami: 0
+  sweet: 78
+  sour: 100
+  salty: 0
+  bitter: 0
+  umami: 86.5
   temperature: 0
