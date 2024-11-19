@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
             timeCharging += Time.deltaTime;
             charge = ChargeFunction(timeCharging,
                                                             function.powerSeries   // <-- This one
-            , new float[]{0, dCharge, 2f}, maxCharge);
+            , new float[]{200, dCharge, 1.6f}, maxCharge);
         }
         else if (Input.GetKeyUp(KeyCode.Space)) {
             if (canJump) {
