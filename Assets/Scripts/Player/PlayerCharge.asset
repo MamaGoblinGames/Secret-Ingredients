@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: PlayerCharge
   m_EditorClassIdentifier: 
   chargeLevel: 0
+  maxCharge: 2000
+  canJump: 1
+  jumpBarOpacity: 100

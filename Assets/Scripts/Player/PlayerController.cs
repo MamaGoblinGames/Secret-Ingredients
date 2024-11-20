@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,8 +9,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public GameObject cameraTarget;
     public float dCharge;
-    public float maxCharge;
-    public float charge;
     public PlayerCharge playerCharge;
     public float timeCharging;
     public float coyoteFrames;
@@ -18,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public void Initialize(PlayerCharge playerCharge) {
         this.playerCharge = playerCharge;
         this.playerCharge.chargeLevel = 0;
-        maxCharge = playerCharge.maxCharge;
+        this.playerCharge.canJump = false;
+        playerCharge.jumpBarOpacity = 0.35f;
     }
 
     void Start()
@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     // NOTE: Collision stay events are not sent for sleeping Rigidbodies.
     //       "sleeping" = stopped moving and is no longer being processed by the Physics Engine.
     void OnCollisionStay(Collision collision) {
+        isGrounded = true;
+        coyoteTimer = 0;
+    }
+
+    void OnCollisionEnter(Collision collision) {
         isGrounded = true;
         coyoteTimer = 0;
     }
@@ -80,19 +85,29 @@ public class PlayerController : MonoBehaviour
         // Jump if applicable
         if (Input.GetKey(KeyCode.Space)) {
             timeCharging += Time.deltaTime;
-            charge = ChargeFunction(timeCharging,
-                                                            function.powerSeries   // <-- This one
-            , new float[]{200, dCharge, 1.6f}, maxCharge);
+            playerCharge.chargeLevel = ChargeFunction(
+                timeCharging,
+                function.powerSeries,   // <-- This one
+                new float[]{200, dCharge, 1.6f},
+                playerCharge.maxCharge
+            );
         }
         else if (Input.GetKeyUp(KeyCode.Space)) {
             if (canJump) {
-                rb.AddForce(cameraTarget.transform.forward * charge);
-                rb.AddTorque(cameraTarget.transform.right * charge);
+                rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
+                rb.AddTorque(cameraTarget.transform.right * playerCharge.chargeLevel);
                 canJump = false;
             }
             timeCharging = 0;
-            charge = 0;
+            playerCharge.chargeLevel = 0;
         }
-        playerCharge.chargeLevel = charge;
+
+        playerCharge.canJump = canJump;
+
+        if (canJump) {
+            playerCharge.jumpBarOpacity = 1f;
+        } else {
+            playerCharge.jumpBarOpacity = 0.35f;
+        }
     }
 }

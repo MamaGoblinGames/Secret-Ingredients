@@ -130,11 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 0}
   dCharge: 100
-  maxCharge: 2000
-  charge: 0
   playerCharge: {fileID: 11400000, guid: b2f66d5289201494b922b22f55ee57f1, type: 2}
   timeCharging: 0
-  coyoteFrames: 0.1
+  coyoteFrames: 0.2
   coyoteTimer: 0
 --- !u!64 &7200404028964909731
 MeshCollider:

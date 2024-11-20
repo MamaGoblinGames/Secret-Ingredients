@@ -7,4 +7,9 @@ public class PlayerCharge : ScriptableObject
     public float chargeLevel = 0f;
 
     public float maxCharge = 2000f;
+
+    public bool canJump = false;
+
+    [Range(0f, 100f)]
+    public float jumpBarOpacity = 0.35f;
 }
