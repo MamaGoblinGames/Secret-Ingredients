@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/Start Screen.unity
     guid: dd29e3c58628a114e854c9215d431507
   - enabled: 1
-    path: Assets/Scenes/TestBox.unity
-    guid: 8a76b3cfc4ffaf64e91ba79c19b019f2
+    path: Assets/Scenes/Mission Info.unity
+    guid: e2e26b2d8b46b8648a1cb2de5d527084
   - enabled: 1
     path: Assets/Scenes/KitchenTest.unity
     guid: d2c1d3fb4d0c70140b6adf4daf03753f

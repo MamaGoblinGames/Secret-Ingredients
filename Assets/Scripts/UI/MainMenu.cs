@@ -41,6 +41,6 @@ public class MainMenu : MonoBehaviour
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene("KitchenTest");
+        SceneManager.LoadScene("Mission Info");
     }
 }

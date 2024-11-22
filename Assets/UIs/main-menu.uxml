@@ -4,7 +4,7 @@
         <ui:VisualElement name="Container" style="flex-grow: 1; justify-content: center; flex-basis: auto; align-items: center; padding-left: 15%; padding-right: 15%; align-self: auto; align-content: auto; padding-top: 0; padding-bottom: 0; background-color: rgb(27, 16, 35); border-top-width: 0; border-top-color: rgba(0, 0, 0, 0.52); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; height: auto; background-image: resource(&apos;title-screen-bg-2&apos;); -unity-background-scale-mode: scale-to-fit;">
             <ui:Label text="Secret Ingredient" class="title" style="flex-grow: 1; margin-bottom: 4px; margin-left: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; color: rgb(11, 74, 82); -unity-font-definition: resource(&apos;Fonts/SpecialElite-Regular&apos;); padding-top: 20px;" />
             <ui:VisualElement style="flex-grow: 1;">
-                <ui:Button text="Start" name="start_button" class="main-menu-button" style="-unity-font-definition: resource(&apos;Fonts/SpecialElite-Regular&apos;); padding-bottom: 9px; color: rgb(27, 16, 35);" />
+                <ui:Button text="Play" name="start_button" class="main-menu-button" style="-unity-font-definition: resource(&apos;Fonts/SpecialElite-Regular&apos;); padding-bottom: 9px; color: rgb(27, 16, 35);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
