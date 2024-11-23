@@ -1,8 +1,12 @@
 .flavorBar {
     -unity-font-definition: resource('Fonts/LondrinaSolid-Regular');
+    flex-grow: 1;
 }
 
 .sweet {
+}
+
+.sour {
 }
 
 .salty {
@@ -12,6 +16,9 @@
 }
 
 .umami {
+}
+
+.spicy {
 }
 
 .sweet .unity-progress-bar__progress {
@@ -64,7 +71,4 @@
 .chargeBar .unity-progress-bar__background {
     height: 10px;
     border-radius: 2px 10px 10px 2px;
-}
-
-.spicy {
 }
