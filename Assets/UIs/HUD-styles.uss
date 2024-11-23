@@ -27,7 +27,11 @@
 }
 
 .bitter .unity-progress-bar__progress {
-    background-color: rgb(134, 134, 105);
+    background-color: rgb(56, 110, 22);
+}
+
+.spicy .unity-progress-bar__progress {
+    background-color: rgb(209, 110, 10);
 }
 
 .umami .unity-progress-bar__progress {
@@ -60,4 +64,7 @@
 .chargeBar .unity-progress-bar__background {
     height: 10px;
     border-radius: 2px 10px 10px 2px;
+}
+
+.spicy {
 }

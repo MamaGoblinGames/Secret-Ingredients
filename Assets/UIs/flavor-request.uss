@@ -56,11 +56,16 @@
 }
 
 #bitterMeter .target-mark {
-    background-color: rgb(134, 134, 105);
+    background-color: rgb(56, 110, 22);
+
 }
 
 #savoryMeter .target-mark {
     background-color: rgb(153, 12, 12);
+}
+
+#spicyMeter .target-mark {
+    background-color: rgb(209, 110, 10);
 }
 
 .main-menu-button {

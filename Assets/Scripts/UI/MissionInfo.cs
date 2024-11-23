@@ -14,6 +14,7 @@ public class MissionInfo : MonoBehaviour
         flavorSettings.saltyTargetPosition = Length.Percent(0);
         flavorSettings.bitterTargetPosition = Length.Percent(0);
         flavorSettings.savoryTargetPosition = Length.Percent(0);
+        flavorSettings.spicyTargetPosition = Length.Percent(0);
 
         coroutine = WaitAndGenerateFlavors(1.0f);
         StartCoroutine(coroutine);
@@ -27,6 +28,7 @@ public class MissionInfo : MonoBehaviour
         flavorSettings.saltyTargetPosition = Length.Percent(Random.Range(-100, 100));
         flavorSettings.bitterTargetPosition = Length.Percent(Random.Range(-100, 100));
         flavorSettings.savoryTargetPosition = Length.Percent(Random.Range(-100, 100));
+        flavorSettings.spicyTargetPosition = Length.Percent(Random.Range(-100, 100));
 
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 

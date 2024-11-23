@@ -9,4 +9,5 @@ public class FlavorSettings : ScriptableObject
     public Length saltyTargetPosition = Length.Percent(0);
     public Length bitterTargetPosition = Length.Percent(0);
     public Length savoryTargetPosition = Length.Percent(0);
+    public Length spicyTargetPosition = Length.Percent(0);
 }

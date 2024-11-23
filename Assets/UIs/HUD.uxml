@@ -38,6 +38,11 @@
                     <engine:DataBinding property="value" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
                 </Bindings>
             </engine:ProgressBar>
+            <engine:ProgressBar value="70" title="spicy" enabled="true" name="spicyProgress" high-value="100" low-value="0" class="flavorBar spicy" style="opacity: 1;">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

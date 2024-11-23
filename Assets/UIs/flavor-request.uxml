@@ -84,6 +84,22 @@
                         </engine:VisualElement>
                     </engine:VisualElement>
                 </engine:VisualElement>
+                <engine:VisualElement name="spicyMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Spicy" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="spicyTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
             </engine:VisualElement>
             <engine:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: space-around; padding-top: 30px;">
                 <engine:Button text="Ready" name="start_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row;" />
