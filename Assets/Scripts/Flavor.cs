@@ -58,6 +58,10 @@ public class Flavor : ScriptableObject
         SyncFlavorPercentages();
     }
 
+    public void OnValidate() {
+        SyncFlavorPercentages();
+    }
+
     public void TransferFlavor (Flavor flavor, float strength = 1f) {
         sweet += flavor.sweet * strength;
         sour += flavor.sour * strength;
