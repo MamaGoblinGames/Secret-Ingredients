@@ -21,6 +21,25 @@ public class Flavor : ScriptableObject
     [Range(flavorMin, flavorMax)]
     public float temperature = flavorNeutral;
 
+    public float sweetPercent = 0;
+    public float sourPercent = 0;
+    public float saltyPercent = 0;
+    public float bitterPercent = 0;
+    public float umamiPercent = 0;
+    public float temperaturePercent = 0;
+
+    private void SyncFlavorPercentages() {
+        sourPercent = (sour + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
+        saltyPercent = (salty + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
+        bitterPercent = (bitter + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
+        umamiPercent = (umami + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
+        temperaturePercent = (temperature + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
+    }
+
+    void OnEnable() {
+        SyncFlavorPercentages();
+    }
+
     public void Neutralize() {
         sweet = flavorNeutral;
         sour = flavorNeutral;
@@ -28,6 +47,8 @@ public class Flavor : ScriptableObject
         bitter = flavorNeutral;
         umami = flavorNeutral;
         temperature = flavorNeutral;
+
+        SyncFlavorPercentages();
     }
 
     public void TransferFlavor (Flavor flavor, float strength = 1f) {
@@ -56,5 +77,7 @@ public class Flavor : ScriptableObject
         bitter = Mathf.Clamp(bitter, flavorMin, flavorMax);
         umami = Mathf.Clamp(umami, flavorMin, flavorMax);
         temperature = Mathf.Clamp(temperature, flavorMin, flavorMax);
+
+        SyncFlavorPercentages();
     }
 }
