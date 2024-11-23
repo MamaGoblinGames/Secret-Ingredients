@@ -28,7 +28,7 @@
                 </Bindings>
             </engine:ProgressBar>
         </engine:VisualElement>
-        <engine:VisualElement name="chargeContainer" style="flex-grow: 1; align-items: center; justify-content: flex-end; opacity: 1; display: none;">
+        <engine:VisualElement name="chargeContainer" style="flex-grow: 1; align-items: center; justify-content: flex-end; opacity: 1; display: flex;">
             <engine:ProgressBar value="50" enabled="true" name="chargeLevel" low-value="0" high-value="100" class="chargeBar" style="opacity: 1; align-self: center; align-items: auto; align-content: auto; justify-content: flex-start;">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="chargeLevel" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" binding-mode="ToTarget" />
