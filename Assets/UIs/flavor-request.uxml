@@ -1,91 +1,93 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/flavor-request.uss?fileID=7433441132597879392&amp;guid=b83a49d656a5d294f9ac09b029930b9f&amp;type=3#flavor-request" />
-    <engine:VisualElement name="Container" style="flex-grow: 1; padding-top: 0; padding-right: 80px; padding-bottom: 0; padding-left: 80px; background-color: rgb(217, 216, 188); align-items: stretch; justify-content: center;">
-        <engine:Label text="Objective" style="-unity-text-align: upper-center; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); font-size: 30px; margin-bottom: 8px;" />
-        <engine:VisualElement class="meters" style="flex-grow: 0;">
-            <engine:VisualElement name="sweetMeter" style="flex-grow: 0; flex-direction: row;">
-                <engine:Label text="Sweet" class="flavor-label" />
-                <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
-                    <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
-                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
-                        <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+    <engine:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(217, 216, 188); align-items: center; justify-content: center;">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 0; width: 75%; justify-content: center; align-items: stretch; align-content: auto; flex-shrink: 1; max-width: 600px;">
+            <engine:Label text="Objective" style="-unity-text-align: upper-center; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); font-size: 30px; margin-bottom: 8px;" />
+            <engine:VisualElement name="VisualElement" class="meters" style="flex-grow: 0; padding-right: 0; margin-right: 50px;">
+                <engine:VisualElement name="sweetMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Sweet" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="sweetTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
                     </engine:VisualElement>
-                    <engine:VisualElement name="VisualElement" class="target-mark-container">
-                        <engine:VisualElement name="VisualElement" class="target-mark">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="sweetTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
-                            </Bindings>
+                </engine:VisualElement>
+                <engine:VisualElement name="sourMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Sour" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="sourTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="saltyMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Salty" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="saltyTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="bitterMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Bitter" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="bitterTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="savoryMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Savory" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="savoryTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
                         </engine:VisualElement>
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>
-            <engine:VisualElement name="sourMeter" style="flex-grow: 0; flex-direction: row;">
-                <engine:Label text="Sour" class="flavor-label" />
-                <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
-                    <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
-                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
-                        <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
-                    </engine:VisualElement>
-                    <engine:VisualElement name="VisualElement" class="target-mark-container">
-                        <engine:VisualElement name="VisualElement" class="target-mark">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="sourTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
+            <engine:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: space-around; padding-top: 30px;">
+                <engine:Button text="Ready" name="start_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row;" />
             </engine:VisualElement>
-            <engine:VisualElement name="saltyMeter" style="flex-grow: 0; flex-direction: row;">
-                <engine:Label text="Salty" class="flavor-label" />
-                <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
-                    <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
-                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
-                        <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
-                    </engine:VisualElement>
-                    <engine:VisualElement name="VisualElement" class="target-mark-container">
-                        <engine:VisualElement name="VisualElement" class="target-mark">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="saltyTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-            </engine:VisualElement>
-            <engine:VisualElement name="bitterMeter" style="flex-grow: 0; flex-direction: row;">
-                <engine:Label text="Bitter" class="flavor-label" />
-                <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
-                    <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
-                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
-                        <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
-                    </engine:VisualElement>
-                    <engine:VisualElement name="VisualElement" class="target-mark-container">
-                        <engine:VisualElement name="VisualElement" class="target-mark">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="bitterTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-            </engine:VisualElement>
-            <engine:VisualElement name="savoryMeter" style="flex-grow: 0; flex-direction: row;">
-                <engine:Label text="Savory" class="flavor-label" />
-                <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
-                    <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
-                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
-                        <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
-                    </engine:VisualElement>
-                    <engine:VisualElement name="VisualElement" class="target-mark-container">
-                        <engine:VisualElement name="VisualElement" class="target-mark">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="savoryTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-            </engine:VisualElement>
-        </engine:VisualElement>
-        <engine:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: space-around; padding-top: 30px;">
-            <engine:Button text="Ready" name="start_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row;" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
