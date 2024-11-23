@@ -1,18 +1,60 @@
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "Flavor", menuName = "Scriptable Objects/Flavor")]
 public class Flavor : ScriptableObject
 {
-    [Range(-100f, 100f)]
-    public float sweet = 0f;
-    [Range(-100f, 100f)]
-    public float sour = 0f;
-    [Range(-100f, 100f)]
-    public float salty = 0f;
-    [Range(-100f, 100f)]
-    public float bitter = 0f;
-    [Range(-100f, 100f)]
-    public float umami = 0f;
-    [Range(-100f, 100f)]
-    public float temperature = 0f;
+    const float flavorMin = -100f;
+    const float flavorMax = 100f;
+    const float flavorNeutral = 0f;
+
+    [Range(flavorMin, flavorMax)]
+    public float sweet = flavorNeutral;
+    [Range(flavorMin, flavorMax)]
+    public float sour = flavorNeutral;
+    [Range(flavorMin, flavorMax)]
+    public float salty = flavorNeutral;
+    [Range(flavorMin, flavorMax)]
+    public float bitter = flavorNeutral;
+    [Range(flavorMin, flavorMax)]
+    public float umami = flavorNeutral;
+    [Range(flavorMin, flavorMax)]
+    public float temperature = flavorNeutral;
+
+    public void Neutralize() {
+        sweet = flavorNeutral;
+        sour = flavorNeutral;
+        salty = flavorNeutral;
+        bitter = flavorNeutral;
+        umami = flavorNeutral;
+        temperature = flavorNeutral;
+    }
+
+    public void TransferFlavor (Flavor flavor, float strength = 1f) {
+        sweet += flavor.sweet * strength;
+        sour += flavor.sour * strength;
+        salty += flavor.salty * strength;
+        bitter += flavor.bitter * strength;
+        umami += flavor.umami * strength;
+        temperature += flavor.temperature * strength;
+
+        // TODO: Implement neutralizeTemp
+        // if (neutralizeTemp) {
+        //     if (playerFlavor.temperature > 0) {
+        //         if (-playerFlavor.temperature > myFlavor.temperature) playerFlavor.temperature -= myFlavor.temperature;
+        //         else playerFlavor.temperature = 0;
+        //     }
+        //     else if (playerFlavor.temperature < 0) {
+        //         if (playerFlavor.temperature > myFlavor.temperature) playerFlavor.temperature += myFlavor.temperature;
+        //         else playerFlavor.temperature = 0;
+        //     }
+        // }
+
+        sweet = Mathf.Clamp(sweet, flavorMin, flavorMax);
+        sour = Mathf.Clamp(sour, flavorMin, flavorMax);
+        salty = Mathf.Clamp(salty, flavorMin, flavorMax);
+        bitter = Mathf.Clamp(bitter, flavorMin, flavorMax);
+        umami = Mathf.Clamp(umami, flavorMin, flavorMax);
+        temperature = Mathf.Clamp(temperature, flavorMin, flavorMax);
+    }
 }
