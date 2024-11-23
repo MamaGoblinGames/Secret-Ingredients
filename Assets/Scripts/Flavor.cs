@@ -21,11 +21,17 @@ public class Flavor : ScriptableObject
     [Range(flavorMin, flavorMax)]
     public float temperature = flavorNeutral;
 
+    [HideInInspector]
     public float sweetPercent = 0;
+    [HideInInspector]
     public float sourPercent = 0;
+    [HideInInspector]
     public float saltyPercent = 0;
+    [HideInInspector]
     public float bitterPercent = 0;
+    [HideInInspector]
     public float umamiPercent = 0;
+    [HideInInspector]
     public float temperaturePercent = 0;
 
     private void SyncFlavorPercentages() {
