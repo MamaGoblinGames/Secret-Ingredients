@@ -29,6 +29,7 @@ public class Flavor : ScriptableObject
     public float temperaturePercent = 0;
 
     private void SyncFlavorPercentages() {
+        sweetPercent = (sweet + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
         sourPercent = (sour + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
         saltyPercent = (salty + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
         bitterPercent = (bitter + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
