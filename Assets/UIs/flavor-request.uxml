@@ -12,9 +12,9 @@
                             <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
                         </engine:VisualElement>
                         <engine:VisualElement name="VisualElement" class="target-mark-container">
-                            <engine:VisualElement name="VisualElement" class="target-mark">
+                            <engine:VisualElement class="target-mark" style="margin-left: 50%;">
                                 <Bindings>
-                                    <engine:DataBinding property="style.marginLeft" data-source-path="sweetTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="sweetPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
                                 </Bindings>
                             </engine:VisualElement>
                         </engine:VisualElement>
@@ -30,7 +30,7 @@
                         <engine:VisualElement name="VisualElement" class="target-mark-container">
                             <engine:VisualElement name="VisualElement" class="target-mark">
                                 <Bindings>
-                                    <engine:DataBinding property="style.marginLeft" data-source-path="sourTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="sourPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
                                 </Bindings>
                             </engine:VisualElement>
                         </engine:VisualElement>
@@ -46,7 +46,7 @@
                         <engine:VisualElement name="VisualElement" class="target-mark-container">
                             <engine:VisualElement name="VisualElement" class="target-mark">
                                 <Bindings>
-                                    <engine:DataBinding property="style.marginLeft" data-source-path="saltyTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="saltyPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
                                 </Bindings>
                             </engine:VisualElement>
                         </engine:VisualElement>
@@ -62,7 +62,7 @@
                         <engine:VisualElement name="VisualElement" class="target-mark-container">
                             <engine:VisualElement name="VisualElement" class="target-mark">
                                 <Bindings>
-                                    <engine:DataBinding property="style.marginLeft" data-source-path="bitterTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="bitterPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
                                 </Bindings>
                             </engine:VisualElement>
                         </engine:VisualElement>
@@ -78,7 +78,23 @@
                         <engine:VisualElement name="VisualElement" class="target-mark-container">
                             <engine:VisualElement name="VisualElement" class="target-mark">
                                 <Bindings>
-                                    <engine:DataBinding property="style.marginLeft" data-source-path="savoryTargetPosition" data-source="project://database/Assets/Scripts/UI/TargetFlavorSettings.asset?fileID=11400000&amp;guid=d034b4d135d975d4fa0d381a8df0cec8&amp;type=2#TargetFlavorSettings" binding-mode="ToTarget" />
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                </Bindings>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="spicyMeter" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="Spicy" class="flavor-label" />
+                    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                        <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                            <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="VisualElement" class="target-mark-container">
+                            <engine:VisualElement name="VisualElement" class="target-mark">
+                                <Bindings>
+                                    <engine:DataBinding property="style.marginLeft" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
                                 </Bindings>
                             </engine:VisualElement>
                         </engine:VisualElement>
