@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da06451393141c841bf7824480731321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flavorSettings: {fileID: 11400000, guid: d034b4d135d975d4fa0d381a8df0cec8, type: 2}
+  flavorSettings: {fileID: 11400000, guid: 4dabeedb2842e6f41842796a6a636ddc, type: 2}
 --- !u!1 &2008030623
 GameObject:
   m_ObjectHideFlags: 0

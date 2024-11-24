@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 [CreateAssetMenu(fileName = "Flavor", menuName = "Scriptable Objects/Flavor")]
@@ -8,6 +9,11 @@ public class Flavor : ScriptableObject
     const float flavorMin = -100f;
     const float flavorMax = 100f;
     const float flavorNeutral = 0f;
+    const float flavorNeutralPercent = 50f;
+
+    public static float Min = flavorMin;
+    public static float Max = flavorMax;
+    public static float Neutral = flavorNeutral;
 
     [Range(flavorMin, flavorMax)]
     public float sweet = flavorNeutral;
@@ -21,27 +27,36 @@ public class Flavor : ScriptableObject
     public float umami = flavorNeutral;
     [Range(flavorMin, flavorMax)]
     public float temperature = flavorNeutral;
+    
+    [HideInInspector]
+    public Length sweetPercent = Length.Percent(flavorNeutralPercent);
+    [HideInInspector]
+    public Length sourPercent = Length.Percent(flavorNeutralPercent);
+    [HideInInspector]
+    public Length saltyPercent = Length.Percent(flavorNeutralPercent);
+    [HideInInspector]
+    public Length bitterPercent = Length.Percent(flavorNeutralPercent);
+    [HideInInspector]
+    public Length umamiPercent = Length.Percent(flavorNeutralPercent);
+    [HideInInspector]
+    public Length temperaturePercent = Length.Percent(flavorNeutralPercent);
 
-    [HideInInspector]
-    public float sweetPercent = 0;
-    [HideInInspector]
-    public float sourPercent = 0;
-    [HideInInspector]
-    public float saltyPercent = 0;
-    [HideInInspector]
-    public float bitterPercent = 0;
-    [HideInInspector]
-    public float umamiPercent = 0;
-    [HideInInspector]
-    public float temperaturePercent = 0;
+    private Length convertFlavorValueToPercent(float value) {
+        return Length.Percent((value + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100);
+    }
 
-    private void SyncFlavorPercentages() {
-        sweetPercent = (sweet + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
-        sourPercent = (sour + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
-        saltyPercent = (salty + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
-        bitterPercent = (bitter + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
-        umamiPercent = (umami + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
-        temperaturePercent = (temperature + (flavorMax - flavorMin) / 2) / (flavorMax - flavorMin)*100;
+    public void SyncFlavorPercentages() {
+        // create 0 to 100 percentage values for each flavor in Length.Percent format
+        sweetPercent = convertFlavorValueToPercent(sweet);
+        sourPercent = convertFlavorValueToPercent(sour);
+        saltyPercent = convertFlavorValueToPercent(salty);
+        bitterPercent = convertFlavorValueToPercent(bitter);
+        umamiPercent = convertFlavorValueToPercent(umami);
+        temperaturePercent = convertFlavorValueToPercent(temperature);
+    }
+    
+    void Initialize() {
+        SyncFlavorPercentages();
     }
 
     void OnEnable() {
