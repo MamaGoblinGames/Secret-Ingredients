@@ -13,17 +13,18 @@ public class PlayerController : MonoBehaviour
     public float timeCharging;
     public float coyoteFrames;
     public float coyoteTimer;
+    public Flavor playerFlavor;
 
-    public void Initialize(PlayerCharge playerCharge) {
-        this.playerCharge = playerCharge;
-        this.playerCharge.chargeLevel = 0;
-        this.playerCharge.canJump = false;
-        playerCharge.jumpBarOpacity = 0.35f;
+    public void Initialize() {
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerCharge.chargeLevel = 0;
+        playerCharge.canJump = false;
+        playerCharge.jumpBarOpacity = 0.35f;
+        playerFlavor.Neutralize();
     }
 
     // OnCollisionStay is called once per frame for every Collider or Rigidbody that touches another Collider or Rigidbody.
