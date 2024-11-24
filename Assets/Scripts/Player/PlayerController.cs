@@ -77,10 +77,6 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-    }
-
-    void FixedUpdate()
-    {
 
         // Figure out if jumping is allowed
         bool canJump = false;
