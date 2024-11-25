@@ -141,3 +141,14 @@
     -unity-font-definition: resource('Fonts/LondrinaSolid-Black');
     font-size: 16px;
 }
+
+.mission-results {
+}
+
+.flavor-fill {
+}
+
+.flavor-fill-container {
+    height: 80%;
+    flex-grow: 0;
+}

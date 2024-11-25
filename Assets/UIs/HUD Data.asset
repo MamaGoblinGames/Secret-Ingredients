@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0378b38960c2445ad68adadbe49e3a, type: 3}
   m_Name: HUD Data
   m_EditorClassIdentifier: 
-  timeRemaining: 0
+  formattedTimeRemaining: 00:00

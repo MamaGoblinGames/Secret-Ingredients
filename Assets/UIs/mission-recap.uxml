@@ -1,0 +1,158 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIs/flavor-request.uss?fileID=7433441132597879392&amp;guid=b83a49d656a5d294f9ac09b029930b9f&amp;type=3#flavor-request" />
+    <engine:VisualElement name="Container" class="mission-results" style="flex-grow: 1; background-color: rgb(217, 216, 188); align-items: center; justify-content: center;">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 0; width: 90%; justify-content: center; align-items: stretch; align-content: auto; flex-shrink: 1; max-width: 600px;">
+            <engine:Label text="Mission Results" style="-unity-text-align: upper-center; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Black&apos;); font-size: 30px; margin-bottom: 8px;" />
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row;">
+                <engine:VisualElement style="flex-grow: 0; padding-right: 12px; margin-right: 12px; width: 200px;">
+                    <engine:Label text="Secret Ingredient Rating" class="briefing-h2" />
+                    <engine:Label text="TODO: put score here" style="flex-grow: 1; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;); white-space: normal; text-overflow: clip; -unity-text-align: upper-left; width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="VisualElement" class="meters" style="flex-grow: 1; padding-right: 0; flex-shrink: 0;">
+                    <engine:Label text="Flavor Results" class="briefing-h2" />
+                    <engine:VisualElement name="sweetMeter" style="flex-grow: 0; flex-direction: row;">
+                        <engine:Label text="Sweet" class="flavor-label" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                            <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                            <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                                <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark" style="margin-left: 50%; transition-property: none;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.marginLeft" data-source-path="sweetPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7; transition-timing-function: ease-in-out-cubic;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.width" data-source-path="sweetPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="sourMeter" style="flex-grow: 0; flex-direction: row;">
+                        <engine:Label text="Sour" class="flavor-label" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                            <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                            <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                                <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark" style="transition-property: none;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.marginLeft" data-source-path="sourPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.width" data-source-path="sourPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="saltyMeter" style="flex-grow: 0; flex-direction: row;">
+                        <engine:Label text="Salty" class="flavor-label" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                            <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                            <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                                <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark" style="transition-property: none;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.marginLeft" data-source-path="saltyPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.width" data-source-path="saltyPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="bitterMeter" style="flex-grow: 0; flex-direction: row;">
+                        <engine:Label text="Bitter" class="flavor-label" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                            <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                            <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                                <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark" style="transition-property: none;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.marginLeft" data-source-path="bitterPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.width" data-source-path="bitterPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="savoryMeter" style="flex-grow: 0; flex-direction: row;">
+                        <engine:Label text="Savory" class="flavor-label" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                            <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                            <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                                <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark" style="transition-property: none;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.marginLeft" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.width" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="spicyMeter" style="flex-grow: 0; flex-direction: row;">
+                        <engine:Label text="Spicy" class="flavor-label" />
+                        <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: center;">
+                            <engine:VisualElement name="VisualElement" class="meter-bg" style="flex-grow: 0;" />
+                            <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; flex-direction: column; align-items: center;">
+                                <engine:VisualElement name="VisualElement" class="center-mark" style="flex-grow: 1; flex-shrink: 0;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark" style="transition-property: none;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.marginLeft" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
+                                <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
+                                    <Bindings>
+                                        <engine:DataBinding property="style.width" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                    </Bindings>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: space-around; padding-top: 30px;">
+                <engine:Button text="Continue" name="continue_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
