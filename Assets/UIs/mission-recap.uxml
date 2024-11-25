@@ -150,8 +150,9 @@
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>
-            <engine:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: space-around; padding-top: 30px;">
-                <engine:Button text="Continue" name="continue_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row;" />
+            <engine:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: center; padding-top: 30px;">
+                <engine:Button text="Play Again" name="continue_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row;" />
+                <engine:Button text="Quit" name="quit_button" class="main-menu-button" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; flex-direction: row; background-color: rgb(153, 163, 158); margin-left: 12px;" />
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>

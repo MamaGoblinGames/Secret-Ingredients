@@ -21,10 +21,18 @@ public class MissionResults : MonoBehaviour
         Button button = root.Q<Button>("continue_button");
         button.clicked += () => LoadGameScene();
         button.style.opacity = 1;
+
+        Button quitButton = root.Q<Button>("quit_button");
+        quitButton.clicked += () => QuitGame();
+        quitButton.style.opacity = 1;
     }
 
     void LoadGameScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Mission Info");
+    }
+
+    void QuitGame() {
+        Application.Quit();
     }
 }
