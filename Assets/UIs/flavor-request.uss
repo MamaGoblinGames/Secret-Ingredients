@@ -1,6 +1,8 @@
 .flavor-label {
     width: 50px;
-    -unity-font-definition: resource('Fonts/LondrinaSolid-Black');
+    margin: 0;
+    padding: 2px 0 2px 0;
+    -unity-font-definition: resource('Fonts/LondrinaSolid-Regular');
 }
 
 .meters {
@@ -13,7 +15,7 @@
     margin-bottom: 2px;
     opacity: 0.5;
     background-color: rgb(0, 0, 0);
-    display: none; /* turn off for now since we aren't indicating +/- values */
+    display: none;
 }
 
 .meter-bg {
@@ -28,8 +30,8 @@
     height: auto;
     opacity: 0.9;
     position: relative;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     flex-shrink: 0;
     transition-duration: 3s;
     transition-timing-function: ease-in-elastic;
@@ -127,4 +129,15 @@
     background-color: rgb(18, 176, 91);
     color: rgb(3, 61, 15);
     rotate: -1deg;
+}
+
+.briefing-h2 {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    -unity-font-definition: resource('Fonts/LondrinaSolid-Black');
+    font-size: 16px;
 }
