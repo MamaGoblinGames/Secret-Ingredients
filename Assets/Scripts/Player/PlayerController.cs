@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jump if applicable
-        if (Input.GetMouseButton(0) /*Left button*/) {
+        if (Input.GetMouseButton(0) /*Left button*/ && Time.timeScale != 0) {
             timeCharging += Time.deltaTime;
             playerCharge.chargeLevel = ChargeFunction(
                 timeCharging,
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 playerCharge.maxCharge
             );
         }
-        else if (Input.GetMouseButtonUp(0)) {
+        else if (Input.GetMouseButtonUp(0) && Time.timeScale != 0) {
             if (canJump) {
                 rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * playerCharge.chargeLevel);
