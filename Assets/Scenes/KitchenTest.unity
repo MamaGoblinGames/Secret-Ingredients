@@ -425,6 +425,14 @@ PrefabInstance:
       value: -9.688739e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1358231613320202016, guid: b710937a0c9125643a73054c79b3b902, type: 3}
+      propertyPath: Damping.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358231613320202016, guid: b710937a0c9125643a73054c79b3b902, type: 3}
+      propertyPath: Damping.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358231613320202016, guid: b710937a0c9125643a73054c79b3b902, type: 3}
       propertyPath: Lookahead.Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -462,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5143156086060602563, guid: b710937a0c9125643a73054c79b3b902, type: 3}
       propertyPath: Lens.NearClipPlane
-      value: 0.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5737582795461762111, guid: b710937a0c9125643a73054c79b3b902, type: 3}
       propertyPath: m_Layer
@@ -534,7 +542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8125754054567157473, guid: b710937a0c9125643a73054c79b3b902, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8594876108491136201, guid: b710937a0c9125643a73054c79b3b902, type: 3}
       propertyPath: m_Name
