@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UIs/HUD-styles.uss?fileID=7433441132597879392&amp;guid=cca6cb183a3d4b74db22b18e15f57bd8&amp;type=3#HUD-styles" />
     <engine:VisualElement name="Container" enabled="true" style="flex-grow: 1; position: relative; bottom: 0; left: 0; align-items: center; flex-direction: column; justify-content: space-between; align-content: auto; width: auto; flex-shrink: 1; align-self: auto; opacity: 0.63; padding-top: 1px;">
         <engine:VisualElement style="flex-grow: 1; width: 100%; align-items: center;">
-            <engine:VisualElement name="flavorBars" class="flavor-bar-container flavor-bars-container">
+            <engine:VisualElement name="flavorBars" class="flavor-bars-container">
                 <engine:VisualElement class="flavor-bar-container">
                     <engine:ProgressBar value="70" title="sweet" name="sweetProgress" class="flavorBar sweet">
                         <Bindings>
@@ -90,7 +90,7 @@
             </engine:VisualElement>
             <engine:VisualElement class="timer-box">
                 <engine:Label text="time remaining:" style="-unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); margin-right: 0; padding-right: 2px; margin-top: 0; margin-bottom: 0; margin-left: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;" />
-                <engine:Label text="Label" style="-unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 0; padding-left: 0; font-size: 15px; padding-top: 0; padding-bottom: 0;">
+                <engine:Label text="Label" style="-unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
                     <Bindings>
                         <engine:DataBinding property="text" data-source-path="formattedTimeRemaining" data-source="project://database/Assets/UIs/HUD%20Data.asset?fileID=11400000&amp;guid=81a2bc17c8019f84c9fbc313f3585f74&amp;type=2#HUD Data" binding-mode="ToTarget" />
                     </Bindings>
@@ -98,12 +98,14 @@
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="chargeContainer" style="flex-grow: 0; align-items: center; justify-content: flex-end; opacity: 1; display: flex;">
-            <engine:ProgressBar value="50" enabled="true" name="chargeLevel" low-value="0" high-value="100" class="chargeBar" style="opacity: 1; align-self: center; align-items: auto; align-content: auto; justify-content: flex-start;">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="chargeLevel" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" binding-mode="ToTarget" />
-                    <engine:DataBinding property="highValue" data-source-path="maxCharge" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" binding-mode="ToTarget" />
-                </Bindings>
-            </engine:ProgressBar>
+            <engine:VisualElement class="chargeBar-container" style="flex-grow: 1;">
+                <engine:ProgressBar value="50" enabled="true" name="chargeLevel" low-value="0" high-value="100" class="chargeBar" style="opacity: 1; align-self: center; align-items: auto; align-content: auto; justify-content: flex-start;">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="chargeLevel" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" binding-mode="ToTarget" />
+                        <engine:DataBinding property="highValue" data-source-path="maxCharge" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:ProgressBar>
+            </engine:VisualElement>
             <Bindings>
                 <engine:DataBinding property="style.opacity" data-source-path="jumpBarOpacity" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" binding-mode="ToTarget" />
             </Bindings>
