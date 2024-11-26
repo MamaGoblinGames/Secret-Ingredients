@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     public float coyoteTimer;
     public Flavor playerFlavor;
 
-    public void Initialize() {
-    }
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,6 +22,8 @@ public class PlayerController : MonoBehaviour
         playerCharge.canJump = false;
         playerCharge.jumpBarOpacity = 0.35f;
         playerFlavor.Neutralize();
+        UnityEngine.Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     // OnCollisionStay is called once per frame for every Collider or Rigidbody that touches another Collider or Rigidbody.
@@ -68,9 +67,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            if (Time.timeScale != 0) {
+                Time.timeScale = 0;
+            }
+            else {
+                Time.timeScale = 1;
+            }
+        }
+
+        // Figure out if jumping is allowed
         bool canJump = false;
         if (isGrounded) {
             coyoteTimer = 0;
@@ -84,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jump if applicable
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetMouseButton(0) /*Left button*/ && Time.timeScale != 0) {
             timeCharging += Time.deltaTime;
             playerCharge.chargeLevel = ChargeFunction(
                 timeCharging,
@@ -93,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 playerCharge.maxCharge
             );
         }
-        else if (Input.GetKeyUp(KeyCode.Space)) {
+        else if (Input.GetMouseButtonUp(0) && Time.timeScale != 0) {
             if (canJump) {
                 rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * playerCharge.chargeLevel);
