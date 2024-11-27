@@ -55,15 +55,10 @@ public class PlayerController : MonoBehaviour
     float ChargeFunction(float t, function func, float[] coeff, float max) {
         switch(func) {
             case function.quadratic: return Mathf.Min(coeff[0] + coeff[1]*t + Mathf.Pow(coeff[2]*t,2f), max); // Quadratic. y = a + bt + ct^2
-            break;
             case function.exponential: return Mathf.Min(coeff[0] + Mathf.Pow(coeff[1]*coeff[2],t), max); // Exponential. y = a + bc^t
-            break;
             case function.powerSeries: return Mathf.Min(coeff[0] + Mathf.Pow(coeff[1]*t,coeff[2]), max); // Power series. y = a + bt^c
-            break;
             case function.sin: return Mathf.Min(coeff[0] + coeff[1]*Mathf.Sin(coeff[2]*t + coeff[3]), max); // Sine. y = a + bsin(ct)
-            break;
             default: return Mathf.Min(coeff[0] + coeff[1]*t, max); // Linear. y = a + bt
-            break;
         }
     }
 
