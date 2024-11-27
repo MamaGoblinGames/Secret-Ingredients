@@ -25,6 +25,7 @@ public class FlavorData : MonoBehaviour
         }
     }
 
+    // Used for rigidbody based flavors
     void OnCollisionEnter (Collision collision)
     {
         if (collision.gameObject.CompareTag("Player") && playerFlavor) {
@@ -34,9 +35,17 @@ public class FlavorData : MonoBehaviour
         }
     }
 
+    // Used for particle based flavors
     void OnParticleCollision(GameObject other) {
         if (other.CompareTag("Player") && playerFlavor) {
             playerFlavor.TransferFlavor(myFlavor, 0.1f);
+        }
+    }
+
+    // Used for area effect flavors
+    void OnTriggerStay(Collider other) {
+        if (other.CompareTag("Player") && playerFlavor) {
+            playerFlavor.TransferFlavor(myFlavor, 0.015f);
         }
     }
 }
