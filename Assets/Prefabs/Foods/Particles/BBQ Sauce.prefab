@@ -71,10 +71,10 @@ PrefabInstance:
     - target: {fileID: 3548803979340055166, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: myFlavor
       value: 
-      objectReference: {fileID: 11400000, guid: 4b2b72a446abf114faad61a6a6e1a3a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 550f688e0fbddc24e96eaaf5e0097335, type: 2}
     - target: {fileID: 8691079932017745091, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: m_Name
-      value: Soda Spray Variant
+      value: BBQ Sauce
       objectReference: {fileID: 0}
     - target: {fileID: 9139018915882304358, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
