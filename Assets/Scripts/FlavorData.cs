@@ -45,7 +45,7 @@ public class FlavorData : MonoBehaviour
     // Used for area effect flavors
     void OnTriggerStay(Collider other) {
         if (other.CompareTag("Player") && playerFlavor) {
-            playerFlavor.TransferFlavor(myFlavor, 0.015f);
+            playerFlavor.TransferFlavor(myFlavor, Time.deltaTime * 0.75f);
         }
     }
 }
