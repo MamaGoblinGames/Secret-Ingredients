@@ -10,11 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
+      propertyPath: prewarm
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -81,9 +89,13 @@ PrefabInstance:
       value: Salt
       objectReference: {fileID: 0}
     - target: {fileID: 9139018915882304358, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 9139018915882304358, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: aa6939f14a7f0bd4d8cd3e37f7123ca6, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f3c35a78ad3ded47955d4c63face1fc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

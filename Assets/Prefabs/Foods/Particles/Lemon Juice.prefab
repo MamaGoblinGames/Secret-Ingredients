@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1633635824508524210, guid: b7cee980ba9fb9c40985b32356d71773, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
