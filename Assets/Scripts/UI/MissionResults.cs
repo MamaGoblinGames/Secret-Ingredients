@@ -41,6 +41,9 @@ public class MissionResults : MonoBehaviour
     }
     private void OnEnable()
     {
+        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         float flavorDifference = CalculateTotalFlavorDifference();
         float flavorDifferencePercent = flavorDifference / 600.0f * 100.0f;
