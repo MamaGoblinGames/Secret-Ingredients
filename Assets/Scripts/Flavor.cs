@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -27,6 +28,8 @@ public class Flavor : ScriptableObject
     public float umami = flavorNeutral;
     [Range(flavorMin, flavorMax)]
     public float temperature = flavorNeutral;
+    [Range(0f, 100f)]
+    public float neutralizeSpeed = 0f;
     
     [HideInInspector]
     public Length sweetPercent = Length.Percent(flavorNeutralPercent);
@@ -74,6 +77,21 @@ public class Flavor : ScriptableObject
         SyncFlavorPercentages();
     }
 
+    private float CalculateNeutralizedFlavor(float flavorValue, float effect) {
+        return flavorValue > flavorNeutral ? Math.Max(flavorValue-effect, 0) : Math.Min(flavorValue+effect, 0);
+    }
+    public void Neutralize(float amountPerSecond) {
+        float effect = amountPerSecond * Time.deltaTime;
+        sweet = CalculateNeutralizedFlavor(sweet, effect);
+        sour = CalculateNeutralizedFlavor(sour, effect);
+        salty = CalculateNeutralizedFlavor(salty, effect);
+        bitter = CalculateNeutralizedFlavor(bitter, effect);
+        umami = CalculateNeutralizedFlavor(umami, effect);
+        temperature = CalculateNeutralizedFlavor(temperature, effect);
+
+        SyncFlavorPercentages();
+    }
+
     public void OnValidate() {
         SyncFlavorPercentages();
     }
@@ -86,17 +104,10 @@ public class Flavor : ScriptableObject
         umami += flavor.umami * strength;
         temperature += flavor.temperature * strength;
 
-        // TODO: Implement neutralizeTemp
-        // if (neutralizeTemp) {
-        //     if (playerFlavor.temperature > 0) {
-        //         if (-playerFlavor.temperature > myFlavor.temperature) playerFlavor.temperature -= myFlavor.temperature;
-        //         else playerFlavor.temperature = 0;
-        //     }
-        //     else if (playerFlavor.temperature < 0) {
-        //         if (playerFlavor.temperature > myFlavor.temperature) playerFlavor.temperature += myFlavor.temperature;
-        //         else playerFlavor.temperature = 0;
-        //     }
-        // }
+        // Note that this will only really work well for something
+        // like water, where the flavor parts are neutralized by the same amount.
+        // We can add more complicated neutralization per-flavor later.
+        if (neutralizeSpeed > 0) Neutralize(neutralizeSpeed);
 
         sweet = Mathf.Clamp(sweet, flavorMin, flavorMax);
         sour = Mathf.Clamp(sour, flavorMin, flavorMax);
