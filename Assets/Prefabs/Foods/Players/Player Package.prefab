@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7370295705439440384}
   - component: {fileID: 6705116804523413939}
   - component: {fileID: 4974215845130386333}
+  - component: {fileID: 7183082372422824672}
   m_Layer: 0
   m_Name: BrocCam
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039225895, y: 0.000000024680826, z: -9.688739e-10, w: 0.9992304}
-  m_LocalPosition: {x: 0, y: 4.4056473, z: -7.62973}
+  m_LocalRotation: {x: 0.12097102, y: 0.79222643, z: 0.5743718, w: -0.16685437}
+  m_LocalPosition: {x: 1.6667845, y: -4.8498416, z: 3.7817383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,7 +115,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 0
+    Value: -156.21469
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -124,7 +125,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
+    Value: -58.895912
     Center: 17.5
     Range: {x: -60, y: 60}
     Wrap: 0
@@ -209,6 +210,8 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
+        InputAction: {fileID: 0}
+        Gain: 1
         LegacyInput: Mouse X
         LegacyGain: 10
         CancelDeltaTime: 1
@@ -220,10 +223,12 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
+        InputAction: {fileID: 0}
+        Gain: 1
         LegacyInput: Mouse Y
         LegacyGain: -10
         CancelDeltaTime: 1
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0.2
         DecelTime: 0.2
@@ -231,6 +236,8 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
+        InputAction: {fileID: 0}
+        Gain: 1
         LegacyInput: Mouse ScrollWheel
         LegacyGain: 200
         CancelDeltaTime: 0
@@ -238,6 +245,8 @@ MonoBehaviour:
       Driver:
         AccelTime: 0
         DecelTime: 0
+  PlayerIndex: -1
+  AutoEnableInputs: 1
 --- !u!114 &4974215845130386333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +286,51 @@ MonoBehaviour:
     NearLimit: 5
     FarLimit: 30
     MaxQualityBoost: 0.2
+--- !u!114 &7183082372422824672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424682657302393633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44cc6a630eeb47eeb696895e8db466b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScanRecursively: 1
+  SuppressInputWhileBlending: 1
+  IgnoreTimeScale: 0
+  m_ControllerManager:
+    Controllers:
+    - Name: Look Orbit X
+      Owner: {fileID: 8627330938092046934}
+      Enabled: 1
+      Input:
+        Input: {fileID: 0}
+      InputValue: 0
+      Driver:
+        AccelTime: 0
+        DecelTime: 0
+    - Name: Look Orbit Y
+      Owner: {fileID: 8627330938092046934}
+      Enabled: 1
+      Input:
+        Input: {fileID: 0}
+      InputValue: 0
+      Driver:
+        AccelTime: 0
+        DecelTime: 0
+    - Name: Orbit Scale
+      Owner: {fileID: 8627330938092046934}
+      Enabled: 1
+      Input:
+        Input: {fileID: 0}
+      InputValue: 0
+      Driver:
+        AccelTime: 0
+        DecelTime: 0
+  PlayerInput: {fileID: 725950269130742209}
 --- !u!1 &8594876108491136201
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 8594876108491136201}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -300}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -338,8 +392,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039225895, y: 0.000000024680826, z: -9.688732e-10, w: 0.9992304}
-  m_LocalPosition: {x: -0.00002670288, y: 4.0617256, z: -6.5379333}
+  m_LocalRotation: {x: 0.12096397, y: 0.7922312, z: 0.5743691, w: -0.16684642}
+  m_LocalPosition: {x: 0.3884858, y: 0.40447426, z: 0.8814087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -503,10 +557,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6036251870055034186, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 725950269130742209}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
 --- !u!4 &5737582795461762099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
   m_PrefabInstance: {fileID: 2043207336953049461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5737582795461762111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6036251870055034186, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+  m_PrefabInstance: {fileID: 2043207336953049461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &725950269130742209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737582795461762111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3bb7dfc9a6d4a36458f3629646413e75, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 8125754054567157473}

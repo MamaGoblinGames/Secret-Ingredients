@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float coyoteTimer;
     public Flavor playerFlavor;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerCharge.chargeLevel = 0;
