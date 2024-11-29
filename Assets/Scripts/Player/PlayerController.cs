@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,8 +15,14 @@ public class PlayerController : MonoBehaviour
     public float coyoteFrames;
     public float coyoteTimer;
     public Flavor playerFlavor;
+    private bool canJump;
 
-    void Awake()
+    // Input
+    private InputActionAsset inputAsset;
+    private InputActionMap player;
+    private InputAction move;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerCharge.chargeLevel = 0;
@@ -24,6 +31,21 @@ public class PlayerController : MonoBehaviour
         playerFlavor.Neutralize();
         UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        inputAsset = this.GetComponent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
+    }
+
+    private void OnEnable() {
+        player.FindAction("Fire").held += DoCharge;
+        player.FindAction("Fire").end += DoJump;
+        player.Enable();
+    }
+
+    private void OnDisable() {
+        player.FindAction("Fire").held -= DoCharge;
+        player.FindAction("Fire").finish -= DoJump;
+        player.Disable();
     }
 
     // OnCollisionStay is called once per frame for every Collider or Rigidbody that touches another Collider or Rigidbody.
@@ -64,6 +86,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        // Pause
         if (Input.GetKeyDown(KeyCode.Escape)){
             if (Time.timeScale != 0) {
                 Time.timeScale = 0;
@@ -74,7 +98,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Figure out if jumping is allowed
-        bool canJump = false;
+        canJump = false;
         if (isGrounded) {
             coyoteTimer = 0;
             canJump = true;
@@ -86,8 +110,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        playerCharge.canJump = canJump;
+
+        if (canJump) {
+            playerCharge.jumpBarOpacity = 1f;
+        } else {
+            playerCharge.jumpBarOpacity = 0.35f;
+        }
+    }
+
+    void DoCharge(InputAction.CallbackContext context) {
         // Jump if applicable
-        if (Input.GetMouseButton(0) /*Left button*/ && Time.timeScale != 0) {
+        if (Time.timeScale != 0) {
             timeCharging += Time.deltaTime;
             playerCharge.chargeLevel = ChargeFunction(
                 timeCharging,
@@ -96,7 +130,10 @@ public class PlayerController : MonoBehaviour
                 playerCharge.maxCharge
             );
         }
-        else if (Input.GetMouseButtonUp(0) && Time.timeScale != 0) {
+    }
+
+    void DoJump(InputAction.CallbackContext context) {
+        if (Time.timeScale != 0) {
             if (canJump) {
                 rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * playerCharge.chargeLevel);
@@ -104,14 +141,6 @@ public class PlayerController : MonoBehaviour
             }
             timeCharging = 0;
             playerCharge.chargeLevel = 0;
-        }
-
-        playerCharge.canJump = canJump;
-
-        if (canJump) {
-            playerCharge.jumpBarOpacity = 1f;
-        } else {
-            playerCharge.jumpBarOpacity = 0.35f;
         }
     }
 }

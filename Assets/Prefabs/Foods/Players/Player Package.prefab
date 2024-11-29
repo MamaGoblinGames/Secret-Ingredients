@@ -1,5 +1,107 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2250113168272959444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7295920961181861352}
+  - component: {fileID: 4609271429847385052}
+  - component: {fileID: 3334115619898037592}
+  - component: {fileID: 5203566088960367344}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7295920961181861352
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250113168272959444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2927309159961668626}
+  m_Father: {fileID: 5939279533189794504}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &4609271429847385052
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250113168272959444}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 1
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &3334115619898037592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250113168272959444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!114 &5203566088960367344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250113168272959444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &4424682657302393633
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +117,6 @@ GameObject:
   - component: {fileID: 7370295705439440384}
   - component: {fileID: 6705116804523413939}
   - component: {fileID: 4974215845130386333}
-  - component: {fileID: 7183082372422824672}
   m_Layer: 0
   m_Name: BrocCam
   m_TagString: Untagged
@@ -31,8 +132,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12097102, y: 0.79222643, z: 0.5743718, w: -0.16685437}
-  m_LocalPosition: {x: 1.6667845, y: -4.8498416, z: 3.7817383}
+  m_LocalRotation: {x: -0.54909956, y: -0.30717388, z: -0.22688599, w: 0.74340886}
+  m_LocalPosition: {x: 2.8309774, y: -4.922122, z: -2.8407288}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -115,7 +216,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -156.21469
+    Value: -44.901398
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -125,7 +226,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -58.895912
+    Value: -59.91301
     Center: 17.5
     Range: {x: -60, y: 60}
     Wrap: 0
@@ -210,12 +311,12 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
-        InputAction: {fileID: 0}
+        InputAction: {fileID: 1109655191144619856, guid: 3bb7dfc9a6d4a36458f3629646413e75, type: 3}
         Gain: 1
-        LegacyInput: Mouse X
+        LegacyInput: 
         LegacyGain: 10
         CancelDeltaTime: 1
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0.1
         DecelTime: 0.1
@@ -223,9 +324,9 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
-        InputAction: {fileID: 0}
-        Gain: 1
-        LegacyInput: Mouse Y
+        InputAction: {fileID: 1109655191144619856, guid: 3bb7dfc9a6d4a36458f3629646413e75, type: 3}
+        Gain: -1
+        LegacyInput: 
         LegacyGain: -10
         CancelDeltaTime: 1
       InputValue: -0
@@ -238,7 +339,7 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: 0}
         Gain: 1
-        LegacyInput: Mouse ScrollWheel
+        LegacyInput: 
         LegacyGain: 200
         CancelDeltaTime: 0
       InputValue: 0
@@ -286,51 +387,71 @@ MonoBehaviour:
     NearLimit: 5
     FarLimit: 30
     MaxQualityBoost: 0.2
---- !u!114 &7183082372422824672
+--- !u!1 &5674963746618440096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2927309159961668626}
+  - component: {fileID: 2408290154320113366}
+  - component: {fileID: 7726835331196168450}
+  m_Layer: 5
+  m_Name: HUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2927309159961668626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674963746618440096}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -417.4, y: -188.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7295920961181861352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2408290154320113366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4424682657302393633}
+  m_GameObject: {fileID: 5674963746618440096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44cc6a630eeb47eeb696895e8db466b, type: 3}
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScanRecursively: 1
-  SuppressInputWhileBlending: 1
-  IgnoreTimeScale: 0
-  m_ControllerManager:
-    Controllers:
-    - Name: Look Orbit X
-      Owner: {fileID: 8627330938092046934}
-      Enabled: 1
-      Input:
-        Input: {fileID: 0}
-      InputValue: 0
-      Driver:
-        AccelTime: 0
-        DecelTime: 0
-    - Name: Look Orbit Y
-      Owner: {fileID: 8627330938092046934}
-      Enabled: 1
-      Input:
-        Input: {fileID: 0}
-      InputValue: 0
-      Driver:
-        AccelTime: 0
-        DecelTime: 0
-    - Name: Orbit Scale
-      Owner: {fileID: 8627330938092046934}
-      Enabled: 1
-      Input:
-        Input: {fileID: 0}
-      InputValue: 0
-      Driver:
-        AccelTime: 0
-        DecelTime: 0
-  PlayerInput: {fileID: 725950269130742209}
+  m_PanelSettings: {fileID: 11400000, guid: 5c6460fdeea70c04f8eccf58d204fadb, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: fa2a482b93cbc7743b1fdba3fafc4d05, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!114 &7726835331196168450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674963746618440096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862f755393d13b540a977cb568544496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudData: {fileID: 11400000, guid: 81a2bc17c8019f84c9fbc313f3585f74, type: 2}
 --- !u!1 &8594876108491136201
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +484,7 @@ Transform:
   - {fileID: 5737582795461762099}
   - {fileID: 590590330471744626}
   - {fileID: 4504293795415239293}
+  - {fileID: 7295920961181861352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9048665212086484653
@@ -375,7 +497,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4504293795415239293}
   - component: {fileID: 8125754054567157473}
-  - component: {fileID: 2287757334866691556}
   - component: {fileID: 2216721462838847491}
   m_Layer: 0
   m_Name: Camera o' Broc
@@ -392,8 +513,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12096397, y: 0.7922312, z: 0.5743691, w: -0.16684642}
-  m_LocalPosition: {x: 0.3884858, y: 0.40447426, z: 0.8814087}
+  m_LocalRotation: {x: -0.5490997, y: -0.30717358, z: -0.22688577, w: 0.743409}
+  m_LocalPosition: {x: 0.6529391, y: 0.4044757, z: -0.6552124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -450,14 +571,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2287757334866691556
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9048665212086484653}
-  m_Enabled: 1
 --- !u!114 &2216721462838847491
 MonoBehaviour:
   m_ObjectHideFlags: 0
