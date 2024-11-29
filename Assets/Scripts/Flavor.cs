@@ -1,8 +1,13 @@
 using System;
 using System.ComponentModel;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+public enum FlavorMethod {
+    Additive,
+    Approach
+}
 
 [CreateAssetMenu(fileName = "Flavor", menuName = "Scriptable Objects/Flavor")]
 public class Flavor : ScriptableObject
@@ -16,6 +21,7 @@ public class Flavor : ScriptableObject
     public static float Max = flavorMax;
     public static float Neutral = flavorNeutral;
 
+    [Header("Flavor Profile")]
     [Range(flavorMin, flavorMax)]
     public float sweet = flavorNeutral;
     [Range(flavorMin, flavorMax)]
@@ -25,11 +31,14 @@ public class Flavor : ScriptableObject
     [Range(flavorMin, flavorMax)]
     public float bitter = flavorNeutral;
     [Range(flavorMin, flavorMax)]
+    [Tooltip("Savory")]
     public float umami = flavorNeutral;
     [Range(flavorMin, flavorMax)]
+    [Tooltip("Spicy")]
     public float temperature = flavorNeutral;
-    [Range(0f, 100f)]
-    public float neutralizeSpeed = 0f;
+    [Header("Is this a target flavor or an additive flavor?")]
+    [Tooltip("Additive simply adds it's flavor, but target flavors makes the other flavor approach this one.")]
+    public FlavorMethod flavorMethod = FlavorMethod.Additive;
     
     [HideInInspector]
     public Length sweetPercent = Length.Percent(flavorNeutralPercent);
@@ -66,6 +75,10 @@ public class Flavor : ScriptableObject
         SyncFlavorPercentages();
     }
 
+    public void OnValidate() {
+        SyncFlavorPercentages();
+    }
+
     public void Neutralize() {
         sweet = flavorNeutral;
         sour = flavorNeutral;
@@ -77,44 +90,44 @@ public class Flavor : ScriptableObject
         SyncFlavorPercentages();
     }
 
-    private float CalculateNeutralizedFlavor(float flavorValue, float effect) {
-        return flavorValue > flavorNeutral ? Math.Max(flavorValue-effect, 0) : Math.Min(flavorValue+effect, 0);
+    /* Approach the target flavor values */
+    private float CalculatedApproachedFlavor(float myFlavorValue, float targetFlavorValue, float effect) {
+        return myFlavorValue > targetFlavorValue
+            ? Math.Max(myFlavorValue-effect, targetFlavorValue)
+            : Math.Min(myFlavorValue+effect, targetFlavorValue);
     }
-    public void Neutralize(float amountPerSecond) {
-        float effect = amountPerSecond * Time.deltaTime;
-        sweet = CalculateNeutralizedFlavor(sweet, effect);
-        sour = CalculateNeutralizedFlavor(sour, effect);
-        salty = CalculateNeutralizedFlavor(salty, effect);
-        bitter = CalculateNeutralizedFlavor(bitter, effect);
-        umami = CalculateNeutralizedFlavor(umami, effect);
-        temperature = CalculateNeutralizedFlavor(temperature, effect);
-
-        SyncFlavorPercentages();
+    private void ApproachTarget(Flavor target, float strength = 1f) {
+        // determine the amount to move toward the target using strength, time, and a multiplier
+        // (2000 is a multiplier that seems to work well)
+        float effect = strength * Time.deltaTime * 2000;
+        sweet = CalculatedApproachedFlavor(sweet, target.sweet, effect);
+        sour = CalculatedApproachedFlavor(sour, target.sour, effect);
+        salty = CalculatedApproachedFlavor(salty, target.salty, effect);
+        bitter = CalculatedApproachedFlavor(bitter, target.bitter, effect);
+        umami = CalculatedApproachedFlavor(umami, target.umami, effect);
+        temperature = CalculatedApproachedFlavor(temperature, target.temperature, effect);
     }
 
-    public void OnValidate() {
-        SyncFlavorPercentages();
+    private float CalculateAddedFlavor(float myFlavorValue, float otherFlavor, float strength = 1f) {
+        return Mathf.Clamp(myFlavorValue + otherFlavor * strength, flavorMin, flavorMax);
+    }
+
+    /* Add flavor values */
+    private void AddFlavorValues(Flavor flavor, float strength = 1f) {
+        sweet = CalculateAddedFlavor(sweet, flavor.sweet, strength);
+        sour = CalculateAddedFlavor(sour, flavor.sour, strength);
+        salty = CalculateAddedFlavor(salty, flavor.salty, strength);
+        bitter = CalculateAddedFlavor(bitter, flavor.bitter, strength);
+        umami = CalculateAddedFlavor(umami, flavor.umami, strength);
+        temperature = CalculateAddedFlavor(temperature, flavor.temperature, strength);
     }
 
     public void TransferFlavor (Flavor flavor, float strength = 1f) {
-        sweet += flavor.sweet * strength;
-        sour += flavor.sour * strength;
-        salty += flavor.salty * strength;
-        bitter += flavor.bitter * strength;
-        umami += flavor.umami * strength;
-        temperature += flavor.temperature * strength;
-
-        // Note that this will only really work well for something
-        // like water, where the flavor parts are neutralized by the same amount.
-        // We can add more complicated neutralization per-flavor later.
-        if (neutralizeSpeed > 0) Neutralize(neutralizeSpeed);
-
-        sweet = Mathf.Clamp(sweet, flavorMin, flavorMax);
-        sour = Mathf.Clamp(sour, flavorMin, flavorMax);
-        salty = Mathf.Clamp(salty, flavorMin, flavorMax);
-        bitter = Mathf.Clamp(bitter, flavorMin, flavorMax);
-        umami = Mathf.Clamp(umami, flavorMin, flavorMax);
-        temperature = Mathf.Clamp(temperature, flavorMin, flavorMax);
+        if (flavor.flavorMethod == FlavorMethod.Approach) {
+            ApproachTarget(flavor, strength);
+        } else {
+            AddFlavorValues(flavor, strength);
+        }
 
         SyncFlavorPercentages();
     }
