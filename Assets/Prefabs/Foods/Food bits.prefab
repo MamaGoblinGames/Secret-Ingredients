@@ -3805,7 +3805,7 @@ ParticleSystem:
     serializedVersion: 2
     inside: 0
     outside: 0
-    enter: 2
+    enter: 0
     exit: 1
     colliderQueryMode: 0
     radiusScale: 1
@@ -4770,17 +4770,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killOnTransfer: 1
-  sweet: 1
-  sour: 0
-  salty: 0
-  bitter: 0
-  umami: 0
-  temperature: 0
-  neutralizeTemp: 0
-  flavorMin: 0
-  flavorMax: 100
   specialVals: 
   specialNames: 
+  myFlavor: {fileID: 0}
   playerFlavor: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
 --- !u!199 &9139018915882304358
 ParticleSystemRenderer:
