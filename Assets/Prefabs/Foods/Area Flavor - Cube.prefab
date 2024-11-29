@@ -124,5 +124,5 @@ MonoBehaviour:
   killOnTransfer: 0
   specialVals: 
   specialNames: 
-  myFlavor: {fileID: 0}
+  myFlavor: {fileID: 11400000, guid: 159fcadefb6291944b09d9c9a243e398, type: 2}
   playerFlavor: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
