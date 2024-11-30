@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        PlayerInfo playerInfo = playersInfo.RegisterPlayer();
+        PlayerInfo playerInfo = playersInfo.RegisterPlayer(rb.gameObject.name);
         currentFlavor = playerInfo.flavor;
         flavorHolder = GetComponent<FlavorHolder>();
         flavorHolder.flavor = currentFlavor;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             if (Time.timeScale != 0) {
                 Time.timeScale = 0;
             }

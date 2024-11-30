@@ -32,9 +32,9 @@ public class PlayersInfo : ScriptableObject
         player4Charge.Reset();
     }
 
-    public PlayerInfo RegisterPlayer() {
+    public PlayerInfo RegisterPlayer(string playerComponentName) {
         numPlayers++;
-        Debug.Log("Registering player: "+numPlayers);
+        Debug.Log("Registering player: "+numPlayers+" "+playerComponentName);
         PlayerInfo playerInfo = null;
         if (numPlayers == 1) {
             // return object with player1Flavor and player1Charge
