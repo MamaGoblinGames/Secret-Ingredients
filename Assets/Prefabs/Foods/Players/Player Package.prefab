@@ -619,6 +619,14 @@ PrefabInstance:
       propertyPath: playerFlavor
       value: 
       objectReference: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: originalCharge
+      value: 
+      objectReference: {fileID: 11400000, guid: b2f66d5289201494b922b22f55ee57f1, type: 2}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: originalFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: b41f641b0d882554fa0663f9f7045e8a, type: 2}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

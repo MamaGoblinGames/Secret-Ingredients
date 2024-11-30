@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
@@ -8,15 +6,25 @@ public class PlayerController : MonoBehaviour
 {
     private bool isGrounded = false;
     private Rigidbody rb;
+    [Header("Configurable Fields")]
+    [Tooltip("The original flavor of the player.")]
+    public Flavor originalFlavor;
+    public PlayerCharge originalCharge;
     public GameObject cameraTarget;
-    public float dCharge;
-    public PlayerCharge playerCharge;
-    public float timeCharging;
+    public PlayersInfo playersInfo;
     public float coyoteFrames;
+    public float dCharge;
+
+    [Header("Realtime, computed values.")]
+    [Tooltip("The current realtime flavor of the player.")]
+    public Flavor currentFlavor;
+    public FlavorHolder flavorHolder;
+    public PlayerCharge currentCharge;
+    public float timeCharging;
     public float coyoteTimer;
-    public Flavor playerFlavor;
     private bool canJump;
     private bool charging;
+    public int playerNumber;
 
     // Input
     private InputActionAsset inputAsset;
@@ -26,12 +34,15 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        playerCharge.chargeLevel = 0;
-        playerCharge.canJump = false;
-        playerCharge.jumpBarOpacity = 0.35f;
-        playerFlavor.Neutralize();
+        PlayerInfo playerInfo = playersInfo.RegisterPlayer(rb.gameObject.name);
         UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        
+        currentFlavor = playerInfo.flavor;
+        flavorHolder = GetComponent<FlavorHolder>();
+        flavorHolder.flavor = currentFlavor;
+        currentCharge = playerInfo.charge;
+        playerNumber = playerInfo.playerNumber;
 
         inputAsset = this.GetComponent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
@@ -103,22 +114,22 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        playerCharge.canJump = canJump;
+        currentCharge.canJump = canJump;
 
         if (canJump) {
-            playerCharge.jumpBarOpacity = 1f;
+            currentCharge.jumpBarOpacity = 1f;
         } else {
-            playerCharge.jumpBarOpacity = 0.35f;
+            currentCharge.jumpBarOpacity = PlayerCharge.JumpBarOpacityDefault;
         }
 
         // Charge up
         if (Time.timeScale != 0 && charging) {
             timeCharging += Time.deltaTime;
-            playerCharge.chargeLevel = ChargeFunction(
+            currentCharge.chargeLevel = ChargeFunction(
                 timeCharging,
                 function.powerSeries,   // <-- This one
                 new float[]{200, dCharge, 1.6f},
-                playerCharge.maxCharge
+                PlayerCharge.Max
             );
         }
     }
@@ -131,18 +142,17 @@ public class PlayerController : MonoBehaviour
         charging = false;
         if (Time.timeScale != 0) {
             if (canJump) {
-                rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
-                rb.AddTorque(cameraTarget.transform.right * playerCharge.chargeLevel);
+                rb.AddForce(cameraTarget.transform.forward * currentCharge.chargeLevel);
+                rb.AddTorque(cameraTarget.transform.right * currentCharge.chargeLevel);
                 canJump = false;
             }
             timeCharging = 0;
-            playerCharge.chargeLevel = 0;
+            currentCharge.chargeLevel = 0;
         }
     }
 
     void DoPause(InputAction.CallbackContext context) {
         if (Time.timeScale == 0) Time.timeScale = 1;
         else Time.timeScale = 0;
-        Debug.Log("pause");
     }
 }

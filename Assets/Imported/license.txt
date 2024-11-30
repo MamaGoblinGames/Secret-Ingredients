@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pickle from Poly by Google
+* source:	https://sketchfab.com/3d-models/pickle-from-poly-by-google-0c35c6072e2c4447a94be5fe1f7eb615
+* author:	IronEqual (https://sketchfab.com/ie-niels)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pickle from Poly by Google" (https://sketchfab.com/3d-models/pickle-from-poly-by-google-0c35c6072e2c4447a94be5fe1f7eb615) by IronEqual (https://sketchfab.com/ie-niels) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

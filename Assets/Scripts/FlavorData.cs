@@ -11,9 +11,7 @@ public class FlavorData : MonoBehaviour
     public int[] specialNames = null;
 
     public Flavor myFlavor;
-    public Flavor playerFlavor;
-    public void Initialize(Flavor playerFlavor, Flavor myFlavor) {
-        this.playerFlavor = playerFlavor;
+    public void Initialize(Flavor myFlavor) {
         this.myFlavor = myFlavor;
     }
 
@@ -34,8 +32,9 @@ public class FlavorData : MonoBehaviour
     // Used for rigidbody based flavors
     void OnCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && playerFlavor) {
-            playerFlavor.TransferFlavor(myFlavor, 0.2f);
+        if (collision.gameObject.CompareTag("Player")) {
+            FlavorHolder otherFlavor = collision.gameObject.GetComponent<FlavorHolder>();
+            otherFlavor.flavor.TransferFlavor(myFlavor, 0.2f);
             // Delete the thing
             if (killOnTransfer) Destroy(gameObject);
         }
@@ -43,18 +42,21 @@ public class FlavorData : MonoBehaviour
 
     // Used for particle based flavors
     void OnParticleCollision(GameObject other) {
-        if (other.CompareTag("Player") && TryGetComponent(out ParticleSystem part) && playerFlavor) {
+        if (other.CompareTag("Player") && TryGetComponent(out ParticleSystem part)) {
             // find out how many particles have collided with the player
             // > When OnParticleCollision is invoked from a script attached to a ParticleSystem, the GameObject parameter represents a GameObject with an attached Collider struck by the ParticleSystem. The ParticleSystem receives at most one message per Collider that is struck. As above, ParticlePhysicsExtensions.GetCollisionEvents must be used to retrieve all the collision incidents on the GameObject.
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-            playerFlavor.TransferFlavor(myFlavor, 0.1f*numCollisionEvents);
+            // get the flavor of the player and transfer the flavor to the player
+            FlavorHolder otherFlavor = other.GetComponent<FlavorHolder>();
+            otherFlavor.flavor.TransferFlavor(myFlavor, 0.1f*numCollisionEvents);
         }
     }
 
     // Used for area effect flavors
     void OnTriggerStay(Collider other) {
-        if (other.CompareTag("Player") && playerFlavor) {
-            playerFlavor.TransferFlavor(myFlavor, Time.deltaTime * 0.75f);
+        if (other.CompareTag("Player")) {
+            FlavorHolder otherFlavor = other.GetComponent<FlavorHolder>();
+            otherFlavor.flavor.TransferFlavor(myFlavor, Time.deltaTime * 0.75f);
         }
     }
 }

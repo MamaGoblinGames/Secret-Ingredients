@@ -152,3 +152,34 @@
     height: 80%;
     flex-grow: 0;
 }
+
+.results-group {
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center;
+    align-self: stretch;
+    align-content: center;
+    align-items: stretch;
+}
+
+.result-container {
+    flex-grow: 1;
+    max-width: 50%;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+.player-label {
+    font-size: 24px;
+    -unity-font-definition: resource('Fonts/LondrinaSolid-Black');
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 12px;
+    padding-left: 0;
+}

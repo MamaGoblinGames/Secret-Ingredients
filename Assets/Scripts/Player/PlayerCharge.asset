@@ -15,4 +15,4 @@ MonoBehaviour:
   chargeLevel: 0
   maxCharge: 2000
   canJump: 1
-  jumpBarOpacity: 100
+  jumpBarOpacity: 1

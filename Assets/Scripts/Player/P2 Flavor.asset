@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ba3260d04ad5d458ffa13da8a326c2, type: 3}
+  m_Name: P2 Flavor
+  m_EditorClassIdentifier: 
+  sweet: 42.9
+  sour: 0
+  salty: 0
+  bitter: -64.1
+  umami: 59.7
+  temperature: 0
+  flavorMethod: 0
+  sweetPercent:
+    m_Value: 71.45
+    m_Unit: 1
+  sourPercent:
+    m_Value: 50
+    m_Unit: 1
+  saltyPercent:
+    m_Value: 50
+    m_Unit: 1
+  bitterPercent:
+    m_Value: 17.95
+    m_Unit: 1
+  umamiPercent:
+    m_Value: 79.85
+    m_Unit: 1
+  temperaturePercent:
+    m_Value: 50
+    m_Unit: 1

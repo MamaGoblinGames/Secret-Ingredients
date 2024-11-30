@@ -90,15 +90,15 @@
 .chargeBar .unity-progress-bar__container {
     width: 100%;
     flex-grow: 1;
-    min-height: auto;
-    max-height: auto;
 }
 
 .chargeBar {
-    /* padding: 2px; */
-    /* margin: 1px; */
     flex-grow: 1;
     width: 100%;
+    align-self: center;
+    align-items: auto;
+    align-content: auto;
+    justify-content: flex-start;
 }
 
 .chargeBar .unity-progress-bar__progress {
