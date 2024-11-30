@@ -10,11 +10,6 @@ public partial class HUD : MonoBehaviour
         playersInfo.ResetPlayers();
     }
 
-    void Start() {
-        hudData.ResetTimeRemaining();
-        playersInfo.ResetPlayers();
-    }
-
     void Update() {
         TimeSpan newTimeRemaining = hudData.timeRemaining.Add(TimeSpan.FromSeconds(-Time.deltaTime));
         if (newTimeRemaining <= TimeSpan.Zero) {

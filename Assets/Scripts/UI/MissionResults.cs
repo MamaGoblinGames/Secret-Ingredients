@@ -28,35 +28,44 @@ public class MissionResults : MonoBehaviour
         return Mathf.CeilToInt(100f-flavorDifferencePercent);
     }
 
-    private void SetResults(string resultElementString, Flavor playerFlavor) {
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement.Q(resultElementString);
-        // root.dataSource = playerFlavor;
+    private void HideAllResults() {
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        root.Q("player_1").style.display = DisplayStyle.None;
+        root.Q("player_2").style.display = DisplayStyle.None;
+        root.Q("player_3").style.display = DisplayStyle.None;
+        root.Q("player_4").style.display = DisplayStyle.None;
+    }
+
+    private void SetResults(string playerNumber, Flavor playerFlavor) {
+        VisualElement element = GetComponent<UIDocument>().rootVisualElement.Q("player_" + playerNumber);
         int disguiseRating = CalculateDisguiseRating(playerFlavor);
         ResultData result = new(disguiseRating);
-        Label flavorDifferenceLabel = root.Q<Label>("flavor_difference");
+        Label flavorDifferenceLabel = element.Q<Label>("flavor_difference");
         flavorDifferenceLabel.text = result.DisguiseRatingText;
 
-        Label missionScoreLabel = root.Q<Label>("mission_score");
+        Label missionScoreLabel = element.Q<Label>("mission_score");
         missionScoreLabel.text = result.MissionScore;
 
-        root.style.display = DisplayStyle.Flex;
+        element.style.display = DisplayStyle.Flex;
+        Debug.Log("Player " + playerNumber + " disguise rating: " + disguiseRating);
     }
     private void OnEnable()
     {
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
+        HideAllResults();
         
         if (playersInfo.numPlayers >= 1) {
-            SetResults("player_1_results", playersInfo.player1Flavor);
+            SetResults("1", playersInfo.player1Flavor);
         }
         if (playersInfo.numPlayers >= 2) {
-            SetResults("player_2_results", playersInfo.player2Flavor);
+            SetResults("2", playersInfo.player2Flavor);
         }
         if (playersInfo.numPlayers >= 3) {
-            SetResults("player_3_results", playersInfo.player3Flavor);
+            SetResults("3", playersInfo.player3Flavor);
         }
         if (playersInfo.numPlayers >= 4) {
-            SetResults("player_4_results", playersInfo.player4Flavor);
+            SetResults("4", playersInfo.player4Flavor);
         }
 
         // show buttons after a few seconds to avoid immediate clicking on accident
