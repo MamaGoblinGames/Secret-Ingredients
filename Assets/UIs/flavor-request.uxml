@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/flavor-request.uss?fileID=7433441132597879392&amp;guid=b83a49d656a5d294f9ac09b029930b9f&amp;type=3#flavor-request" />
     <engine:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(217, 216, 188); align-items: center; justify-content: center;">
-        <engine:VisualElement name="VisualElement" style="flex-grow: 0; width: 90%; justify-content: center; align-items: stretch; align-content: auto; flex-shrink: 1; max-width: 600px;">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 0; width: 90%; justify-content: center; align-items: stretch; align-content: auto; flex-shrink: 1; max-width: 600px; scale: 2 2;">
             <engine:Label text="Mission Briefing" style="-unity-text-align: upper-center; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Black&apos;); font-size: 30px; margin-bottom: 8px;" />
             <engine:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row;">
                 <engine:VisualElement style="flex-grow: 0; padding-right: 12px; margin-right: 12px; width: 200px;">
