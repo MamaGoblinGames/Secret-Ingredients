@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float coyoteTimer;
     public Flavor playerFlavor;
     private bool canJump;
+    private bool charging;
 
     // Input
     private InputActionAsset inputAsset;
@@ -37,14 +38,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnEnable() {
-        player.FindAction("Fire").held += DoCharge;
-        player.FindAction("Fire").end += DoJump;
+        player.FindAction("Fire").started += DoCharge;
+        player.FindAction("Fire").canceled += DoJump;
+        player.FindAction("Pause").started += DoPause;
         player.Enable();
     }
 
     private void OnDisable() {
-        player.FindAction("Fire").held -= DoCharge;
-        player.FindAction("Fire").finish -= DoJump;
+        player.FindAction("Fire").started -= DoCharge;
+        player.FindAction("Fire").canceled -= DoJump;
+        player.FindAction("Pause").started -= DoPause;
         player.Disable();
     }
 
@@ -87,16 +90,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        // Pause
-        if (Input.GetKeyDown(KeyCode.Escape)){
-            if (Time.timeScale != 0) {
-                Time.timeScale = 0;
-            }
-            else {
-                Time.timeScale = 1;
-            }
-        }
-
         // Figure out if jumping is allowed
         canJump = false;
         if (isGrounded) {
@@ -117,11 +110,9 @@ public class PlayerController : MonoBehaviour
         } else {
             playerCharge.jumpBarOpacity = 0.35f;
         }
-    }
 
-    void DoCharge(InputAction.CallbackContext context) {
-        // Jump if applicable
-        if (Time.timeScale != 0) {
+        // Charge up
+        if (Time.timeScale != 0 && charging) {
             timeCharging += Time.deltaTime;
             playerCharge.chargeLevel = ChargeFunction(
                 timeCharging,
@@ -132,7 +123,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void DoCharge(InputAction.CallbackContext context) {
+        charging = true;
+    }
+
     void DoJump(InputAction.CallbackContext context) {
+        charging = false;
         if (Time.timeScale != 0) {
             if (canJump) {
                 rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
@@ -142,5 +138,11 @@ public class PlayerController : MonoBehaviour
             timeCharging = 0;
             playerCharge.chargeLevel = 0;
         }
+    }
+
+    void DoPause(InputAction.CallbackContext context) {
+        if (Time.timeScale == 0) Time.timeScale = 1;
+        else Time.timeScale = 0;
+        Debug.Log("pause");
     }
 }
