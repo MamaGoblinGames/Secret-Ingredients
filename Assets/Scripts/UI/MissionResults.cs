@@ -22,38 +22,42 @@ public class MissionResults : MonoBehaviour
         return difference;
     }
 
-    private string CalculateMissionRating(int disguiseRating) {
-        if (disguiseRating == 100) {
-            return "A++";
-        } else if (disguiseRating >= 95) {
-            return "A+";
-        } else if (disguiseRating >= 90) {
-            return "A";
-        } else if (disguiseRating >= 85) {
-            return "B";
-        } else if (disguiseRating >= 75) {
-            return "C";
-        } else if (disguiseRating >= 65) {
-            return "D";
-        } else {
-            return "F";
-        }
+    private int CalculateDisguiseRating(Flavor playerFlavor) {
+        float flavorDifference = CalculateTotalFlavorDifference(playerFlavor);
+        float flavorDifferencePercent = flavorDifference / 600.0f * 100.0f;
+        return Mathf.CeilToInt(100f-flavorDifferencePercent);
+    }
+
+    private void SetResults(string resultElementString, Flavor playerFlavor) {
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement.Q(resultElementString);
+        // root.dataSource = playerFlavor;
+        int disguiseRating = CalculateDisguiseRating(playerFlavor);
+        ResultData result = new(disguiseRating);
+        Label flavorDifferenceLabel = root.Q<Label>("flavor_difference");
+        flavorDifferenceLabel.text = result.DisguiseRatingText;
+
+        Label missionScoreLabel = root.Q<Label>("mission_score");
+        missionScoreLabel.text = result.MissionScore;
+
+        root.style.display = DisplayStyle.Flex;
     }
     private void OnEnable()
     {
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
-
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement.Q("player_1_results");
-        float flavorDifference = CalculateTotalFlavorDifference(playersInfo.player1Flavor);
-        float flavorDifferencePercent = flavorDifference / 600.0f * 100.0f;
-        int disguiseRating = Mathf.CeilToInt(100f-flavorDifferencePercent);
-
-        Label flavorDifferenceLabel = root.Q<Label>("flavor_difference");
-        flavorDifferenceLabel.text = "Your disguise was " + disguiseRating.ToString() + "% effective.";
-
-        Label missionScoreLabel = root.Q<Label>("mission_score");
-        missionScoreLabel.text = CalculateMissionRating(disguiseRating);
+        
+        if (playersInfo.numPlayers >= 1) {
+            SetResults("player_1_results", playersInfo.player1Flavor);
+        }
+        if (playersInfo.numPlayers >= 2) {
+            SetResults("player_2_results", playersInfo.player2Flavor);
+        }
+        if (playersInfo.numPlayers >= 3) {
+            SetResults("player_3_results", playersInfo.player3Flavor);
+        }
+        if (playersInfo.numPlayers >= 4) {
+            SetResults("player_4_results", playersInfo.player4Flavor);
+        }
 
         // show buttons after a few seconds to avoid immediate clicking on accident
         coroutine = WaitAndShowButton(2.0f);
