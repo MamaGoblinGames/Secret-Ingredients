@@ -1,29 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
     private bool isGrounded = false;
     private Rigidbody rb;
+    [Header("Configurable Fields")]
+    [Tooltip("The original flavor of the player.")]
+    public Flavor originalFlavor;
+    public PlayerCharge originalCharge;
     public GameObject cameraTarget;
-    public float dCharge;
-    public PlayerCharge playerCharge;
-    public float timeCharging;
+    public PlayersInfo playersInfo;
     public float coyoteFrames;
+    public float dCharge;
+
+    [Header("Realtime, computed values.")]
+    [Tooltip("The current realtime flavor of the player.")]
+    public Flavor currentFlavor;
+    public FlavorHolder flavorHolder;
+    public PlayerCharge currentCharge;
+    public float timeCharging;
     public float coyoteTimer;
-    public Flavor playerFlavor;
+    public int playerNumber;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerCharge.chargeLevel = 0;
-        playerCharge.canJump = false;
-        playerCharge.jumpBarOpacity = 0.35f;
-        playerFlavor.Neutralize();
-        UnityEngine.Cursor.visible = false;
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        PlayerInfo playerInfo = playersInfo.RegisterPlayer();
+        currentFlavor = playerInfo.flavor;
+        flavorHolder = GetComponent<FlavorHolder>();
+        flavorHolder.flavor = currentFlavor;
+        currentCharge = playerInfo.charge;
+        playerNumber = playerInfo.playerNumber;
     }
 
     // OnCollisionStay is called once per frame for every Collider or Rigidbody that touches another Collider or Rigidbody.
@@ -89,29 +98,29 @@ public class PlayerController : MonoBehaviour
         // Jump if applicable
         if (Input.GetMouseButton(0) /*Left button*/ && Time.timeScale != 0) {
             timeCharging += Time.deltaTime;
-            playerCharge.chargeLevel = ChargeFunction(
+            currentCharge.chargeLevel = ChargeFunction(
                 timeCharging,
                 function.powerSeries,   // <-- This one
                 new float[]{200, dCharge, 1.6f},
-                playerCharge.maxCharge
+                PlayerCharge.Max
             );
         }
         else if (Input.GetMouseButtonUp(0) && Time.timeScale != 0) {
             if (canJump) {
-                rb.AddForce(cameraTarget.transform.forward * playerCharge.chargeLevel);
-                rb.AddTorque(cameraTarget.transform.right * playerCharge.chargeLevel);
+                rb.AddForce(cameraTarget.transform.forward * currentCharge.chargeLevel);
+                rb.AddTorque(cameraTarget.transform.right * currentCharge.chargeLevel);
                 canJump = false;
             }
             timeCharging = 0;
-            playerCharge.chargeLevel = 0;
+            currentCharge.chargeLevel = 0;
         }
 
-        playerCharge.canJump = canJump;
+        currentCharge.canJump = canJump;
 
         if (canJump) {
-            playerCharge.jumpBarOpacity = 1f;
+            currentCharge.jumpBarOpacity = 1f;
         } else {
-            playerCharge.jumpBarOpacity = 0.35f;
+            currentCharge.jumpBarOpacity = PlayerCharge.JumpBarOpacityDefault;
         }
     }
 }

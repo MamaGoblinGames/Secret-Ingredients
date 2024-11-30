@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039225895, y: 0.000000024680826, z: -9.688739e-10, w: 0.9992304}
-  m_LocalPosition: {x: 0, y: 4.4056473, z: -7.62973}
+  m_LocalRotation: {x: -0.22681643, y: 0.4559919, z: 0.12139378, w: 0.85199136}
+  m_LocalPosition: {x: -6.3721247, y: -0.3136587, z: -4.2477074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,7 +114,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 0
+    Value: 56.31227
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
+    Value: -16.810507
     Center: 17.5
     Range: {x: -60, y: 60}
     Wrap: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
         LegacyInput: Mouse Y
         LegacyGain: -10
         CancelDeltaTime: 1
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0.2
         DecelTime: 0.2
@@ -338,8 +338,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039225895, y: 0.000000024680826, z: -9.688732e-10, w: 0.9992304}
-  m_LocalPosition: {x: -0.00002670288, y: 4.0617256, z: -6.5379333}
+  m_LocalRotation: {x: 0.039248213, y: 0.000002079254, z: -0.000000081669945, w: 0.9992295}
+  m_LocalPosition: {x: -50.24609, y: 34.79351, z: -380.33792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,6 +452,14 @@ PrefabInstance:
       propertyPath: playerFlavor
       value: 
       objectReference: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: originalCharge
+      value: 
+      objectReference: {fileID: 11400000, guid: b2f66d5289201494b922b22f55ee57f1, type: 2}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: originalFlavor
+      value: 
+      objectReference: {fileID: 11400000, guid: b41f641b0d882554fa0663f9f7045e8a, type: 2}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

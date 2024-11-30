@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 public class MissionResults : MonoBehaviour
 {
     public Flavor flavorSettings;
-    public Flavor playerFlavor;
+    public PlayersInfo playersInfo;
     private IEnumerator coroutine;
 
     private float CalculateFlavorDifference(Length target, Length player) {
         return Mathf.Abs(target.value - player.value);
     }
-    private float CalculateTotalFlavorDifference() {
+    private float CalculateTotalFlavorDifference(Flavor playerFlavor) {
         float difference = 0;
         difference += CalculateFlavorDifference(flavorSettings.sweetPercent, playerFlavor.sweetPercent);
         difference += CalculateFlavorDifference(flavorSettings.sourPercent, playerFlavor.sourPercent);
@@ -44,8 +44,8 @@ public class MissionResults : MonoBehaviour
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
 
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        float flavorDifference = CalculateTotalFlavorDifference();
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement.Q("player_1_results");
+        float flavorDifference = CalculateTotalFlavorDifference(playersInfo.player1Flavor);
         float flavorDifferencePercent = flavorDifference / 600.0f * 100.0f;
         int disguiseRating = Mathf.CeilToInt(100f-flavorDifferencePercent);
 

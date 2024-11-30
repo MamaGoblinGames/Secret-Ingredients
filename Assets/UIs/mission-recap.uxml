@@ -3,7 +3,7 @@
     <engine:VisualElement name="Container" class="mission-results" style="flex-grow: 1; background-color: rgb(217, 216, 188); align-items: center; justify-content: center;">
         <engine:VisualElement name="VisualElement" style="flex-grow: 0; width: 90%; justify-content: center; align-items: stretch; align-content: auto; flex-shrink: 1; max-width: 600px;">
             <engine:Label text="Mission Results" style="-unity-text-align: upper-center; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Black&apos;); font-size: 30px; margin-bottom: 8px;" />
-            <engine:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row;">
+            <engine:VisualElement name="player_1_results" data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" style="flex-grow: 1; flex-direction: row;">
                 <engine:VisualElement style="flex-grow: 0; padding-right: 12px; margin-right: 12px; width: 200px;">
                     <engine:Label text="Secret Ingredient Rating" class="briefing-h2" />
                     <engine:Label text="Your disguise was X% effective." name="flavor_difference" style="flex-grow: 0; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;); white-space: normal; text-overflow: clip; -unity-text-align: upper-left; width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
@@ -28,7 +28,7 @@
                             <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
                                 <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7; transition-timing-function: ease-in-out-cubic;">
                                     <Bindings>
-                                        <engine:DataBinding property="style.width" data-source-path="sweetPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                        <engine:DataBinding property="style.width" data-source-path="sweetPercent" binding-mode="ToTarget" />
                                     </Bindings>
                                 </engine:VisualElement>
                             </engine:VisualElement>
@@ -51,7 +51,7 @@
                             <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
                                 <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
                                     <Bindings>
-                                        <engine:DataBinding property="style.width" data-source-path="sourPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                        <engine:DataBinding property="style.width" data-source-path="sourPercent" binding-mode="ToTarget" />
                                     </Bindings>
                                 </engine:VisualElement>
                             </engine:VisualElement>
@@ -74,7 +74,7 @@
                             <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
                                 <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
                                     <Bindings>
-                                        <engine:DataBinding property="style.width" data-source-path="saltyPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                        <engine:DataBinding property="style.width" data-source-path="saltyPercent" binding-mode="ToTarget" />
                                     </Bindings>
                                 </engine:VisualElement>
                             </engine:VisualElement>
@@ -97,7 +97,7 @@
                             <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
                                 <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
                                     <Bindings>
-                                        <engine:DataBinding property="style.width" data-source-path="bitterPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                        <engine:DataBinding property="style.width" data-source-path="bitterPercent" binding-mode="ToTarget" />
                                     </Bindings>
                                 </engine:VisualElement>
                             </engine:VisualElement>
@@ -120,7 +120,7 @@
                             <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
                                 <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
                                     <Bindings>
-                                        <engine:DataBinding property="style.width" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                        <engine:DataBinding property="style.width" data-source-path="umamiPercent" binding-mode="ToTarget" />
                                     </Bindings>
                                 </engine:VisualElement>
                             </engine:VisualElement>
@@ -143,7 +143,7 @@
                             <engine:VisualElement name="VisualElement" class="target-mark-container flavor-fill-container">
                                 <engine:VisualElement name="VisualElement" class="target-mark flavor-fill" style="margin-left: 2px; transition-property: none; height: 5px; flex-grow: 0; margin-top: 6px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; width: 100%; margin-bottom: 0; opacity: 0.7;">
                                     <Bindings>
-                                        <engine:DataBinding property="style.width" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/Flavors/PlayerFlavorInstance.asset?fileID=11400000&amp;guid=061e8c4953765bb48aa368fae578913d&amp;type=2#PlayerFlavorInstance" binding-mode="ToTarget" />
+                                        <engine:DataBinding property="style.width" data-source-path="temperaturePercent" binding-mode="ToTarget" />
                                     </Bindings>
                                 </engine:VisualElement>
                             </engine:VisualElement>
