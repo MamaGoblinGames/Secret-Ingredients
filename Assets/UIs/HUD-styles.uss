@@ -90,8 +90,6 @@
 .chargeBar .unity-progress-bar__container {
     width: 100%;
     flex-grow: 1;
-    min-height: auto;
-    max-height: auto;
 }
 
 .chargeBar {
