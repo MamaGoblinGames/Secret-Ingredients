@@ -6,21 +6,21 @@
             <engine:Label text="Mission Results" style="-unity-text-align: upper-center; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Black&apos;); font-size: 72px; margin-bottom: 8px;" />
             <engine:VisualElement style="flex-grow: 1;">
                 <engine:VisualElement class="results-group">
-                    <engine:VisualElement name="player_1" class="result-container" style="flex-grow: 1;">
-                        <engine:Label text="Player 1" class="player-label" style="-unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Black&apos;);" />
+                    <engine:VisualElement name="player_1" class="result-container">
+                        <engine:Label text="Player 1" class="player-label" />
                         <engine:Instance template="player-results-template" name="player_1_results" data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="player_2" class="result-container" style="flex-grow: 1;">
+                    <engine:VisualElement name="player_2" class="result-container">
                         <engine:Label text="Player 2" class="player-label" />
                         <engine:Instance template="player-results-template" name="player_2_results" data-source="project://database/Assets/Scripts/Player/P2%20Flavor.asset?fileID=11400000&amp;guid=cc4ff5028c5984f4797e935b7e489ae7&amp;type=2#P2 Flavor" />
                     </engine:VisualElement>
                 </engine:VisualElement>
                 <engine:VisualElement class="results-group" style="flex-grow: 1;">
-                    <engine:VisualElement name="player_3" class="result-container" style="flex-grow: 1;">
+                    <engine:VisualElement name="player_3" class="result-container">
                         <engine:Label text="Player 3" class="player-label" />
                         <engine:Instance template="player-results-template" name="player_3_results" data-source="project://database/Assets/Scripts/Player/P3%20Flavor.asset?fileID=11400000&amp;guid=4e05d615b406a114a88d433d7d2dbb4a&amp;type=2#P3 Flavor" style="flex-grow: 1;" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="player_4" class="result-container" style="flex-grow: 1;">
+                    <engine:VisualElement name="player_4" class="result-container">
                         <engine:Label text="Player 4" class="player-label" />
                         <engine:Instance template="player-results-template" name="player_4_results" data-source="project://database/Assets/Scripts/Player/P4%20Flavor.asset?fileID=11400000&amp;guid=06cca1617d559694eb4ad96f44e8781e&amp;type=2#P4 Flavor" />
                     </engine:VisualElement>
