@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HUDData", menuName = "Scriptable Objects/HUD Data")]
 public class HUDData : ScriptableObject
 {
-    const float defaultLevelDuration = 600f;
+    const float defaultLevelDuration = 10f;
     public TimeSpan timeRemaining = TimeSpan.FromSeconds(defaultLevelDuration);
     public string formattedTimeRemaining;
 

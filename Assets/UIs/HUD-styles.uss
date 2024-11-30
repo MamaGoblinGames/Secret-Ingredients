@@ -95,10 +95,12 @@
 }
 
 .chargeBar {
-    /* padding: 2px; */
-    /* margin: 1px; */
     flex-grow: 1;
     width: 100%;
+    align-self: center;
+    align-items: auto;
+    align-content: auto;
+    justify-content: flex-start;
 }
 
 .chargeBar .unity-progress-bar__progress {

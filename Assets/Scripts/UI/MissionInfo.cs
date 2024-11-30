@@ -10,7 +10,9 @@ public class MissionInfo : MonoBehaviour
     private void OnEnable()
     {
         // flavorSettings.Neutralize();
-
+        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        
         coroutine = WaitAndGenerateFlavors(1.0f);
         StartCoroutine(coroutine);
     }

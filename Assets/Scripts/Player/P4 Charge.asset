@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 173a87c133831f64690a0dd34d4c6516, type: 3}
-  m_Name: PlayerCharge
+  m_Name: P4 Charge
   m_EditorClassIdentifier: 
   chargeLevel: 0
   maxCharge: 2000
