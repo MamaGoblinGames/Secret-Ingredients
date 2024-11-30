@@ -4,11 +4,15 @@ using UnityEngine;
 public partial class HUD : MonoBehaviour
 {
     public HUDData hudData;
+    public PlayersInfo playersInfo;
     private void OnEnable() {
         hudData.ResetTimeRemaining();
+        playersInfo.ResetPlayers();
     }
 
     void Start() {
+        hudData.ResetTimeRemaining();
+        playersInfo.ResetPlayers();
     }
 
     void Update() {

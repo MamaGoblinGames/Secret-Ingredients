@@ -56,13 +56,14 @@ public class MissionResults : MonoBehaviour
         missionScoreLabel.text = CalculateMissionRating(disguiseRating);
 
         // show buttons after a few seconds to avoid immediate clicking on accident
-        coroutine = WaitAndShowButton(root, 2.0f);
+        coroutine = WaitAndShowButton(2.0f);
         StartCoroutine(coroutine);
     }
 
-    private IEnumerator WaitAndShowButton(VisualElement root, float waitTime)
+    private IEnumerator WaitAndShowButton(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         Button button = root.Q<Button>("continue_button");
         button.clicked += () => LoadGameScene();
         button.style.opacity = 1;

@@ -22,6 +22,9 @@ public class MainMenu : MonoBehaviour
 
         Button startButton = root.Q<Button>("start_button");
         startButton.clicked += () => LoadGameScene();
+
+        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
     }
 
     void LoadGameScene()
