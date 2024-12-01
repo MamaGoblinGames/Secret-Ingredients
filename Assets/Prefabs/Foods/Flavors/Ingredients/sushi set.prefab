@@ -11446,6 +11446,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5405293473520001590}
     m_Modifications:
     - target: {fileID: 875950263887435440, guid: dbd266b06c503de41ad2e2a378756a64, type: 3}
+      propertyPath: TriggerModule.radiusScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 875950263887435440, guid: dbd266b06c503de41ad2e2a378756a64, type: 3}
       propertyPath: CollisionModule.radiusScale
       value: 2
       objectReference: {fileID: 0}
