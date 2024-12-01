@@ -669,7 +669,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -4773,7 +4773,6 @@ MonoBehaviour:
   specialVals: 
   specialNames: 
   myFlavor: {fileID: 11400000, guid: 159fcadefb6291944b09d9c9a243e398, type: 2}
-  playerFlavor: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
 --- !u!199 &9139018915882304358
 ParticleSystemRenderer:
   serializedVersion: 6
