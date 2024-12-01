@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     // Input
     private InputActionAsset inputAsset;
-    private InputActionMap player;
+    public InputActionMap player;
     private InputAction move;
 
     // Camera
@@ -37,19 +37,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineCamera m_CinemachineCamera;
     [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
 
-    void Start()
-    {
-        // Shift one bit per brain Count.
-        m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
-        m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
-    }
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         PlayerInfo playerInfo = playersInfo.RegisterPlayer(rb.gameObject.name);
         UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        inputAsset = this.GetComponent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
         
         currentFlavor = playerInfo.flavor;
         flavorHolder = GetComponent<FlavorHolder>();
@@ -57,8 +53,12 @@ public class PlayerController : MonoBehaviour
         currentCharge = playerInfo.charge;
         playerNumber = playerInfo.playerNumber;
 
-        inputAsset = this.GetComponent<PlayerInput>().actions;
-        player = inputAsset.FindActionMap("Player");
+        // Shift one bit per brain Count.
+        m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
+        m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
+        m_CinemachineInputAxis.PlayerIndex = playerNumber;
+        m_CinemachineInputAxis.Controllers[0].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        m_CinemachineInputAxis.Controllers[1].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
     }
 
     private void OnEnable() {
