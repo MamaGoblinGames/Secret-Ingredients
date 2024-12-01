@@ -19,7 +19,7 @@ public class HUDData : ScriptableObject
     }
 
     void Awake() {
-        StartGame();
+        // StartGame();
     }
     void OnValidate() {
         SyncTimeRemaining();

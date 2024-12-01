@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class SwitchCamera : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class SwitchCamera : MonoBehaviour
     {
         Destroy(joinCam);
         playerManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
-        hud.SetActive(true);
+        hud.GetComponent<UIDocument>().enabled = true;
+        hud.GetComponent<HUD>().hudData.StartGame();
         Destroy(this);
     }
 }

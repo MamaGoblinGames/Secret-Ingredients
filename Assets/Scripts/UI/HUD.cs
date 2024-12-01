@@ -7,7 +7,7 @@ public partial class HUD : MonoBehaviour
     public PlayersInfo playersInfo;
     private void Awake() {
         playersInfo.ResetPlayers();
-        hudData.StartGame();
+        // hudData.StartGame();
     }
 
     void Update() {
