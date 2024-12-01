@@ -180,9 +180,9 @@ public class PlayerController : MonoBehaviour
         if (cam != null) {
             cam.StartMatch();
             foreach(PlayerController dude in FindObjectsByType<PlayerController>(FindObjectsSortMode.None)) {
-                dude.player.FindAction("Fire").started += DoCharge;
-                dude.player.FindAction("Fire").canceled += DoJump;
-                dude.player.FindAction("Pause").started += DoPause;
+                dude.player.FindAction("Fire").started += dude.DoCharge;
+                dude.player.FindAction("Fire").canceled += dude.DoJump;
+                dude.player.FindAction("Pause").started += dude.DoPause;
             }
         }
     }
