@@ -183,6 +183,10 @@ PrefabInstance:
       value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 875950263887435440, guid: c6335b1ccb275b241b52335828e510ad, type: 3}
+      propertyPath: TriggerModule.radiusScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 875950263887435440, guid: c6335b1ccb275b241b52335828e510ad, type: 3}
       propertyPath: CollisionModule.radiusScale
       value: 2
       objectReference: {fileID: 0}
