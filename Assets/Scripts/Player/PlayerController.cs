@@ -69,9 +69,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnEnable() {
-        player.FindAction("Fire").started += DoCharge;
-        player.FindAction("Fire").canceled += DoJump;
-        player.FindAction("Pause").started += DoPause;
         player.FindAction("Submit").started += DoSubmit;
         player.Enable();
     }
@@ -182,6 +179,11 @@ public class PlayerController : MonoBehaviour
         SwitchCamera cam = FindAnyObjectByType<SwitchCamera>();
         if (cam != null) {
             cam.StartMatch();
+            foreach(PlayerController dude in FindObjectsByType<PlayerController>(FindObjectsSortMode.None)) {
+                dude.player.FindAction("Fire").started += DoCharge;
+                dude.player.FindAction("Fire").canceled += DoJump;
+                dude.player.FindAction("Pause").started += DoPause;
+            }
         }
     }
 }
