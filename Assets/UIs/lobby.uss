@@ -1,0 +1,22 @@
+.title {
+    -unity-font-definition: resource('Fonts/SpecialElite-Regular');
+    font-size: 64px;
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+}
+
+.prompt {
+    -unity-text-align: upper-center;
+}
+
+.lobby-left {
+    flex-grow: 1;
+    width: 50%;
+    -unity-font-definition: resource('Fonts/LondrinaSolid-Regular');
+    -unity-font-style: normal;
+    font-size: 36px;
+}
+
+.prompt {
+    -unity-text-align: upper-center;
+}

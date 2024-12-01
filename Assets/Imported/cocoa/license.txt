@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bowl
+* source:	https://sketchfab.com/3d-models/bowl-66bebd67ecfd446e93397697d946bff3
+* author:	Creator (https://sketchfab.com/Xcalibur.fortbrick2)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bowl" (https://sketchfab.com/3d-models/bowl-66bebd67ecfd446e93397697d946bff3) by Creator (https://sketchfab.com/Xcalibur.fortbrick2) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
