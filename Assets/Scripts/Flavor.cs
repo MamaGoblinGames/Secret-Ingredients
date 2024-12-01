@@ -97,7 +97,7 @@ public class Flavor : ScriptableObject
     private void ApproachTarget(Flavor target, float strength = 1f) {
         // determine the amount to move toward the target using strength, time, and a multiplier
         // (2000 is a multiplier that seems to work well)
-        float effect = strength * Time.deltaTime * 2000;
+        float effect = strength * Time.deltaTime * 1000;
         sweet = CalculatedApproachedFlavor(sweet, target.sweet, effect);
         sour = CalculatedApproachedFlavor(sour, target.sour, effect);
         salty = CalculatedApproachedFlavor(salty, target.salty, effect);
