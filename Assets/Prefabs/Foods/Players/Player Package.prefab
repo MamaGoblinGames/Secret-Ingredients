@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.54909956, y: -0.30717388, z: -0.22688599, w: 0.74340886}
-  m_LocalPosition: {x: 2.8309774, y: -4.922122, z: -2.8407288}
+  m_LocalRotation: {x: 0.120189495, y: 0.5567705, z: -0.081822574, w: 0.81784236}
+  m_LocalPosition: {x: -6.46359, y: 5.966699, z: -2.5470276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,7 +114,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -44.901398
+    Value: 68.492775
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -59.91301
+    Value: 29.724987
     Center: 17.5
     Range: {x: -60, y: 60}
     Wrap: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 10
         CancelDeltaTime: 1
-      InputValue: -0
+      InputValue: 0
       Driver:
         AccelTime: 0.1
         DecelTime: 0.1
@@ -345,8 +345,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5490997, y: -0.30717358, z: -0.22688577, w: 0.743409}
-  m_LocalPosition: {x: 0.6529391, y: 0.4044757, z: -0.6552124}
+  m_LocalRotation: {x: 0.1201895, y: 0.55677056, z: -0.081822574, w: 0.81784236}
+  m_LocalPosition: {x: -6.46359, y: 5.966699, z: -2.5470276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -444,6 +444,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5939279533189794504}
     m_Modifications:
     - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: player.m_Id
+      value: 8224ada5-5adf-4cc6-98c8-2f0e8c1c31f7
+      objectReference: {fileID: 0}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 9048665212086484653}
@@ -451,6 +455,10 @@ PrefabInstance:
       propertyPath: playerFlavor
       value: 
       objectReference: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: player.m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: originalCharge
       value: 
@@ -467,6 +475,10 @@ PrefabInstance:
       propertyPath: m_CinemachineCamera
       value: 
       objectReference: {fileID: 5143156086060602563}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: m_CinemachineInputAxis
+      value: 
+      objectReference: {fileID: 6705116804523413939}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
