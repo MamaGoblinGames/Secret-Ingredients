@@ -1028,6 +1028,7 @@ MonoBehaviour:
   joinCam: {fileID: 812132899}
   playerManager: {fileID: 314595389}
   hud: {fileID: 1543140122}
+  lobby: {fileID: 1537150145}
 --- !u!1001 &823411016
 PrefabInstance:
   m_ObjectHideFlags: 0

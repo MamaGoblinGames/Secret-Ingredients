@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd"
->
-    
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIs/lobby.uss?fileID=7433441132597879392&amp;guid=e6e9f9016f6348a468fb258728f10a46&amp;type=3#lobby" />
+    <engine:VisualElement name="VisualElement" class="lobby-left" style="justify-content: space-evenly;">
+        <engine:VisualElement style="flex-grow: 1; align-items: stretch; justify-content: center;">
+            <engine:Label text="Secret Ingredients" name="Label" class="title" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; justify-content: center;">
+            <engine:Label text="Press any button or key to join." class="prompt" />
+            <engine:Label text="Press start or enter to begin." class="prompt" />
+        </engine:VisualElement>
+    </engine:VisualElement>
 </engine:UXML>
