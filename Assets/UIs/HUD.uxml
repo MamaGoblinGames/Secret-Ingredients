@@ -1,113 +1,59 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="flavorBars" src="project://database/Assets/UIs/Templates/flavorBars.uxml?fileID=9197481963319205126&amp;guid=3466e49465eb4ca4aa64b5a00d0c6691&amp;type=3#flavorBars" />
+    <engine:Template name="timer" src="project://database/Assets/UIs/Templates/timer.uxml?fileID=9197481963319205126&amp;guid=50765747325002d45bb58501ecd9e3bd&amp;type=3#timer" />
+    <engine:Template name="chargeBar" src="project://database/Assets/UIs/Templates/chargeBar.uxml?fileID=9197481963319205126&amp;guid=07123adfbb2dbad43813eacd3235ecce&amp;type=3#chargeBar" />
     <Style src="project://database/Assets/UIs/HUD-styles.uss?fileID=7433441132597879392&amp;guid=cca6cb183a3d4b74db22b18e15f57bd8&amp;type=3#HUD-styles" />
-    <engine:VisualElement name="Container" enabled="true" data-source="project://database/Assets/UIs/HUD%20Data.asset?fileID=11400000&amp;guid=81a2bc17c8019f84c9fbc313f3585f74&amp;type=2#HUD Data" style="flex-grow: 1; position: relative; bottom: 0; left: 0; align-items: center; flex-direction: column; justify-content: space-between; align-content: auto; width: auto; flex-shrink: 1; align-self: auto; opacity: 0.63; padding-top: 1px;">
-        <engine:VisualElement style="flex-grow: 1; width: 100%; align-items: center;">
-            <engine:VisualElement name="flavorBars" data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" class="flavor-bars-container">
-                <engine:VisualElement class="flavor-bar-container">
-                    <engine:ProgressBar value="70" title="sweet" name="sweetProgress" class="flavorBar sweet">
-                        <Bindings>
-                            <engine:DataBinding property="value" data-source-path="sweetPercent.value" data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" binding-mode="ToTarget" />
-                        </Bindings>
-                    </engine:ProgressBar>
-                    <engine:VisualElement name="VisualElement" class="target-container">
-                        <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="sweetPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
+    <engine:VisualElement name="fullHud" style="flex-grow: 1; flex-direction: column;">
+        <engine:VisualElement name="topHuds" style="flex-grow: 1; flex-direction: row;">
+            <engine:VisualElement name="p1Hud" class="hud-container" style="flex-grow: 1;">
+                <engine:VisualElement name="flavorsAndTimer" class="top-container">
+                    <engine:Instance template="flavorBars" name="flavorsContainer" data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" class="flavors-template-container" />
+                    <engine:Instance template="timer" name="timer" />
                 </engine:VisualElement>
-                <engine:VisualElement data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" class="flavor-bar-container">
-                    <engine:ProgressBar value="70" title="salty" name="saltyProgress" class="flavorBar salty" style="opacity: 1;">
-                        <Bindings>
-                            <engine:DataBinding property="value" data-source-path="saltyPercent.value" binding-mode="ToTarget" />
-                        </Bindings>
-                    </engine:ProgressBar>
-                    <engine:VisualElement name="VisualElement" class="target-container">
-                        <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="saltyPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-                <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
-                    <engine:ProgressBar value="70" title="sour" name="sourProgress" class="flavorBar sour">
-                        <Bindings>
-                            <engine:DataBinding property="value" data-source-path="sourPercent.value" binding-mode="ToTarget" />
-                        </Bindings>
-                    </engine:ProgressBar>
-                    <engine:VisualElement name="VisualElement" class="target-container">
-                        <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="sourPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-                <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
-                    <engine:ProgressBar value="70" title="bitter" name="bitterProgress" class="flavorBar bitter">
-                        <Bindings>
-                            <engine:DataBinding property="value" data-source-path="bitterPercent.value" binding-mode="ToTarget" />
-                        </Bindings>
-                    </engine:ProgressBar>
-                    <engine:VisualElement name="VisualElement" class="target-container">
-                        <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="bitterPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-                <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
-                    <engine:ProgressBar value="70" title="savory" name="umamiProgress" class="flavorBar umami">
-                        <Bindings>
-                            <engine:DataBinding property="value" data-source-path="umamiPercent.value" binding-mode="ToTarget" />
-                        </Bindings>
-                    </engine:ProgressBar>
-                    <engine:VisualElement name="VisualElement" class="target-container">
-                        <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
-                <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
-                    <engine:ProgressBar value="70" title="spicy" name="spicyProgress" class="flavorBar spicy">
-                        <Bindings>
-                            <engine:DataBinding property="value" data-source-path="temperaturePercent.value" binding-mode="ToTarget" />
-                        </Bindings>
-                    </engine:ProgressBar>
-                    <engine:VisualElement name="VisualElement" class="target-container">
-                        <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
-                            <Bindings>
-                                <engine:DataBinding property="style.marginLeft" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
-                            </Bindings>
-                        </engine:VisualElement>
-                    </engine:VisualElement>
-                </engine:VisualElement>
+                <engine:Instance template="chargeBar" name="chargeBar" data-source="project://database/Assets/Scripts/Player/P1%20Charge.asset?fileID=11400000&amp;guid=6b49fc46c855dc44e9156da232a3040e&amp;type=2#P1 Charge" class="charge-template-container" />
+                <Bindings>
+                    <engine:DataBinding property="style.display" data-source-path="player1HudDisplayStyle" data-source="project://database/Assets/Scripts/Player/PlayersInfo.asset?fileID=11400000&amp;guid=5053ea2a6f068cf4cbb760d8e5c60ffc&amp;type=2#PlayersInfo" binding-mode="ToTarget" />
+                </Bindings>
             </engine:VisualElement>
-            <engine:VisualElement class="timer-box">
-                <engine:Label text="time remaining:" style="-unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); margin-right: 0; padding-right: 2px; margin-top: 0; margin-bottom: 0; margin-left: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;" />
-                <engine:Label text="Label" style="-unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Regular&apos;); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
-                    <Bindings>
-                        <engine:DataBinding property="text" data-source-path="formattedTimeRemaining" data-source="project://database/Assets/UIs/HUD%20Data.asset?fileID=11400000&amp;guid=81a2bc17c8019f84c9fbc313f3585f74&amp;type=2#HUD Data" binding-mode="ToTarget" />
-                    </Bindings>
-                </engine:Label>
+            <engine:VisualElement name="p2Hud" class="hud-container" style="flex-grow: 1; display: flex;">
+                <engine:VisualElement name="flavorsAndTimer" class="top-container">
+                    <engine:Instance template="flavorBars" name="flavorsContainer" data-source="project://database/Assets/Scripts/Player/P2%20Flavor.asset?fileID=11400000&amp;guid=cc4ff5028c5984f4797e935b7e489ae7&amp;type=2#P2 Flavor" class="flavors-template-container" />
+                    <engine:Instance template="timer" name="timer" />
+                </engine:VisualElement>
+                <engine:Instance template="chargeBar" name="chargeBar" data-source="project://database/Assets/Scripts/Player/P2%20Charge.asset?fileID=11400000&amp;guid=7bbf765d7a718ee40b64ada7ba29b8ad&amp;type=2#P2 Charge" class="charge-template-container" />
+                <Bindings>
+                    <engine:DataBinding property="style.display" data-source-path="player2HudDisplayStyle" data-source="project://database/Assets/Scripts/Player/PlayersInfo.asset?fileID=11400000&amp;guid=5053ea2a6f068cf4cbb760d8e5c60ffc&amp;type=2#PlayersInfo" binding-mode="ToTarget" />
+                </Bindings>
             </engine:VisualElement>
         </engine:VisualElement>
-        <engine:VisualElement name="chargeContainer" data-source="project://database/Assets/Scripts/Player/P1%20Charge.asset?fileID=11400000&amp;guid=6b49fc46c855dc44e9156da232a3040e&amp;type=2#P1 Charge" style="flex-grow: 0; align-items: center; justify-content: flex-end; opacity: 1;">
-            <engine:VisualElement class="chargeBar-container" style="flex-grow: 1;">
-                <engine:ProgressBar value="50" name="chargeLevel" high-value="100" class="chargeBar">
-                    <Bindings>
-                        <engine:DataBinding property="value" data-source-path="chargeLevel" binding-mode="ToTarget" />
-                        <engine:DataBinding property="highValue" data-source-path="maxCharge" binding-mode="ToTarget" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" />
-                    </Bindings>
-                </engine:ProgressBar>
+        <engine:VisualElement name="bottomHuds" style="flex-grow: 1; flex-direction: row;">
+            <engine:VisualElement name="p3Hud" class="hud-container" style="flex-grow: 1; width: 50%;">
+                <engine:VisualElement name="flavorsAndTimer" class="top-container">
+                    <engine:Instance template="flavorBars" name="flavorsContainer" data-source="project://database/Assets/Scripts/Player/P3%20Flavor.asset?fileID=11400000&amp;guid=4e05d615b406a114a88d433d7d2dbb4a&amp;type=2#P3 Flavor" class="flavors-template-container" />
+                    <engine:Instance template="timer" name="timer" />
+                </engine:VisualElement>
+                <engine:Instance template="chargeBar" name="chargeBar" data-source="project://database/Assets/Scripts/Player/P3%20Charge.asset?fileID=11400000&amp;guid=522acec7cb49bb84ab50d20b30c6319c&amp;type=2#P3 Charge" class="charge-template-container" />
+                <Bindings>
+                    <engine:DataBinding property="style.display" data-source-path="player3HudDisplayStyle" data-source="project://database/Assets/Scripts/Player/PlayersInfo.asset?fileID=11400000&amp;guid=5053ea2a6f068cf4cbb760d8e5c60ffc&amp;type=2#PlayersInfo" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:VisualElement>
+            <engine:VisualElement name="p4Cover" style="flex-grow: 1; width: 50%; background-color: rgb(34, 34, 34);">
+                <Bindings>
+                    <engine:DataBinding property="style.display" data-source-path="player4HudCoverDisplayStyle" data-source="project://database/Assets/Scripts/Player/PlayersInfo.asset?fileID=11400000&amp;guid=5053ea2a6f068cf4cbb760d8e5c60ffc&amp;type=2#PlayersInfo" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:VisualElement>
+            <engine:VisualElement name="p4Hud" class="hud-container" style="flex-grow: 1; width: 50%;">
+                <engine:VisualElement name="flavorsAndTimer" class="top-container">
+                    <engine:Instance template="flavorBars" name="flavorsContainer" data-source="project://database/Assets/Scripts/Player/P4%20Flavor.asset?fileID=11400000&amp;guid=06cca1617d559694eb4ad96f44e8781e&amp;type=2#P4 Flavor" class="flavors-template-container" />
+                    <engine:Instance template="timer" name="timer" />
+                </engine:VisualElement>
+                <engine:Instance template="chargeBar" name="chargeBar" data-source="project://database/Assets/Scripts/Player/P4%20Charge.asset?fileID=11400000&amp;guid=418a645836829324c8911c09b6d83a7c&amp;type=2#P4 Charge" class="charge-template-container" />
+                <Bindings>
+                    <engine:DataBinding property="style.display" data-source-path="player4HudDisplayStyle" data-source="project://database/Assets/Scripts/Player/PlayersInfo.asset?fileID=11400000&amp;guid=5053ea2a6f068cf4cbb760d8e5c60ffc&amp;type=2#PlayersInfo" binding-mode="ToTarget" />
+                </Bindings>
             </engine:VisualElement>
             <Bindings>
-                <engine:DataBinding property="style.opacity" data-source-path="jumpBarOpacity" binding-mode="ToTarget" />
+                <engine:DataBinding property="style.display" data-source-path="player3HudDisplayStyle" data-source="project://database/Assets/Scripts/Player/PlayersInfo.asset?fileID=11400000&amp;guid=5053ea2a6f068cf4cbb760d8e5c60ffc&amp;type=2#PlayersInfo" binding-mode="ToTarget" />
             </Bindings>
         </engine:VisualElement>
     </engine:VisualElement>
