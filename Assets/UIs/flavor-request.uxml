@@ -6,7 +6,7 @@
             <engine:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row;">
                 <engine:VisualElement style="flex-grow: 0; padding-right: 12px; margin-right: 12px; width: 200px;">
                     <engine:Label text="Overview" class="briefing-h2" />
-                    <engine:Label text="Secret Ingredient, your mission is to disguise yourself as the flavor desired by your soon-to-be consumer and infiltrate their mouth without being caught. If the suspect you&apos;re a secret ingredient, all will be lost." style="flex-grow: 1; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;); white-space: normal; text-overflow: clip; -unity-text-align: upper-left; width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    <engine:Label text="Secret Ingredient, your mission is to disguise yourself as the flavor desired by your soon-to-be consumer and infiltrate their mouth without being caught. If they suspect anything, all will be lost." style="flex-grow: 1; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;); white-space: normal; text-overflow: clip; -unity-text-align: upper-left; width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                 </engine:VisualElement>
                 <engine:VisualElement name="VisualElement" class="meters" style="flex-grow: 1; padding-right: 0; flex-shrink: 0;">
                     <engine:Label text="Flavor Objective" class="briefing-h2" />
