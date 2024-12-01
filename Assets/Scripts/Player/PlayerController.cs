@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
         player.FindAction("Fire").started += DoCharge;
         player.FindAction("Fire").canceled += DoJump;
         player.FindAction("Pause").started += DoPause;
+        player.FindAction("Submit").started += DoSubmit;
         player.Enable();
     }
 
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         player.FindAction("Fire").started -= DoCharge;
         player.FindAction("Fire").canceled -= DoJump;
         player.FindAction("Pause").started -= DoPause;
+        player.FindAction("Submit").started -= DoSubmit;
         player.Disable();
     }
 
@@ -174,5 +176,12 @@ public class PlayerController : MonoBehaviour
     void DoPause(InputAction.CallbackContext context) {
         if (Time.timeScale == 0) Time.timeScale = 1;
         else Time.timeScale = 0;
+    }
+
+    void DoSubmit(InputAction.CallbackContext context) {
+        SwitchCamera cam = FindAnyObjectByType<SwitchCamera>();
+        if (cam != null) {
+            cam.StartMatch();
+        }
     }
 }
