@@ -1,0 +1,88 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="flavorBars" class="flavor-bars-container">
+        <engine:VisualElement class="flavor-bar-container">
+            <engine:ProgressBar value="70" title="sweet" name="sweetProgress" class="flavorBar sweet">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="sweetPercent.value" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
+            <engine:VisualElement name="VisualElement" class="target-container">
+                <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
+                    <Bindings>
+                        <engine:DataBinding property="style.marginLeft" data-source-path="sweetPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement data-source="project://database/Assets/Scripts/Player/P1%20Flavor.asset?fileID=11400000&amp;guid=948a91f1e3575ac4b8dd8e3eeb10a665&amp;type=2#P1 Flavor" class="flavor-bar-container">
+            <engine:ProgressBar value="70" title="salty" name="saltyProgress" class="flavorBar salty" style="opacity: 1;">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="saltyPercent.value" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
+            <engine:VisualElement name="VisualElement" class="target-container">
+                <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
+                    <Bindings>
+                        <engine:DataBinding property="style.marginLeft" data-source-path="saltyPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
+            <engine:ProgressBar value="70" title="sour" name="sourProgress" class="flavorBar sour">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="sourPercent.value" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
+            <engine:VisualElement name="VisualElement" class="target-container">
+                <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
+                    <Bindings>
+                        <engine:DataBinding property="style.marginLeft" data-source-path="sourPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
+            <engine:ProgressBar value="70" title="bitter" name="bitterProgress" class="flavorBar bitter">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="bitterPercent.value" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
+            <engine:VisualElement name="VisualElement" class="target-container">
+                <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
+                    <Bindings>
+                        <engine:DataBinding property="style.marginLeft" data-source-path="bitterPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
+            <engine:ProgressBar value="70" title="savory" name="umamiProgress" class="flavorBar umami">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="umamiPercent.value" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
+            <engine:VisualElement name="VisualElement" class="target-container">
+                <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
+                    <Bindings>
+                        <engine:DataBinding property="style.marginLeft" data-source-path="umamiPercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement class="flavor-bar-container" style="flex-grow: 1;">
+            <engine:ProgressBar value="70" title="spicy" name="spicyProgress" class="flavorBar spicy">
+                <Bindings>
+                    <engine:DataBinding property="value" data-source-path="temperaturePercent.value" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:ProgressBar>
+            <engine:VisualElement name="VisualElement" class="target-container">
+                <engine:VisualElement name="VisualElement" class="target-marker" style="margin-left: 0;">
+                    <Bindings>
+                        <engine:DataBinding property="style.marginLeft" data-source-path="temperaturePercent" data-source="project://database/Assets/Scripts/UI/TargetFlavor.asset?fileID=11400000&amp;guid=4dabeedb2842e6f41842796a6a636ddc&amp;type=2#TargetFlavor" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

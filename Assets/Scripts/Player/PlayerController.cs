@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,19 +23,62 @@ public class PlayerController : MonoBehaviour
     public PlayerCharge currentCharge;
     public float timeCharging;
     public float coyoteTimer;
+    private bool canJump;
+    private bool charging;
     public int playerNumber;
 
-    void Start()
+    // Input
+    private InputActionAsset inputAsset;
+    public InputActionMap player;
+    private InputAction move;
+
+    // Camera
+    [SerializeField] CinemachineBrain m_CinemachineBrain;
+    [SerializeField] CinemachineCamera m_CinemachineCamera;
+    [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         PlayerInfo playerInfo = playersInfo.RegisterPlayer(rb.gameObject.name);
+        UnityEngine.Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        inputAsset = this.GetComponent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
+        
         currentFlavor = playerInfo.flavor;
         flavorHolder = GetComponent<FlavorHolder>();
         flavorHolder.flavor = currentFlavor;
         currentCharge = playerInfo.charge;
         playerNumber = playerInfo.playerNumber;
+
+        // Shift one bit per brain Count.
+        m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
+        m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
+        m_CinemachineInputAxis.PlayerIndex = playerNumber;
+        m_CinemachineInputAxis.Controllers[0].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        m_CinemachineInputAxis.Controllers[1].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+
+        // find flavor particle systems and add myself as a collider
+        ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
+        foreach (ParticleSystem ps in particleSystems) {
+            Debug.Log("Adding collider to "+ps.name);
+            ps.trigger.AddCollider(GetComponent<Collider>());
+        }
+    }
+
+    private void OnEnable() {
+        player.FindAction("Submit").started += DoSubmit;
+        player.Enable();
+    }
+
+    private void OnDisable() {
+        player.FindAction("Fire").started -= DoCharge;
+        player.FindAction("Fire").canceled -= DoJump;
+        player.FindAction("Pause").started -= DoPause;
+        player.FindAction("Submit").started -= DoSubmit;
+        player.Disable();
     }
 
     // OnCollisionStay is called once per frame for every Collider or Rigidbody that touches another Collider or Rigidbody.
@@ -73,17 +119,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (Time.timeScale != 0) {
-                Time.timeScale = 0;
-            }
-            else {
-                Time.timeScale = 1;
-            }
-        }
 
         // Figure out if jumping is allowed
-        bool canJump = false;
+        canJump = false;
         if (isGrounded) {
             coyoteTimer = 0;
             canJump = true;
@@ -95,8 +133,16 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Jump if applicable
-        if (Input.GetMouseButton(0) /*Left button*/ && Time.timeScale != 0) {
+        currentCharge.canJump = canJump;
+
+        if (canJump) {
+            currentCharge.jumpBarOpacity = 1f;
+        } else {
+            currentCharge.jumpBarOpacity = PlayerCharge.JumpBarOpacityDefault;
+        }
+
+        // Charge up
+        if (Time.timeScale != 0 && charging) {
             timeCharging += Time.deltaTime;
             currentCharge.chargeLevel = ChargeFunction(
                 timeCharging,
@@ -105,7 +151,15 @@ public class PlayerController : MonoBehaviour
                 PlayerCharge.Max
             );
         }
-        else if (Input.GetMouseButtonUp(0) && Time.timeScale != 0) {
+    }
+
+    void DoCharge(InputAction.CallbackContext context) {
+        charging = true;
+    }
+
+    void DoJump(InputAction.CallbackContext context) {
+        charging = false;
+        if (Time.timeScale != 0) {
             if (canJump) {
                 rb.AddForce(cameraTarget.transform.forward * currentCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * currentCharge.chargeLevel);
@@ -114,13 +168,22 @@ public class PlayerController : MonoBehaviour
             timeCharging = 0;
             currentCharge.chargeLevel = 0;
         }
+    }
 
-        currentCharge.canJump = canJump;
+    void DoPause(InputAction.CallbackContext context) {
+        if (Time.timeScale == 0) Time.timeScale = 1;
+        else Time.timeScale = 0;
+    }
 
-        if (canJump) {
-            currentCharge.jumpBarOpacity = 1f;
-        } else {
-            currentCharge.jumpBarOpacity = PlayerCharge.JumpBarOpacityDefault;
+    void DoSubmit(InputAction.CallbackContext context) {
+        SwitchCamera cam = FindAnyObjectByType<SwitchCamera>();
+        if (cam != null) {
+            cam.StartMatch();
+            foreach(PlayerController dude in FindObjectsByType<PlayerController>(FindObjectsSortMode.None)) {
+                dude.player.FindAction("Fire").started += dude.DoCharge;
+                dude.player.FindAction("Fire").canceled += dude.DoJump;
+                dude.player.FindAction("Pause").started += dude.DoPause;
+            }
         }
     }
 }

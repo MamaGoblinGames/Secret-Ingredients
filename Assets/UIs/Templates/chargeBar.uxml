@@ -1,0 +1,13 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement class="chargeBar-container" style="flex-grow: 1;">
+        <engine:ProgressBar value="50" name="chargeLevel" high-value="100" class="chargeBar">
+            <Bindings>
+                <engine:DataBinding property="value" data-source-path="chargeLevel" binding-mode="ToTarget" />
+                <engine:DataBinding property="highValue" data-source-path="maxCharge" binding-mode="ToTarget" data-source="project://database/Assets/Scripts/Player/PlayerCharge.asset?fileID=11400000&amp;guid=b2f66d5289201494b922b22f55ee57f1&amp;type=2#PlayerCharge" />
+            </Bindings>
+        </engine:ProgressBar>
+        <Bindings>
+            <engine:DataBinding property="style.opacity" data-source-path="jumpBarOpacity" binding-mode="ToTarget" />
+        </Bindings>
+    </engine:VisualElement>
+</engine:UXML>

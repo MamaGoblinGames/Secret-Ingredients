@@ -17,5 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mission Recap.unity
     guid: 3e5b7b3c8b219de4da95cd4dcde49d3d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 69731ed3d5ae5f247b12a8c5b04f632e, type: 2}
   m_UseUCBPForAssetBundles: 0

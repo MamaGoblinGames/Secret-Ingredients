@@ -21,3 +21,8 @@ MonoBehaviour:
   player3Charge: {fileID: 11400000, guid: 522acec7cb49bb84ab50d20b30c6319c, type: 2}
   player4Flavor: {fileID: 11400000, guid: 06cca1617d559694eb4ad96f44e8781e, type: 2}
   player4Charge: {fileID: 11400000, guid: 418a645836829324c8911c09b6d83a7c, type: 2}
+  player1HudDisplayStyle: 1
+  player2HudDisplayStyle: 1
+  player3HudDisplayStyle: 1
+  player4HudDisplayStyle: 1
+  player4HudCoverDisplayStyle: 1

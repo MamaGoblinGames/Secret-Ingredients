@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6705116804523413939}
   - component: {fileID: 4974215845130386333}
   m_Layer: 0
-  m_Name: BrocCam
+  m_Name: BrocCam (Camera Controller)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.22681643, y: 0.4559919, z: 0.12139378, w: 0.85199136}
-  m_LocalPosition: {x: -6.3721247, y: -0.3136587, z: -4.2477074}
+  m_LocalRotation: {x: 0.35074314, y: 0.4032865, z: -0.17088911, w: 0.8277295}
+  m_LocalPosition: {x: -3.251112, y: 8.852459, z: -2.5444336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,7 +114,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 56.31227
+    Value: 51.952183
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -16.810507
+    Value: 58.93221
     Center: 17.5
     Range: {x: -60, y: 60}
     Wrap: 0
@@ -209,7 +209,9 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
-        LegacyInput: Mouse X
+        InputAction: {fileID: 1109655191144619856, guid: 3bb7dfc9a6d4a36458f3629646413e75, type: 3}
+        Gain: 1
+        LegacyInput: 
         LegacyGain: 10
         CancelDeltaTime: 1
       InputValue: 0
@@ -220,7 +222,9 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
-        LegacyInput: Mouse Y
+        InputAction: {fileID: 1109655191144619856, guid: 3bb7dfc9a6d4a36458f3629646413e75, type: 3}
+        Gain: -1
+        LegacyInput: 
         LegacyGain: -10
         CancelDeltaTime: 1
       InputValue: -0
@@ -231,13 +235,17 @@ MonoBehaviour:
       Owner: {fileID: 8627330938092046934}
       Enabled: 1
       Input:
-        LegacyInput: Mouse ScrollWheel
+        InputAction: {fileID: 0}
+        Gain: 1
+        LegacyInput: 
         LegacyGain: 200
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
         AccelTime: 0
         DecelTime: 0
+  PlayerIndex: -1
+  AutoEnableInputs: 1
 --- !u!114 &4974215845130386333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 8594876108491136201}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 25, y: 15, z: -317.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -321,10 +329,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4504293795415239293}
   - component: {fileID: 8125754054567157473}
-  - component: {fileID: 2287757334866691556}
   - component: {fileID: 2216721462838847491}
   m_Layer: 0
-  m_Name: Camera o' Broc
+  m_Name: Camera o' Broc (Actual Camera)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,8 +345,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039248213, y: 0.000002079254, z: -0.000000081669945, w: 0.9992295}
-  m_LocalPosition: {x: -50.24609, y: 34.79351, z: -380.33792}
+  m_LocalRotation: {x: 0.35075548, y: 0.40328124, z: -0.17089365, w: 0.82772595}
+  m_LocalPosition: {x: -3.251112, y: 8.852459, z: -2.5444336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,14 +403,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2287757334866691556
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9048665212086484653}
-  m_Enabled: 1
 --- !u!114 &2216721462838847491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +444,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 5939279533189794504}
     m_Modifications:
     - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: player.m_Id
+      value: 8224ada5-5adf-4cc6-98c8-2f0e8c1c31f7
+      objectReference: {fileID: 0}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 9048665212086484653}
@@ -453,6 +460,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 061e8c4953765bb48aa368fae578913d, type: 2}
     - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: player.m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: originalCharge
       value: 
       objectReference: {fileID: 11400000, guid: b2f66d5289201494b922b22f55ee57f1, type: 2}
@@ -460,6 +471,18 @@ PrefabInstance:
       propertyPath: originalFlavor
       value: 
       objectReference: {fileID: 11400000, guid: b41f641b0d882554fa0663f9f7045e8a, type: 2}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: m_CinemachineBrain
+      value: 
+      objectReference: {fileID: 2216721462838847491}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: m_CinemachineCamera
+      value: 
+      objectReference: {fileID: 5143156086060602563}
+    - target: {fileID: 985291414, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      propertyPath: m_CinemachineInputAxis
+      value: 
+      objectReference: {fileID: 6705116804523413939}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -511,10 +534,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6036251870055034186, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 725950269130742209}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
 --- !u!4 &5737582795461762099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
   m_PrefabInstance: {fileID: 2043207336953049461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5737582795461762111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6036251870055034186, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
+  m_PrefabInstance: {fileID: 2043207336953049461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &725950269130742209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737582795461762111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3bb7dfc9a6d4a36458f3629646413e75, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: ff411f8b-fbbe-49aa-8a62-95619f5938ec
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 8125754054567157473}
