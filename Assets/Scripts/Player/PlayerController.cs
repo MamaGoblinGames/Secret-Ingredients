@@ -59,6 +59,13 @@ public class PlayerController : MonoBehaviour
         m_CinemachineInputAxis.PlayerIndex = playerNumber;
         m_CinemachineInputAxis.Controllers[0].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
         m_CinemachineInputAxis.Controllers[1].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+
+        // find flavor particle systems and add myself as a collider
+        ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
+        foreach (ParticleSystem ps in particleSystems) {
+            Debug.Log("Adding collider to "+ps.name);
+            ps.trigger.AddCollider(GetComponent<Collider>());
+        }
     }
 
     private void OnEnable() {

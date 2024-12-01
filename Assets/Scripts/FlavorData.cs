@@ -17,14 +17,6 @@ public class FlavorData : MonoBehaviour
 
     void Start() {
         if (killOnTransfer && TryGetComponent(out ParticleSystem part)) {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            
-            foreach (GameObject player in players) {
-                if(player.TryGetComponent(out Collider collider)) {
-                    part.trigger.AddCollider(collider);
-                }
-            }
-
             collisionEvents = new List<ParticleCollisionEvent>();
         }
     }
