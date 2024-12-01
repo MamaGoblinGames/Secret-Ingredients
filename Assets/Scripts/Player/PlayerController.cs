@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +31,18 @@ public class PlayerController : MonoBehaviour
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private InputAction move;
+
+    // Camera
+    [SerializeField] CinemachineBrain m_CinemachineBrain;
+    [SerializeField] CinemachineCamera m_CinemachineCamera;
+    [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
+
+    void Start()
+    {
+        // Shift one bit per brain Count.
+        m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
+        m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
+    }
 
     private void Awake()
     {
