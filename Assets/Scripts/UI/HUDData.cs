@@ -18,9 +18,6 @@ public class HUDData : ScriptableObject
         formattedTimeRemaining = timeRemaining.ToString(@"mm\:ss");
     }
 
-    void Awake() {
-        // StartGame();
-    }
     void OnValidate() {
         SyncTimeRemaining();
     }
