@@ -3,10 +3,17 @@
     <engine:VisualElement name="VisualElement" class="lobby-left" style="justify-content: space-evenly;">
         <engine:VisualElement style="flex-grow: 1; align-items: stretch; justify-content: center;">
             <engine:Label text="Secret Ingredients" name="Label" class="title" />
+            <engine:Label text="(1-4 players)" class="prompt" />
         </engine:VisualElement>
         <engine:VisualElement style="flex-grow: 1; justify-content: center;">
-            <engine:Label text="Press any button or key to join." class="prompt" />
-            <engine:Label text="Press start or enter to begin." class="prompt" />
+            <engine:Label text="Press [A/south button] or [space] to join." class="prompt" />
+            <engine:Label text="Press [Y/north button] or [enter] to begin." class="prompt" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; justify-content: center; padding-left: 20%;">
+            <engine:Label text="Mouse + Keyboard" class="prompt" style="-unity-text-align: upper-left; flex-shrink: 1;" />
+            <engine:Label text="[look/aim]  mouse movement&#10;[jump]         left mouse button&#10;[pause]       ESC" class="prompt" style="-unity-text-align: upper-left; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;);" />
+            <engine:Label text="Controller" class="prompt" style="-unity-text-align: upper-left;" />
+            <engine:Label text="[look/aim]  mouse movement&#10;[jump]         left mouse button&#10;[pause]       ESC" class="prompt" style="-unity-text-align: upper-left; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;);" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
