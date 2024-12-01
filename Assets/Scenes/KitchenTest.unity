@@ -3241,6 +3241,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinBehavior
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Name
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 187dc031-c380-432b-9451-f23ee8f08716
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: e400686c-35e8-4de9-8190-6fb8bb6ca392
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Id
+      value: f56057df-b584-44a6-a9c9-416498266855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[3].m_Id
+      value: f56057df-b584-44a6-a9c9-416498266855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/buttonSouth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830110629009155089, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[3].m_Action
+      value: Join
+      objectReference: {fileID: 0}
     - target: {fileID: 6942131836622447359, guid: d5f0961fdbb8c2e4f94742e48ea7f27a, type: 3}
       propertyPath: m_Name
       value: Player Manager
