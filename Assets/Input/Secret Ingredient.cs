@@ -123,7 +123,7 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e4e11fa5-0555-4b40-b2b1-dc6ed7faf5cd"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
