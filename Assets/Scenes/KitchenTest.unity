@@ -1277,6 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joinCam: {fileID: 812132899}
   playerManager: {fileID: 314595389}
+  hud: {fileID: 1543140122}
 --- !u!1001 &823411016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2286,7 +2287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1543140123
 MonoBehaviour:
   m_ObjectHideFlags: 0
