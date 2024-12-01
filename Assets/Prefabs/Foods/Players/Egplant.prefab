@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6036251870055034185}
   - component: {fileID: 6036251870055034184}
   - component: {fileID: 6036251870055034183}
-  - component: {fileID: 985291414}
   - component: {fileID: 7200404028964909731}
   m_Layer: 0
   m_Name: Egplant
@@ -116,24 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &985291414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036251870055034186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c9b61733ed3734c8766276991a1295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 0}
-  dCharge: 1000
-  maxCharge: 2000
-  charge: 0
-  coyoteFrames: 0.1
-  coyoteTimer: 0
 --- !u!64 &7200404028964909731
 MeshCollider:
   m_ObjectHideFlags: 0
