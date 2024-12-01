@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/lobby.uss?fileID=7433441132597879392&amp;guid=e6e9f9016f6348a468fb258728f10a46&amp;type=3#lobby" />
-    <engine:VisualElement name="VisualElement" class="lobby-left" style="justify-content: space-evenly;">
+    <engine:VisualElement name="VisualElement" class="lobby-left" style="justify-content: space-evenly; background-color: rgba(255, 255, 255, 0.29);">
         <engine:VisualElement style="flex-grow: 1; align-items: stretch; justify-content: center;">
             <engine:Label text="Secret Ingredients" name="Label" class="title" />
             <engine:Label text="(1-4 players)" class="prompt" />
@@ -9,7 +9,7 @@
             <engine:Label text="Press [A/south button] or [space] to join." class="prompt" />
             <engine:Label text="Press [Y/north button] or [enter] to begin." class="prompt" />
         </engine:VisualElement>
-        <engine:VisualElement style="flex-grow: 1; justify-content: center; padding-left: 20%;">
+        <engine:VisualElement style="flex-grow: 1; justify-content: center; padding-left: 20%; background-color: rgba(195, 195, 195, 0);">
             <engine:Label text="Mouse + Keyboard" class="prompt" style="-unity-text-align: upper-left; flex-shrink: 1;" />
             <engine:Label text="[look/aim]  mouse movement&#10;[jump]         left mouse button&#10;[pause]       ESC" class="prompt" style="-unity-text-align: upper-left; -unity-font-definition: resource(&apos;Fonts/LondrinaSolid-Light&apos;);" />
             <engine:Label text="Controller" class="prompt" style="-unity-text-align: upper-left;" />
