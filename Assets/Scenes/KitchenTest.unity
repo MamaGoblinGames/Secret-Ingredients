@@ -1562,7 +1562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895616080bde8644eb68f69f6fcb8f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1694646421}
   collisionSound: {fileID: 8300000, guid: 6e41562ba32bd2340870478a268ce999, type: 3}
 --- !u!1001 &1038573465
 PrefabInstance:
@@ -2777,7 +2776,7 @@ GameObject:
   - component: {fileID: 1694646422}
   - component: {fileID: 1694646421}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Collisions Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 5097753393537026676}
   - component: {fileID: 1652500573249205390}
   - component: {fileID: 732946692235411986}
-  - component: {fileID: 1514250110566868366}
+  - component: {fileID: 2770562114236535095}
   m_Layer: 0
   m_Name: Collada visual scene group
   m_TagString: Untagged
@@ -386,7 +386,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3bd6c2adff4db4f4d9cff4c09d5eecae, type: 2}
---- !u!114 &1514250110566868366
+--- !u!114 &2770562114236535095
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,10 +395,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8923433303194444814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895616080bde8644eb68f69f6fcb8f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 412ea15b39df1d34885435d7c86ecd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   collisionSound: {fileID: 8300000, guid: e32d9ae14e75ea348b37f5741d1ae0de, type: 3}
 --- !u!1001 &4992901049511793279
 PrefabInstance:

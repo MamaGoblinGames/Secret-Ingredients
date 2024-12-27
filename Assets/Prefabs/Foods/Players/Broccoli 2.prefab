@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 985291414}
   - component: {fileID: 7200404028964909731}
   - component: {fileID: 6817443817838389766}
+  - component: {fileID: 3166883771520517759}
   m_Layer: 0
   m_Name: Broccoli 2
   m_TagString: Player
@@ -141,6 +142,15 @@ MonoBehaviour:
   timeCharging: 0
   coyoteTimer: 0
   playerNumber: 0
+  player:
+    m_Name: Player
+    m_Id: 7a01d9fd-3da8-457e-9c08-65d97f6efed1
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  m_CinemachineBrain: {fileID: 0}
+  m_CinemachineCamera: {fileID: 0}
+  m_CinemachineInputAxis: {fileID: 0}
 --- !u!64 &7200404028964909731
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -176,3 +186,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flavor: {fileID: 0}
+--- !u!114 &3166883771520517759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036251870055034186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895616080bde8644eb68f69f6fcb8f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionSound: {fileID: 8300000, guid: 03dd84f700c36ee4b9762453199a5c55, type: 3}
