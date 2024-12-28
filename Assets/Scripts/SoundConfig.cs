@@ -2,23 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "SoundInfo", menuName = "Scriptable Objects/Sound Info")]
-public class SoundInfo : ScriptableObject
+[CreateAssetMenu(fileName = "SoundConfig", menuName = "Scriptable Objects/Sound Configuration")]
+public class SoundConfig : ScriptableObject
 {
-    const float flavorMin = -100f;
-    const float flavorMax = 100f;
-    const float flavorNeutral = 0f;
-    const float flavorNeutralPercent = 50f;
-
-    public static float Min = flavorMin;
-    public static float Max = flavorMax;
-    public static float Neutral = flavorNeutral;
 
     [Header("Collisions")]
     public AudioClip defaultCollision;
     public float maxCollisionVolume = 1f;
+    public float maxCollisionMagnitude = 40.0f;
+    public float minCollisionMagnitude = 7.0f;
+
+    [Header("Particle Pickup")]
     public AudioClip particlePickup;
     public float particlePickupVolume = 0.5f;
+    public float particlePickupPitchMax = 1.1f;
+    public float particlePickupPitchMin = 0.9f;
 
     [Header("UI Sounds")]
     public AudioClip pause;
