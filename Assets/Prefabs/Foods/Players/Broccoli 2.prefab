@@ -153,6 +153,7 @@ MonoBehaviour:
   m_CinemachineBrain: {fileID: 0}
   m_CinemachineCamera: {fileID: 0}
   m_CinemachineInputAxis: {fileID: 0}
+  pauseSound: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
 --- !u!64 &7200404028964909731
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -37,6 +37,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineCamera m_CinemachineCamera;
     [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
 
+    // Sounds
+    [Header("Sounds")]
+    public AudioClip pauseSound;
+
+    private AudioSource musicAudioSource;
+    private AudioSource sfxAudioSource;
+
+    private void Start() {
+        musicAudioSource = GameObject.Find("Audio").GetComponent<AudioSource>();
+        sfxAudioSource = GameObject.Find("UI Sounds").GetComponent<AudioSource>();
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -171,8 +183,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void DoPause(InputAction.CallbackContext context) {
-        if (Time.timeScale == 0) Time.timeScale = 1;
-        else Time.timeScale = 0;
+        if (Time.timeScale == 0) {
+            Time.timeScale = 1;
+            musicAudioSource.UnPause();
+            sfxAudioSource.pitch = 2f;
+        }
+        else {
+            Time.timeScale = 0;
+            musicAudioSource.Pause();
+            sfxAudioSource.pitch = 1f;
+        }
+        sfxAudioSource.PlayOneShot(pauseSound);
     }
 
     void DoSubmit(InputAction.CallbackContext context) {
