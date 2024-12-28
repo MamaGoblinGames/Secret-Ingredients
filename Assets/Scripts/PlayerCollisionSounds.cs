@@ -17,7 +17,7 @@ public class PlayerCollisionSounds : MonoBehaviour
 
         // get audio source component to use for particle pickup sounds and set volume to 50%
         particlePickupAudioSource = GetComponents<AudioSource>()[1];
-        particlePickupAudioSource.volume = 0.35f;
+        particlePickupAudioSource.volume = 0.5f;
     }
 
     void OnParticleCollision(GameObject other) {
