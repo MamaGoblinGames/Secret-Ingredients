@@ -138,6 +138,7 @@ MonoBehaviour:
   playersInfo: {fileID: 11400000, guid: 5053ea2a6f068cf4cbb760d8e5c60ffc, type: 2}
   coyoteFrames: 0.2
   dCharge: 100
+  soundInfo: {fileID: 11400000, guid: 08443ae4ddd435f4c8098842de2176fc, type: 2}
   currentFlavor: {fileID: 0}
   flavorHolder: {fileID: 0}
   currentCharge: {fileID: 0}
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_CinemachineBrain: {fileID: 0}
   m_CinemachineCamera: {fileID: 0}
   m_CinemachineInputAxis: {fileID: 0}
-  pauseSound: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
 --- !u!64 &7200404028964909731
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -201,8 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895616080bde8644eb68f69f6fcb8f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionSound: {fileID: 8300000, guid: 03dd84f700c36ee4b9762453199a5c55, type: 3}
-  particlePickupSound: {fileID: 8300000, guid: 761d7793c597e1842826f3c315faedb0, type: 3}
+  soundInfo: {fileID: 11400000, guid: 08443ae4ddd435f4c8098842de2176fc, type: 2}
 --- !u!82 &-3743169654942366449
 AudioSource:
   m_ObjectHideFlags: 0

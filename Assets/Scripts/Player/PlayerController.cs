@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public PlayersInfo playersInfo;
     public float coyoteFrames;
     public float dCharge;
+    public SoundInfo soundInfo;
 
     [Header("Realtime, computed values.")]
     [Tooltip("The current realtime flavor of the player.")]
@@ -36,10 +37,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineBrain m_CinemachineBrain;
     [SerializeField] CinemachineCamera m_CinemachineCamera;
     [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
-
-    // Sounds
-    [Header("Sounds")]
-    public AudioClip pauseSound;
 
     private AudioSource musicAudioSource;
     private AudioSource sfxAudioSource;
@@ -176,6 +173,9 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(cameraTarget.transform.forward * currentCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * currentCharge.chargeLevel);
                 canJump = false;
+                float jumpSoundVolume = currentCharge.chargeLevel/PlayerCharge.Max * soundInfo.maxJumpVolume;
+                sfxAudioSource.pitch = soundInfo.jumpPitch;
+                sfxAudioSource.PlayOneShot(soundInfo.jump, jumpSoundVolume);
             }
             timeCharging = 0;
             currentCharge.chargeLevel = 0;
@@ -186,14 +186,14 @@ public class PlayerController : MonoBehaviour
         if (Time.timeScale == 0) {
             Time.timeScale = 1;
             musicAudioSource.UnPause();
-            sfxAudioSource.pitch = 2f;
+            sfxAudioSource.pitch = soundInfo.unpausePitch;
         }
         else {
             Time.timeScale = 0;
             musicAudioSource.Pause();
-            sfxAudioSource.pitch = 1f;
+            sfxAudioSource.pitch = soundInfo.pausePitch;
         }
-        sfxAudioSource.PlayOneShot(pauseSound);
+        sfxAudioSource.PlayOneShot(soundInfo.pause);
     }
 
     void DoSubmit(InputAction.CallbackContext context) {

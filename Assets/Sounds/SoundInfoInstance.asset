@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4e4153a0f387041a0882a08bd313df, type: 3}
+  m_Name: SoundInfoInstance
+  m_EditorClassIdentifier: 
+  defaultCollision: {fileID: 8300000, guid: 03dd84f700c36ee4b9762453199a5c55, type: 3}
+  maxCollisionVolume: 1
+  particlePickup: {fileID: 8300000, guid: 761d7793c597e1842826f3c315faedb0, type: 3}
+  particlePickupVolume: 0.5
+  pause: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
+  pausePitch: 1
+  unpause: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
+  unpausePitch: 2
+  jump: {fileID: 8300000, guid: a38be288eeee0644591c8006ab21260a, type: 3}
+  charge: {fileID: 0}
