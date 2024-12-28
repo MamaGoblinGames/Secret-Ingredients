@@ -2,21 +2,36 @@ using UnityEngine;
 
 public class PlayerCollisionSounds : MonoBehaviour
 {
-    private AudioSource audioSource;
+    private AudioSource collisionAudioSource;
+    private AudioSource particlePickupAudioSource;
     public AudioClip collisionSound;
+    public AudioClip particlePickupSound;
 
     private const float MAX_MAGNITUDE = 40.0f;
     private const float MIN_MAGNITUDE = 7.0f;
 
     void Start()
     {
-        // get audio source component
-        audioSource = GetComponent<AudioSource>();
+        // get audio source component to use for collision sounds
+        collisionAudioSource = GetComponents<AudioSource>()[0];
+
+        // get audio source component to use for particle pickup sounds and set volume to 50%
+        particlePickupAudioSource = GetComponents<AudioSource>()[1];
+        particlePickupAudioSource.volume = 0.35f;
+    }
+
+    void OnParticleCollision(GameObject other) {
+        if (particlePickupAudioSource == null) return;
+
+        // Play the sound.
+        particlePickupAudioSource.PlayOneShot(particlePickupSound);
+
+        // Debug.Log("Particle Collision Sound - Clip: " + particlePickupSound.name);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (audioSource == null) return;
+        if (collisionAudioSource == null) return;
 
         // Calculate volume based on collision magnitude.
         // Volume is 0 when magnitude is less than MIN_MAGNITUDE.
@@ -28,12 +43,9 @@ public class PlayerCollisionSounds : MonoBehaviour
 
         // If the other object has a collision sound, use that. Otherwise, use the default sound.
         AudioClip audioClip = otherSounds ? otherSounds.collisionSound : collisionSound;
-        // Set the volume.
-        audioSource.volume = volume;
+        // Play the sound with the calculated volume.
+        collisionAudioSource.PlayOneShot(audioClip, volume);
 
-        // Play the sound.
-        audioSource.PlayOneShot(audioClip);
-
-        Debug.Log("Collision Sound - magnitude: " + magnitude + " Volume: " + audioSource.volume + " Clip: " + audioClip.name);
+        // Debug.Log("Collision Sound - magnitude: " + magnitude + " Volume: " + audioSource.volume + " Clip: " + audioClip.name);
     }
 }
