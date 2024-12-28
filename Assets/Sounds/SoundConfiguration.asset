@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCollision: {fileID: 8300000, guid: 03dd84f700c36ee4b9762453199a5c55, type: 3}
   maxCollisionVolume: 1
+  maxCollisionMagnitude: 40
+  minCollisionMagnitude: 7
   particlePickup: {fileID: 8300000, guid: 761d7793c597e1842826f3c315faedb0, type: 3}
   particlePickupVolume: 0.5
+  particlePickupPitchMax: 1.1
+  particlePickupPitchMin: 0.9
   pause: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
   pausePitch: 1
   unpause: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
   unpausePitch: 2
   jump: {fileID: 8300000, guid: a38be288eeee0644591c8006ab21260a, type: 3}
+  maxJumpVolume: 1
+  jumpPitch: 1
   charge: {fileID: 0}
