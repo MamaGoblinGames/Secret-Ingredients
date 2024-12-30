@@ -5,6 +5,9 @@ using UnityEngine.UIElements;
 [CreateAssetMenu(fileName = "SoundConfig", menuName = "Scriptable Objects/Sound Configuration")]
 public class SoundConfig : ScriptableObject
 {
+    [Header("Music")]
+    public AudioClip lobbyMusic;
+    public AudioClip mainGameMusic;
 
     [Header("Collisions")]
     public AudioClip defaultCollision;
@@ -18,7 +21,7 @@ public class SoundConfig : ScriptableObject
     [Header("Particle Pickup")]
     public AudioClip particlePickup;
     [Range(0f, 1f)]
-    public float particlePickupVolume = 0.5f;
+    public float particlePickupVolume = 0.15f;
     [Range(0f, 2f)]
     public float particlePickupPitchMax = 1.1f;
     [Range(0f, 2f)]

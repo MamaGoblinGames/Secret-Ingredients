@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4e4153a0f387041a0882a08bd313df, type: 3}
   m_Name: SoundConfiguration
   m_EditorClassIdentifier: 
+  lobbyMusic: {fileID: 8300000, guid: cece461fff666a4d6b9ffa1c405c1891, type: 3}
+  mainGameMusic: {fileID: 8300000, guid: 7ab3c03bc2c72444aae8932ccc6ca97d, type: 3}
   defaultCollision: {fileID: 8300000, guid: 03dd84f700c36ee4b9762453199a5c55, type: 3}
   maxCollisionVolume: 1
   maxCollisionMagnitude: 40
   minCollisionMagnitude: 7
   particlePickup: {fileID: 8300000, guid: 761d7793c597e1842826f3c315faedb0, type: 3}
-  particlePickupVolume: 0.5
+  particlePickupVolume: 0.15
   particlePickupPitchMax: 1.1
   particlePickupPitchMin: 0.9
   pause: {fileID: 8300000, guid: 4d18f06888d3eca4b89b41e36eda2802, type: 3}
