@@ -16,8 +16,7 @@ public class SwitchCamera : MonoBehaviour
         Destroy(joinCam);
         playerManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
         lobby.GetComponent<UIDocument>().enabled = false;
-        hud.GetComponent<UIDocument>().enabled = true;
-        hud.GetComponent<HUD>().hudData.StartGame();
+        hud.GetComponent<HUD>().StartGame();
         Destroy(this);
     }
 }

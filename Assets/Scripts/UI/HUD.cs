@@ -1,10 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public partial class HUD : MonoBehaviour
 {
     public HUDData hudData;
     public PlayersInfo playersInfo;
+
+    public void StartGame() {
+        GetComponent<UIDocument>().enabled = true;
+        hudData.StartGame();
+    }
+
     private void Awake() {
         playersInfo.ResetPlayers();
         hudData.gameStarted = false;
