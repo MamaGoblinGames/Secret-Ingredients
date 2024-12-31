@@ -66,9 +66,19 @@ public class PlayerController : MonoBehaviour
         // Shift one bit per brain Count.
         m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
         m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
-        m_CinemachineInputAxis.PlayerIndex = playerNumber;
-        m_CinemachineInputAxis.Controllers[0].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
-        m_CinemachineInputAxis.Controllers[1].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        m_CinemachineInputAxis.PlayerIndex = playerNumber - 1;
+        if (m_CinemachineInputAxis.Controllers.Count > 0) {
+            m_CinemachineInputAxis.Controllers[0].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        }
+        if (m_CinemachineInputAxis.Controllers.Count > 1) {
+            m_CinemachineInputAxis.Controllers[1].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        }
+        if (m_CinemachineInputAxis.Controllers.Count > 2) {
+            m_CinemachineInputAxis.Controllers[2].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        }
+        if (m_CinemachineInputAxis.Controllers.Count > 3) {
+            m_CinemachineInputAxis.Controllers[3].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
+        }
 
         // find flavor particle systems and add myself as a collider
         ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
