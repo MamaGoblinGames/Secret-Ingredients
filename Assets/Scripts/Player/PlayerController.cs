@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource musicAudioSource;
     private AudioSource sfxAudioSource;
+    private Outline[] outlines;
 
     private void Start() {
         musicAudioSource = GameObject.Find("Music").GetComponent<AudioSource>();
@@ -86,6 +88,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Adding collider to "+ps.name);
             ps.trigger.AddCollider(GetComponent<Collider>());
         }
+
+        // find all highlightable/outline objects
+        outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
+        Debug.Log("Found " + outlines.Length + " outlines");
     }
 
     private void OnEnable() {
@@ -98,6 +104,7 @@ public class PlayerController : MonoBehaviour
         player.FindAction("Fire").canceled -= DoJump;
         player.FindAction("Pause").started -= DoPause;
         player.FindAction("Submit").started -= DoSubmit;
+        // player.FindAction("Highlight").started -= DoHighlight;
         player.Disable();
     }
 
@@ -198,6 +205,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void DoHighlight(InputAction.CallbackContext context) {
+        if (context.performed) {
+            Debug.Log("Highlighting");
+            foreach(Outline outline in outlines) {
+                outline.enabled = true;
+            }
+            // Array.ForEach(outlines, o => o.enabled = true);
+        }
+        else {
+            Debug.Log("Unhighlighting");
+            // Array.ForEach(outlines, o => o.enabled = false);
+            foreach(Outline outline in outlines) {
+                outline.enabled = false;
+            }
+        }
+    }
+
     void DoCharge(InputAction.CallbackContext context) {
         charging = true;
     }
@@ -219,15 +243,26 @@ public class PlayerController : MonoBehaviour
     }
 
     void DoPause(InputAction.CallbackContext context) {
+        // unpause
         if (Time.timeScale == 0) {
             Time.timeScale = 1;
             musicAudioSource.UnPause();
             sfxAudioSource.pitch = soundConfig.unpausePitch;
+            Debug.Log("Unhighlighting");
+            foreach(Outline outline in outlines) {
+                outline.enabled = false;
+            }
         }
+        // pause
         else {
             Time.timeScale = 0;
             musicAudioSource.Pause();
             sfxAudioSource.pitch = soundConfig.pausePitch;
+            Debug.Log("Highlighting");
+            foreach(Outline outline in outlines) {
+                Debug.Log("Highlighting outline");
+                outline.enabled = true;
+            }
         }
         sfxAudioSource.PlayOneShot(soundConfig.pause);
     }
@@ -240,6 +275,7 @@ public class PlayerController : MonoBehaviour
                 dude.player.FindAction("Fire").started += dude.DoCharge;
                 dude.player.FindAction("Fire").canceled += dude.DoJump;
                 dude.player.FindAction("Pause").started += dude.DoPause;
+                // dude.player.FindAction("Highlight").started += dude.DoHighlight;
             }
         }
     }
