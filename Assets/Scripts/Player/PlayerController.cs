@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public PlayersInfo playersInfo;
     public float coyoteFrames;
     public float dCharge;
+    private SoundConfig soundConfig;
 
     [Header("Realtime, computed values.")]
     [Tooltip("The current realtime flavor of the player.")]
@@ -36,6 +37,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineBrain m_CinemachineBrain;
     [SerializeField] CinemachineCamera m_CinemachineCamera;
     [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
+
+    private AudioSource musicAudioSource;
+    private AudioSource sfxAudioSource;
+
+    private void Start() {
+        musicAudioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+        sfxAudioSource = GameObject.Find("UI Sounds").GetComponent<AudioSource>();
+        soundConfig = GameObject.Find("UI Sounds").GetComponent<SoundConfigHolder>().soundConfig;
+    }
 
     private void Awake()
     {
@@ -89,9 +99,34 @@ public class PlayerController : MonoBehaviour
         coyoteTimer = 0;
     }
 
+    // Calculate volume based on collision magnitude.
+    // Volume is 0 when magnitude is less than minCollisionMagnitude.
+    // Scale volume from 0 to maxCollisionVolume.
+    private float GetCollisionVolume(float collisionMagnitude) {
+        return Mathf.Clamp(
+            (collisionMagnitude - soundConfig.minCollisionMagnitude)
+              / (soundConfig.maxCollisionMagnitude - soundConfig.minCollisionMagnitude)
+              * soundConfig.maxCollisionVolume,
+            0.0f, 1.0f
+        );
+    }
+
     void OnCollisionEnter(Collision collision) {
         isGrounded = true;
         coyoteTimer = 0;
+
+        // Find out if the other object has a collision sound
+        ObjectSoundInfo otherSounds = collision.gameObject.GetComponent<ObjectSoundInfo>();
+
+        // If the other object has a collision sound, use that. Otherwise, use the default sound.
+        AudioClip audioClip = otherSounds ? otherSounds.collisionSound : soundConfig.defaultCollision;
+
+        // Play the sound with the calculated volume.
+        float volume = GetCollisionVolume(collision.relativeVelocity.magnitude);
+        sfxAudioSource.pitch = 1f;
+        sfxAudioSource.PlayOneShot(audioClip, volume);
+
+        // Debug.Log("Collision Sound - magnitude: " + collision.relativeVelocity.magnitude + " Volume: " + volume + " Clip: " + audioClip.name);
     }
 
     void OnCollisionExit(Collision collision) {
@@ -164,6 +199,9 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(cameraTarget.transform.forward * currentCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * currentCharge.chargeLevel);
                 canJump = false;
+                float jumpSoundVolume = currentCharge.chargeLevel/PlayerCharge.Max * soundConfig.maxJumpVolume;
+                sfxAudioSource.pitch = soundConfig.jumpPitch;
+                sfxAudioSource.PlayOneShot(soundConfig.jump, jumpSoundVolume);
             }
             timeCharging = 0;
             currentCharge.chargeLevel = 0;
@@ -171,8 +209,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void DoPause(InputAction.CallbackContext context) {
-        if (Time.timeScale == 0) Time.timeScale = 1;
-        else Time.timeScale = 0;
+        if (Time.timeScale == 0) {
+            Time.timeScale = 1;
+            musicAudioSource.UnPause();
+            sfxAudioSource.pitch = soundConfig.unpausePitch;
+        }
+        else {
+            Time.timeScale = 0;
+            musicAudioSource.Pause();
+            sfxAudioSource.pitch = soundConfig.pausePitch;
+        }
+        sfxAudioSource.PlayOneShot(soundConfig.pause);
     }
 
     void DoSubmit(InputAction.CallbackContext context) {

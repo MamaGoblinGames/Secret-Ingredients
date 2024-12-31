@@ -141,6 +141,15 @@ MonoBehaviour:
   timeCharging: 0
   coyoteTimer: 0
   playerNumber: 0
+  player:
+    m_Name: Player
+    m_Id: 7a01d9fd-3da8-457e-9c08-65d97f6efed1
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  m_CinemachineBrain: {fileID: 0}
+  m_CinemachineCamera: {fileID: 0}
+  m_CinemachineInputAxis: {fileID: 0}
 --- !u!64 &7200404028964909731
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class FlavorData : MonoBehaviour
     public bool killOnTransfer;
     public int[] specialVals = null;
     public int[] specialNames = null;
+    private AudioSource sfxAudioSource;
+    private SoundConfig soundConfig;
 
     public Flavor myFlavor;
     public void Initialize(Flavor myFlavor) {
@@ -19,6 +21,8 @@ public class FlavorData : MonoBehaviour
         if (killOnTransfer && TryGetComponent(out ParticleSystem part)) {
             collisionEvents = new List<ParticleCollisionEvent>();
         }
+        sfxAudioSource = GameObject.Find("UI Sounds").GetComponent<AudioSource>();
+        soundConfig = GameObject.Find("UI Sounds").GetComponent<SoundConfigHolder>().soundConfig;
     }
 
     // Used for rigidbody based flavors
@@ -41,6 +45,9 @@ public class FlavorData : MonoBehaviour
             // get the flavor of the player and transfer the flavor to the player
             FlavorHolder otherFlavor = other.GetComponent<FlavorHolder>();
             otherFlavor.flavor.TransferFlavor(myFlavor, 0.1f*numCollisionEvents);
+            sfxAudioSource.pitch = Random.Range(soundConfig.particlePickupPitchMin, soundConfig.particlePickupPitchMax);
+            sfxAudioSource.PlayOneShot(soundConfig.particlePickup, soundConfig.particlePickupVolume);
+            // Debug.Log("Particle Collision Sound - Clip: " + soundConfig.particlePickup.name + "Volume: " + soundConfig.particlePickupVolume);
         }
     }
 
