@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bdfe4bdea96384088d4d0c3c9082fe, type: 3}
   m_Name: PlayersInfo
   m_EditorClassIdentifier: 
-  numPlayers: 0
+  numPlayers: 1
   player1Flavor: {fileID: 11400000, guid: 948a91f1e3575ac4b8dd8e3eeb10a665, type: 2}
   player1Charge: {fileID: 11400000, guid: 6b49fc46c855dc44e9156da232a3040e, type: 2}
+  player1FlavorNumbers: {fileID: 11400000, guid: 12feeb506758f4a6da09460efe2d39d5, type: 2}
   player2Flavor: {fileID: 11400000, guid: cc4ff5028c5984f4797e935b7e489ae7, type: 2}
   player2Charge: {fileID: 11400000, guid: 7bbf765d7a718ee40b64ada7ba29b8ad, type: 2}
+  player2FlavorNumbers: {fileID: 0}
   player3Flavor: {fileID: 11400000, guid: 4e05d615b406a114a88d433d7d2dbb4a, type: 2}
   player3Charge: {fileID: 11400000, guid: 522acec7cb49bb84ab50d20b30c6319c, type: 2}
+  player3FlavorNumbers: {fileID: 0}
   player4Flavor: {fileID: 11400000, guid: 06cca1617d559694eb4ad96f44e8781e, type: 2}
   player4Charge: {fileID: 11400000, guid: 418a645836829324c8911c09b6d83a7c, type: 2}
-  player1HudDisplayStyle: 1
+  player4FlavorNumbers: {fileID: 0}
+  player1HudDisplayStyle: 0
   player2HudDisplayStyle: 1
   player3HudDisplayStyle: 1
   player4HudDisplayStyle: 1

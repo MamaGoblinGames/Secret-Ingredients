@@ -30,7 +30,7 @@ public class FlavorData : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) {
             FlavorHolder otherFlavor = collision.gameObject.GetComponent<FlavorHolder>();
-            otherFlavor.flavor.TransferFlavor(myFlavor, 0.2f);
+            otherFlavor.flavor.TransferFlavor(myFlavor, 0.2f, collision.gameObject);
             // Delete the thing
             if (killOnTransfer) Destroy(gameObject);
         }
@@ -44,7 +44,8 @@ public class FlavorData : MonoBehaviour
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
             // get the flavor of the player and transfer the flavor to the player
             FlavorHolder otherFlavor = other.GetComponent<FlavorHolder>();
-            otherFlavor.flavor.TransferFlavor(myFlavor, 0.1f*numCollisionEvents);
+            float flavorTransferAmount = 0.1f*numCollisionEvents;
+            otherFlavor.flavor.TransferFlavor(myFlavor, flavorTransferAmount, other);
             sfxAudioSource.pitch = Random.Range(soundConfig.particlePickupPitchMin, soundConfig.particlePickupPitchMax);
             sfxAudioSource.PlayOneShot(soundConfig.particlePickup, soundConfig.particlePickupVolume);
             // Debug.Log("Particle Collision Sound - Clip: " + soundConfig.particlePickup.name + "Volume: " + soundConfig.particlePickupVolume);
@@ -55,7 +56,7 @@ public class FlavorData : MonoBehaviour
     void OnTriggerStay(Collider other) {
         if (other.CompareTag("Player")) {
             FlavorHolder otherFlavor = other.GetComponent<FlavorHolder>();
-            otherFlavor.flavor.TransferFlavor(myFlavor, Time.deltaTime * 0.75f);
+            otherFlavor.flavor.TransferFlavor(myFlavor, Time.deltaTime * 0.75f, other.gameObject);
         }
     }
 }

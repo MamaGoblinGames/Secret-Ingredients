@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;
+using DamageNumbersPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool canJump;
     private bool charging;
     public int playerNumber;
+    public FlavorNumbers flavorNumbers;
 
     // Input
     private InputActionAsset inputAsset;
@@ -65,6 +67,15 @@ public class PlayerController : MonoBehaviour
         currentCharge = playerInfo.charge;
         playerNumber = playerInfo.playerNumber;
 
+        // set flavor numbers and associate it with this player's camera
+        flavorNumbers = playerInfo.flavorNumbers;
+        flavorNumbers.sweet.cameraOverride = cameraTarget.transform;
+        flavorNumbers.sour.cameraOverride = cameraTarget.transform;
+        flavorNumbers.salty.cameraOverride = cameraTarget.transform;
+        flavorNumbers.bitter.cameraOverride = cameraTarget.transform;
+        flavorNumbers.umami.cameraOverride = cameraTarget.transform;
+        flavorNumbers.temperature.cameraOverride = cameraTarget.transform;
+
         // Shift one bit per brain Count.
         m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
         m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
@@ -91,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         // find all highlightable/outline objects
         outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
-        Debug.Log("Found " + outlines.Length + " outlines");
+        Debug.Log("Found " + outlines.Length + " outlines");        
     }
 
     private void OnEnable() {
