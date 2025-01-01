@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b4da7886ae34a1fac1631bfaedaf29, type: 3}
   m_Name: P4 FlavorNumbers
   m_EditorClassIdentifier: 
-  sweet: {fileID: 1975628767574773655, guid: da56df97fd2db45a2a72573bf67227ee, type: 3}
-  sour: {fileID: 1975628767574773655, guid: 418b75e74577849cca9fd06a8ee8b6a5, type: 3}
-  salty: {fileID: 0}
-  bitter: {fileID: 0}
-  umami: {fileID: 0}
-  temperature: {fileID: 0}
+  sweet: {fileID: 1975628767574773655, guid: 1bef069405ec044b88df0a1e91830ca9, type: 3}
+  sour: {fileID: 1975628767574773655, guid: ecb4c9eaee88a4b5197fec8cf3eab0e4, type: 3}
+  salty: {fileID: 1975628767574773655, guid: 6a1e17732b29c43b2ae6121ba479a6c4, type: 3}
+  bitter: {fileID: 1975628767574773655, guid: 67bccb000b6884cd5a8c1adf799cc16c, type: 3}
+  umami: {fileID: 1975628767574773655, guid: f9b279833735c4c17a99cef89e3a6e63, type: 3}
+  temperature: {fileID: 1975628767574773655, guid: 958040e0fe2a74cdcaf94bab8dbfe6e0, type: 3}
