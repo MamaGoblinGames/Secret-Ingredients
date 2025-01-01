@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1975628767574773655}
   - component: {fileID: 573357467312248794}
   m_Layer: 0
-  m_Name: P2 Salty Counter
+  m_Name: P4 Sweet Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   defaultOrthographicSize: 5
   maxOrthographicSize: 1.5
   orthographicCamera: {fileID: 0}
-  spamGroup: Salty 2
+  spamGroup: Sweet 4
   enableCombination: 1
   combinationSettings:
     method: 0
@@ -673,8 +673,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293914334
-  m_fontColor: {r: 0.87058824, g: 0.93333334, b: 0.9372549, a: 1}
+    rgba: 4293887740
+  m_fontColor: {r: 0.9882353, g: 0.5254902, b: 0.93617153, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

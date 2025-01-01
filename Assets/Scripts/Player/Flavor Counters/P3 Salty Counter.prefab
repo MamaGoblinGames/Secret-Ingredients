@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1975628767574773655}
   - component: {fileID: 573357467312248794}
   m_Layer: 0
-  m_Name: P2 Salty Counter
+  m_Name: P3 Salty Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   defaultOrthographicSize: 5
   maxOrthographicSize: 1.5
   orthographicCamera: {fileID: 0}
-  spamGroup: Salty 2
+  spamGroup: Salty 3
   enableCombination: 1
   combinationSettings:
     method: 0
