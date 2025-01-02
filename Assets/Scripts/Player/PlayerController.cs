@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;
 using DamageNumbersPro;
+using MoreMountains.Feedbacks;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public PlayersInfo playersInfo;
     public float coyoteFrames;
     public float dCharge;
+    public MMFeedbacks jumpFeedback;
+    public MMFeedbacks collisionFeedback;
     private SoundConfig soundConfig;
 
     [Header("Realtime, computed values.")]
@@ -153,6 +156,11 @@ public class PlayerController : MonoBehaviour
         float volume = GetCollisionVolume(collision.relativeVelocity.magnitude);
         sfxAudioSource.pitch = 1f;
         sfxAudioSource.PlayOneShot(audioClip, volume);
+
+        if (volume > 0) {
+            // Play the collision feedback
+            collisionFeedback.PlayFeedbacks(collision.transform.position, volume);
+        }
 
         // Debug.Log("Collision Sound - magnitude: " + collision.relativeVelocity.magnitude + " Volume: " + volume + " Clip: " + audioClip.name);
     }

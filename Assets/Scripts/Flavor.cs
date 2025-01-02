@@ -98,31 +98,32 @@ public class Flavor : ScriptableObject
     private void ShowFlavorChanges(GameObject other, float originalSweet, float originalSour, float originalSalty, float originalBitter, float originalUmami, float originalTemperature) {
         if(originalSweet != sweet) {
             Debug.Log("flavor change: sweet=" + (sweet - originalSweet));
-            other.GetComponent<PlayerController>().flavorNumbers.sweet.Spawn(other.transform.position, (sweet - originalSweet), other.transform);
+            Vector3 newPos = new Vector3(other.transform.position.x + 0f, other.transform.position.y + 1f, other.transform.position.z);
+            other.GetComponent<PlayerController>().flavorNumbers.sweet.Spawn(newPos, (sweet - originalSweet), other.transform);
         }
         if(originalSour != sour) {
             Debug.Log("flavor change: sour=" + (sour - originalSour));
-            Vector3 newPos = new Vector3(other.transform.position.x + 0.5f, other.transform.position.y + 0.75f, other.transform.position.z);
+            Vector3 newPos = new Vector3(other.transform.position.x + 0.5f, other.transform.position.y + 1.75f, other.transform.position.z);
             other.GetComponent<PlayerController>().flavorNumbers.sour.Spawn(newPos, (sour - originalSour), other.transform);
         }
         if(originalSalty != salty) {
             Debug.Log("flavor change: salty=" + (salty - originalSalty));
-            Vector3 newPos = new Vector3(other.transform.position.x - 0.75f, other.transform.position.y + 0.5f, other.transform.position.z);
+            Vector3 newPos = new Vector3(other.transform.position.x - 0.75f, other.transform.position.y + 1.5f, other.transform.position.z);
             other.GetComponent<PlayerController>().flavorNumbers.salty.Spawn(newPos, (salty - originalSalty), other.transform);
         }
         if(originalBitter != bitter) {
             Debug.Log("flavor change: bitter=" + (bitter - originalBitter));
-            Vector3 newPos = new Vector3(other.transform.position.x + 0.5f, other.transform.position.y - 0.75f, other.transform.position.z);
+            Vector3 newPos = new Vector3(other.transform.position.x + 0.5f, other.transform.position.y + 0.25f, other.transform.position.z);
             other.GetComponent<PlayerController>().flavorNumbers.bitter.Spawn(newPos, (bitter - originalBitter), other.transform);
         }
         if(originalUmami != umami) {
             Debug.Log("flavor change: umami=" + (umami - originalUmami));
-            Vector3 newPos = new Vector3(other.transform.position.x - 0.75f, other.transform.position.y - 0.5f, other.transform.position.z);
+            Vector3 newPos = new Vector3(other.transform.position.x - 0.75f, other.transform.position.y + 0.5f, other.transform.position.z);
             other.GetComponent<PlayerController>().flavorNumbers.umami.Spawn(newPos, (umami - originalUmami), other.transform);
         }
         if(originalTemperature != temperature) {
             Debug.Log("flavor change: temperature=" + (temperature - originalTemperature));
-            Vector3 newPos = new Vector3(other.transform.position.x + 0.75f, other.transform.position.y + 0.25f, other.transform.position.z);
+            Vector3 newPos = new Vector3(other.transform.position.x + 0.75f, other.transform.position.y + 1.25f, other.transform.position.z);
             other.GetComponent<PlayerController>().flavorNumbers.temperature.Spawn(newPos, (temperature - originalTemperature), other.transform);
         }
     }
