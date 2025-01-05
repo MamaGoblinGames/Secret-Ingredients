@@ -11,11 +11,8 @@ GameObject:
   - component: {fileID: 6036251870055034182}
   - component: {fileID: 6036251870055034185}
   - component: {fileID: 6036251870055034184}
-  - component: {fileID: 6036251870055034183}
-  - component: {fileID: 985291414}
   - component: {fileID: 7200404028964909731}
-  - component: {fileID: 6817443817838389766}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Broccoli 2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -33,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 30}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90,69 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &6036251870055034183
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036251870055034186}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &985291414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036251870055034186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c9b61733ed3734c8766276991a1295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalFlavor: {fileID: 11400000, guid: b41f641b0d882554fa0663f9f7045e8a, type: 2}
-  originalCharge: {fileID: 11400000, guid: b2f66d5289201494b922b22f55ee57f1, type: 2}
-  cameraTarget: {fileID: 7473726184597237649, guid: 1e048d6878a928d4b85158fd27002c1d, type: 3}
-  playersInfo: {fileID: 11400000, guid: 5053ea2a6f068cf4cbb760d8e5c60ffc, type: 2}
-  coyoteFrames: 0.2
-  dCharge: 100
-  flavorNumber: {fileID: 0}
-  sourNumber: {fileID: 0}
-  currentFlavor: {fileID: 0}
-  flavorHolder: {fileID: 0}
-  currentCharge: {fileID: 0}
-  timeCharging: 0
-  coyoteTimer: 0
-  playerNumber: 0
-  flavorNumbers: {fileID: 0}
-  player:
-    m_Name: Player
-    m_Id: 7a01d9fd-3da8-457e-9c08-65d97f6efed1
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
-  m_CinemachineBrain: {fileID: 0}
-  m_CinemachineCamera: {fileID: 0}
-  m_CinemachineInputAxis: {fileID: 0}
 --- !u!64 &7200404028964909731
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -175,16 +109,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2165ae92e3e31c042bfb668b2e3d0cfd, type: 2}
---- !u!114 &6817443817838389766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036251870055034186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d29f24f529894241bb1ea2d22ac9d89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flavor: {fileID: 0}

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public float coyoteFrames;
     public float dCharge;
     public MMFeedbacks jumpFeedback;
+    public MMFeedbacks chargeFeedback;
+    public MMFeedbacks unchargeFeedback;
     public MMFeedbacks collisionFeedback;
     private SoundConfig soundConfig;
 
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         musicAudioSource = GameObject.Find("Music").GetComponent<AudioSource>();
         sfxAudioSource = GameObject.Find("UI Sounds").GetComponent<AudioSource>();
         soundConfig = GameObject.Find("UI Sounds").GetComponent<SoundConfigHolder>().soundConfig;
+        Debug.Log("Found sound config: " + soundConfig);
     }
 
     private void Awake()
@@ -98,9 +101,10 @@ public class PlayerController : MonoBehaviour
 
         // find flavor particle systems and add myself as a collider
         ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
+        Collider collider = GetComponentInChildren<Collider>();
         foreach (ParticleSystem ps in particleSystems) {
             Debug.Log("Adding collider to "+ps.name);
-            ps.trigger.AddCollider(GetComponent<Collider>());
+            ps.trigger.AddCollider(collider);
         }
 
         // find all highlightable/outline objects
@@ -147,7 +151,7 @@ public class PlayerController : MonoBehaviour
         coyoteTimer = 0;
 
         // Find out if the other object has a collision sound
-        ObjectSoundInfo otherSounds = collision.gameObject.GetComponent<ObjectSoundInfo>();
+        ObjectSoundInfo otherSounds = collision?.gameObject?.GetComponent<ObjectSoundInfo>();
 
         // If the other object has a collision sound, use that. Otherwise, use the default sound.
         AudioClip audioClip = otherSounds ? otherSounds.collisionSound : soundConfig.defaultCollision;
@@ -242,12 +246,16 @@ public class PlayerController : MonoBehaviour
     }
 
     void DoCharge(InputAction.CallbackContext context) {
+        if (Time.timeScale != 0 && charging == false) {
+            chargeFeedback.PlayFeedbacks();
+        }
         charging = true;
     }
 
     void DoJump(InputAction.CallbackContext context) {
         charging = false;
         if (Time.timeScale != 0) {
+            unchargeFeedback.PlayFeedbacks();
             if (canJump) {
                 rb.AddForce(cameraTarget.transform.forward * currentCharge.chargeLevel);
                 rb.AddTorque(cameraTarget.transform.right * currentCharge.chargeLevel);
@@ -255,6 +263,7 @@ public class PlayerController : MonoBehaviour
                 float jumpSoundVolume = currentCharge.chargeLevel/PlayerCharge.Max * soundConfig.maxJumpVolume;
                 sfxAudioSource.pitch = soundConfig.jumpPitch;
                 sfxAudioSource.PlayOneShot(soundConfig.jump, jumpSoundVolume);
+                jumpFeedback.PlayFeedbacks();
             }
             timeCharging = 0;
             currentCharge.chargeLevel = 0;
