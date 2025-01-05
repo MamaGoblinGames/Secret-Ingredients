@@ -12,8 +12,8 @@ public class Flavor : ScriptableObject
 {
     const float flavorMin = -100f;
     const float flavorMax = 100f;
-    const float flavorNeutral = 0f;
-    const float flavorNeutralPercent = 50f;
+    const float flavorNeutral = -100f;
+    const float flavorNeutralPercent = 0f;
 
     public static float Min = flavorMin;
     public static float Max = flavorMax;
