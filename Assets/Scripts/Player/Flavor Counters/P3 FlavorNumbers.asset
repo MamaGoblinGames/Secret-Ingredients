@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b4da7886ae34a1fac1631bfaedaf29, type: 3}
+  m_Name: P3 FlavorNumbers
+  m_EditorClassIdentifier: 
+  sweet: {fileID: 1975628767574773655, guid: 23fadbeb9c076404a8a4167ccf7e1c12, type: 3}
+  sour: {fileID: 1975628767574773655, guid: 81ad2b27238d74dcda77b2cfaf3802fa, type: 3}
+  salty: {fileID: 1975628767574773655, guid: 4470eeba696fd48e983f9a60db5ce629, type: 3}
+  bitter: {fileID: 1975628767574773655, guid: c9c5dd35d84bc4c159d878e78a223649, type: 3}
+  umami: {fileID: 1975628767574773655, guid: 66965a91ed8dc49cbab593a9be6e36e3, type: 3}
+  temperature: {fileID: 1975628767574773655, guid: f62c4779b9e7c4ede8a6f854232bc552, type: 3}

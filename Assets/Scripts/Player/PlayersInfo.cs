@@ -8,14 +8,18 @@ public class PlayersInfo : ScriptableObject
     public int numPlayers = 0;
     public Flavor player1Flavor;
     public PlayerCharge player1Charge;
+    public FlavorNumbers player1FlavorNumbers;
     public Flavor player2Flavor;
     public PlayerCharge player2Charge;
+    public FlavorNumbers player2FlavorNumbers;
 
     public Flavor player3Flavor;
     public PlayerCharge player3Charge;
+    public FlavorNumbers player3FlavorNumbers;
 
     public Flavor player4Flavor;
     public PlayerCharge player4Charge;
+    public FlavorNumbers player4FlavorNumbers;
 
     public DisplayStyle player1HudDisplayStyle = DisplayStyle.None;
     public DisplayStyle player2HudDisplayStyle = DisplayStyle.None;
@@ -51,23 +55,23 @@ public class PlayersInfo : ScriptableObject
         PlayerInfo playerInfo = null;
         if (numPlayers == 1) {
             // return object with player1Flavor and player1Charge
-            playerInfo = new PlayerInfo(player1Flavor, player1Charge, numPlayers);
+            playerInfo = new PlayerInfo(player1Flavor, player1Charge, numPlayers, player1FlavorNumbers);
             player1HudDisplayStyle = DisplayStyle.Flex;
         }
         else if (numPlayers == 2) {
             // return object with player2Flavor and player2Charge
-            playerInfo = new PlayerInfo(player2Flavor, player2Charge, numPlayers);
+            playerInfo = new PlayerInfo(player2Flavor, player2Charge, numPlayers, player2FlavorNumbers);
             player2HudDisplayStyle = DisplayStyle.Flex;
         }
         else if (numPlayers == 3) {
             // return object with player3Flavor and player3Charge
-            playerInfo = new PlayerInfo(player3Flavor, player3Charge, numPlayers);
+            playerInfo = new PlayerInfo(player3Flavor, player3Charge, numPlayers, player3FlavorNumbers);
             player3HudDisplayStyle = DisplayStyle.Flex;
             player4HudCoverDisplayStyle = DisplayStyle.Flex;
         }
         else if (numPlayers == 4) {
             // return object with player4Flavor and player4Charge
-            playerInfo = new PlayerInfo(player4Flavor, player4Charge, numPlayers);
+            playerInfo = new PlayerInfo(player4Flavor, player4Charge, numPlayers, player4FlavorNumbers);
             player4HudDisplayStyle = DisplayStyle.Flex;
             player4HudCoverDisplayStyle = DisplayStyle.None;
         }

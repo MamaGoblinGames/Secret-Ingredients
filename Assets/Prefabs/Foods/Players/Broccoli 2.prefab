@@ -135,12 +135,15 @@ MonoBehaviour:
   playersInfo: {fileID: 11400000, guid: 5053ea2a6f068cf4cbb760d8e5c60ffc, type: 2}
   coyoteFrames: 0.2
   dCharge: 100
+  flavorNumber: {fileID: 0}
+  sourNumber: {fileID: 0}
   currentFlavor: {fileID: 0}
   flavorHolder: {fileID: 0}
   currentCharge: {fileID: 0}
   timeCharging: 0
   coyoteTimer: 0
   playerNumber: 0
+  flavorNumbers: {fileID: 0}
   player:
     m_Name: Player
     m_Id: 7a01d9fd-3da8-457e-9c08-65d97f6efed1
