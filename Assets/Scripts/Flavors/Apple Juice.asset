@@ -14,7 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sweet: 30
   sour: 10
-  salty: -10
+  salty: 0
   bitter: 0
-  umami: -5
-  temperature: -10
+  umami: 0
+  temperature: 0
+  flavorMethod: 0
+  sweetPercent:
+    m_Value: 65
+    m_Unit: 1
+  sourPercent:
+    m_Value: 55
+    m_Unit: 1
+  saltyPercent:
+    m_Value: 50
+    m_Unit: 1
+  bitterPercent:
+    m_Value: 50
+    m_Unit: 1
+  umamiPercent:
+    m_Value: 50
+    m_Unit: 1
+  temperaturePercent:
+    m_Value: 50
+    m_Unit: 1

@@ -13,8 +13,27 @@ MonoBehaviour:
   m_Name: Granola
   m_EditorClassIdentifier: 
   sweet: 40
-  sour: -15
+  sour: 0
   salty: 5
-  bitter: -5
-  umami: 5
-  temperature: 5
+  bitter: 0
+  umami: 0
+  temperature: 0
+  flavorMethod: 0
+  sweetPercent:
+    m_Value: 70
+    m_Unit: 1
+  sourPercent:
+    m_Value: 50
+    m_Unit: 1
+  saltyPercent:
+    m_Value: 52.5
+    m_Unit: 1
+  bitterPercent:
+    m_Value: 50
+    m_Unit: 1
+  umamiPercent:
+    m_Value: 50
+    m_Unit: 1
+  temperaturePercent:
+    m_Value: 50
+    m_Unit: 1
