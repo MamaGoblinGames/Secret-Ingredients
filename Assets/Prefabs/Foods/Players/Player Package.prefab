@@ -560,10 +560,23 @@ MonoBehaviour:
   playersInfo: {fileID: 11400000, guid: 5053ea2a6f068cf4cbb760d8e5c60ffc, type: 2}
   coyoteFrames: 0.2
   dCharge: 100
+  spawnPosition: {x: 25, y: 25, z: -317.5}
   jumpFeedback: {fileID: 7111655217862585646}
   chargeFeedback: {fileID: 3060677644697138885}
   unchargeFeedback: {fileID: 7962587699809569779}
   collisionFeedback: {fileID: 7486127737689449064}
+  meshes:
+  - {fileID: 4300000, guid: 2165ae92e3e31c042bfb668b2e3d0cfd, type: 2}
+  - {fileID: 4300000, guid: 19bfcfbcb834c435f92e92f915c96bc6, type: 2}
+  - {fileID: 4300000, guid: 138b47d2320c84f54af8e1714814eec3, type: 2}
+  - {fileID: 4300000, guid: 908c850446a871c4086630c4e47bd029, type: 2}
+  - {fileID: 4300000, guid: 4354d75d9d84146df9e5741ced90329b, type: 2}
+  - {fileID: 4300000, guid: b80a65309aaec401188489ea9f01b715, type: 2}
+  - {fileID: 4300000, guid: 6b2c79946a8eb4fb1a7f73bf9372112a, type: 2}
+  - {fileID: 4300000, guid: e797e001f85aa4e32b2acdd07d07d5ad, type: 2}
+  - {fileID: 4300000, guid: 72479b2dc09664b8aa4a19823e8a1c75, type: 2}
+  - {fileID: 4300000, guid: 823850207ba54478280bbaf1234d7e30, type: 2}
+  meshIndex: 3
   currentFlavor: {fileID: 0}
   flavorHolder: {fileID: 0}
   currentCharge: {fileID: 0}
@@ -681,8 +694,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010108561, y: -0.36080047, z: 0.0039108354, w: 0.93258005}
-  m_LocalPosition: {x: 5.2596226, y: 1.9576645, z: -5.709198}
+  m_LocalRotation: {x: -0.35756555, y: 0.61841524, z: 0.3737614, w: 0.5916181}
+  m_LocalPosition: {x: -5.212822, y: -6.064104, z: 0.23049188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -765,7 +778,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -42.301228
+    Value: 92.53176
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -775,7 +788,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 14.245964
+    Value: -49.289345
     Center: 17.5
     Range: {x: -60, y: 60}
     Wrap: 0
@@ -2437,7 +2450,7 @@ Transform:
   m_GameObject: {fileID: 8594876108491136201}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 15, z: -317.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2478,8 +2491,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010108559, y: -0.36080045, z: 0.0039108414, w: 0.93258005}
-  m_LocalPosition: {x: 5.2596226, y: 1.9576645, z: -5.709198}
+  m_LocalRotation: {x: -0.35756558, y: 0.6184153, z: 0.37376142, w: 0.591618}
+  m_LocalPosition: {x: -5.212822, y: -6.064104, z: 0.23049188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2638,15 +2651,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04096985
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.011014938
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.025787354
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034182, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2678,7 +2691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036251870055034186, guid: 2bc780362f7888b4c920d4d6945ce35e, type: 3}
       propertyPath: m_Name
-      value: Broccoli 2
+      value: Player Mesh Object
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

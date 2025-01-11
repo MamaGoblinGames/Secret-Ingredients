@@ -62,6 +62,15 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangePlayerRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""95e48d1e-cd6d-42a0-affa-ca127fc76ace"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,28 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f6a9c75-e691-45a2-a05e-c9d728252471"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ChangePlayerRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c346adfb-6b20-42ff-9d83-83367e69d7ed"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""ChangePlayerRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -818,6 +849,7 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
         m_Player_Submit = m_Player.FindAction("Submit", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_ChangePlayerRight = m_Player.FindAction("ChangePlayerRight", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -901,6 +933,7 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Submit;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_ChangePlayerRight;
     public struct PlayerActions
     {
         private @SecretIngredient m_Wrapper;
@@ -909,6 +942,7 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
         public InputAction @Submit => m_Wrapper.m_Player_Submit;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @ChangePlayerRight => m_Wrapper.m_Player_ChangePlayerRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -930,6 +964,9 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @ChangePlayerRight.started += instance.OnChangePlayerRight;
+            @ChangePlayerRight.performed += instance.OnChangePlayerRight;
+            @ChangePlayerRight.canceled += instance.OnChangePlayerRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -946,6 +983,9 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @ChangePlayerRight.started -= instance.OnChangePlayerRight;
+            @ChangePlayerRight.performed -= instance.OnChangePlayerRight;
+            @ChangePlayerRight.canceled -= instance.OnChangePlayerRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1132,6 +1172,7 @@ public partial class @SecretIngredient: IInputActionCollection2, IDisposable
         void OnSubmit(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnChangePlayerRight(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

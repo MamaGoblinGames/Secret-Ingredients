@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     public PlayersInfo playersInfo;
     public float coyoteFrames;
     public float dCharge;
+    public Vector3 spawnPosition = new Vector3(25f, 25f, -317.5f);
     public MMFeedbacks jumpFeedback;
     public MMFeedbacks chargeFeedback;
     public MMFeedbacks unchargeFeedback;
     public MMFeedbacks collisionFeedback;
-    private SoundConfig soundConfig;
+    public Mesh[] meshes;
+    public int meshIndex = 0;
 
     [Header("Realtime, computed values.")]
     [Tooltip("The current realtime flavor of the player.")]
@@ -46,6 +48,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineCamera m_CinemachineCamera;
     [SerializeField] CinemachineInputAxisController m_CinemachineInputAxis;
 
+    private SoundConfig soundConfig;
+
     private AudioSource musicAudioSource;
     private AudioSource sfxAudioSource;
     private Outline[] outlines;
@@ -57,6 +61,23 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Found sound config: " + soundConfig);
     }
 
+    private void SetCharacter(int index) {
+        if (index < 0 || index >= meshes.Length) {
+            Debug.LogError("Invalid mesh index: " + index + ". Must be between 0 and " + (meshes.Length - 1) + "Choosing index 0 instead.");
+            index = 0;
+        }
+        meshIndex = index;
+        GameObject playerMeshObject = transform.Find("Player Mesh Object").gameObject;
+        MeshFilter playerMeshFilter = playerMeshObject.GetComponent<MeshFilter>();
+        playerMeshFilter.mesh = meshes[meshIndex];
+        MeshCollider playerMeshCollider = playerMeshObject.GetComponent<MeshCollider>();
+        playerMeshCollider.sharedMesh = meshes[meshIndex];
+        transform.position = spawnPosition;
+        transform.rotation = Quaternion.Euler(90, 45, 0);
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -66,6 +87,9 @@ public class PlayerController : MonoBehaviour
 
         inputAsset = this.GetComponent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
+
+        // Set player mesh
+        SetCharacter(meshIndex);
         
         currentFlavor = playerInfo.flavor;
         flavorHolder = GetComponent<FlavorHolder>();
@@ -99,21 +123,14 @@ public class PlayerController : MonoBehaviour
             m_CinemachineInputAxis.Controllers[3].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
         }
 
-        // find flavor particle systems and add myself as a collider
-        ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
-        Collider collider = GetComponentInChildren<Collider>();
-        foreach (ParticleSystem ps in particleSystems) {
-            Debug.Log("Adding collider to "+ps.name);
-            ps.trigger.AddCollider(collider);
-        }
-
         // find all highlightable/outline objects
         outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
-        Debug.Log("Found " + outlines.Length + " outlines");        
+        Debug.Log("Found " + outlines.Length + " outlines");
     }
 
     private void OnEnable() {
         player.FindAction("Submit").started += DoSubmit;
+        player.FindAction("ChangePlayerRight").started += DoChangeCharacter;
         player.Enable();
     }
 
@@ -122,6 +139,7 @@ public class PlayerController : MonoBehaviour
         player.FindAction("Fire").canceled -= DoJump;
         player.FindAction("Pause").started -= DoPause;
         player.FindAction("Submit").started -= DoSubmit;
+        player.FindAction("ChangePlayerRight").started -= DoChangeCharacter;
         // player.FindAction("Highlight").started -= DoHighlight;
         player.Disable();
     }
@@ -245,6 +263,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void DoChangeCharacter(InputAction.CallbackContext context) {
+        int newMeshIndex = (meshIndex + 1) % meshes.Length;
+        SetCharacter(newMeshIndex);
+    }
+
     void DoCharge(InputAction.CallbackContext context) {
         if (Time.timeScale != 0 && charging == false) {
             chargeFeedback.PlayFeedbacks();
@@ -303,7 +326,16 @@ public class PlayerController : MonoBehaviour
                 dude.player.FindAction("Fire").started += dude.DoCharge;
                 dude.player.FindAction("Fire").canceled += dude.DoJump;
                 dude.player.FindAction("Pause").started += dude.DoPause;
+                dude.player.FindAction("ChangePlayerRight").started -= dude.DoChangeCharacter;
                 // dude.player.FindAction("Highlight").started += dude.DoHighlight;
+
+                // find flavor particle systems and add myself as a collider
+                ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
+                Collider collider = dude.GetComponentInChildren<Collider>();
+                foreach (ParticleSystem ps in particleSystems) {
+                    Debug.Log("Adding collider to "+ps.name + " for " + dude.name);
+                    ps.trigger.AddCollider(collider);
+                }
             }
         }
     }
