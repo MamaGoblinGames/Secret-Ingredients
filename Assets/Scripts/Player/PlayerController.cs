@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using Unity.Cinemachine;
 using DamageNumbersPro;
 using MoreMountains.Feedbacks;
+using MoreMountains.FeedbacksForThirdParty;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,8 +24,9 @@ public class PlayerController : MonoBehaviour
     public MMFeedbacks chargeFeedback;
     public MMFeedbacks unchargeFeedback;
     public MMFeedbacks collisionFeedback;
-    public Mesh[] meshes;
+    public MMF_Player collisionFeedbackPlayer;
     public int meshIndex = 0;
+    public Mesh[] meshes;
 
     [Header("Realtime, computed values.")]
     [Tooltip("The current realtime flavor of the player.")]
@@ -108,7 +110,11 @@ public class PlayerController : MonoBehaviour
 
         // Shift one bit per brain Count.
         m_CinemachineBrain.ChannelMask = (OutputChannels)(1 << playerNumber);
-        m_CinemachineCamera.OutputChannel = (OutputChannels)(1 << playerNumber);
+        m_CinemachineCamera.OutputChannel = m_CinemachineBrain.ChannelMask;
+        m_CinemachineCamera.GetComponent<CinemachineImpulseListener>().ChannelMask = (int)m_CinemachineBrain.ChannelMask;
+
+        // collisionFeedbackPlayer.GetFeedbackOfType<MMF_CinemachineImpulse>().CinemachineImpulse.ImpulseChannel = (int)m_CinemachineBrain.ChannelMask;
+
         m_CinemachineInputAxis.PlayerIndex = playerNumber - 1;
         if (m_CinemachineInputAxis.Controllers.Count > 0) {
             m_CinemachineInputAxis.Controllers[0].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));

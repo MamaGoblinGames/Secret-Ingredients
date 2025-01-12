@@ -565,6 +565,8 @@ MonoBehaviour:
   chargeFeedback: {fileID: 3060677644697138885}
   unchargeFeedback: {fileID: 7962587699809569779}
   collisionFeedback: {fileID: 7486127737689449064}
+  collisionFeedbackPlayer: {fileID: 7486127737689449064}
+  meshIndex: 3
   meshes:
   - {fileID: 4300000, guid: 2165ae92e3e31c042bfb668b2e3d0cfd, type: 2}
   - {fileID: 4300000, guid: 19bfcfbcb834c435f92e92f915c96bc6, type: 2}
@@ -576,7 +578,6 @@ MonoBehaviour:
   - {fileID: 4300000, guid: e797e001f85aa4e32b2acdd07d07d5ad, type: 2}
   - {fileID: 4300000, guid: 72479b2dc09664b8aa4a19823e8a1c75, type: 2}
   - {fileID: 4300000, guid: 823850207ba54478280bbaf1234d7e30, type: 2}
-  meshIndex: 3
   currentFlavor: {fileID: 0}
   flavorHolder: {fileID: 0}
   currentCharge: {fileID: 0}
@@ -694,7 +695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424682657302393633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.35756555, y: 0.61841524, z: 0.3737614, w: 0.5916181}
+  m_LocalRotation: {x: -0.35757583, y: 0.61840916, z: 0.37377307, w: 0.5916108}
   m_LocalPosition: {x: -5.212822, y: -6.064104, z: 0.23049188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1905,7 +1906,7 @@ MonoBehaviour:
     - rid: 7140551387271397589
       type: {class: MMF_CinemachineImpulse, ns: MoreMountains.FeedbacksForThirdParty, asm: MoreMountains.Tools}
       data:
-        Active: 0
+        Active: 1
         UniqueID: 916166416
         Label: Cinemachine Impulse
         OriginalLabel: Cinemachine Impulse
@@ -2491,7 +2492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048665212086484653}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.35756558, y: 0.6184153, z: 0.37376142, w: 0.591618}
+  m_LocalRotation: {x: -0.35757583, y: 0.61840916, z: 0.37377304, w: 0.5916108}
   m_LocalPosition: {x: -5.212822, y: -6.064104, z: 0.23049188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
