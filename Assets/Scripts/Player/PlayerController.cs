@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public MMF_Player collisionFeedbackPlayer;
     public int meshIndex = 0;
     public Mesh[] meshes;
+    public DamageNumberMesh playerHoverUI;
 
     [Header("Realtime, computed values.")]
     [Tooltip("The current realtime flavor of the player.")]
@@ -128,6 +129,8 @@ public class PlayerController : MonoBehaviour
         if (m_CinemachineInputAxis.Controllers.Count > 3) {
             m_CinemachineInputAxis.Controllers[3].Input.InputAction = InputActionReference.Create(player.FindAction("Look"));
         }
+
+        playerHoverUI.topText = "Player " + playerNumber;
 
         // find all highlightable/outline objects
         outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
@@ -334,6 +337,8 @@ public class PlayerController : MonoBehaviour
                 dude.player.FindAction("Pause").started += dude.DoPause;
                 dude.player.FindAction("ChangePlayerRight").started -= dude.DoChangeCharacter;
                 // dude.player.FindAction("Highlight").started += dude.DoHighlight;
+
+                dude.playerHoverUI.FadeOut();
 
                 // find flavor particle systems and add myself as a collider
                 ParticleSystem[] particleSystems = FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None);
