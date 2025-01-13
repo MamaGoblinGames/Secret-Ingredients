@@ -566,7 +566,7 @@ MonoBehaviour:
   unchargeFeedback: {fileID: 7962587699809569779}
   collisionFeedback: {fileID: 7486127737689449064}
   collisionFeedbackPlayer: {fileID: 7486127737689449064}
-  meshIndex: 3
+  meshIndex: 0
   meshes:
   - {fileID: 4300000, guid: 2165ae92e3e31c042bfb668b2e3d0cfd, type: 2}
   - {fileID: 4300000, guid: 19bfcfbcb834c435f92e92f915c96bc6, type: 2}

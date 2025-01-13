@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         m_CinemachineCamera.OutputChannel = m_CinemachineBrain.ChannelMask;
         m_CinemachineCamera.GetComponent<CinemachineImpulseListener>().ChannelMask = (int)m_CinemachineBrain.ChannelMask;
 
-        // collisionFeedbackPlayer.GetFeedbackOfType<MMF_CinemachineImpulse>().CinemachineImpulse.ImpulseChannel = (int)m_CinemachineBrain.ChannelMask;
+        collisionFeedbackPlayer.GetFeedbackOfType<MMF_CinemachineImpulse>().m_ImpulseDefinition.ImpulseChannel = (int)m_CinemachineBrain.ChannelMask;
 
         m_CinemachineInputAxis.PlayerIndex = playerNumber - 1;
         if (m_CinemachineInputAxis.Controllers.Count > 0) {
